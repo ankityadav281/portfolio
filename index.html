@@ -1,60 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ankit Yadav — Full-Stack Developer · DSA & Systems</title>
-<meta name="description" content="Portfolio of Ankit Yadav — Full-Stack Developer & B.Tech CSE student at Lovely Professional University. Experienced in MERN, Django, Android (Jetpack Compose), and C++ Data Structures & Algorithms.">
+<title>Ankit Yadav — Engineer · Builder · Problem Solver</title>
+<meta name="description" content="Portfolio of Ankit Yadav. Editorial portfolio showcasing full-stack engineering, algorithmic systems, and digital craftsmanship.">
+
+<!-- Google Fonts: Cormorant Garamond, Inter, IBM Plex Mono -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-/* ===================== DESIGN TOKENS & CSS VARIABLES ===================== */
-:root {
-  --bg: #ffffff;
-  --bg-subtle: #f8fafc;
-  --bg-card: #ffffff;
-  --border: #e2e8f0;
-  --border-card: #e2e8f0;
-  --border-focus: #10b981;
-  --primary: #00b87c;
-  --primary-hover: #059669;
-  --primary-light: #ecfdf5;
-  --primary-border: rgba(16, 185, 129, 0.4);
-  --text: #0f172a;
-  --text-muted: #475569;
-  --text-subtle: #64748b;
-  --tag-bg: #ecfdf5;
-  --tag-text: #059669;
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-  --shadow-hover: 0 10px 25px -4px rgba(0, 0, 0, 0.08);
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-}
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-[data-theme="dark"] {
-  --bg: #0b0f19;
-  --bg-subtle: #111827;
-  --bg-card: #172033;
-  --border: #1f293d;
-  --border-card: #243048;
-  --border-focus: #10b981;
-  --primary: #10b981;
-  --primary-hover: #059669;
-  --primary-light: rgba(16, 185, 129, 0.12);
-  --primary-border: rgba(16, 185, 129, 0.35);
-  --text: #f8fafc;
-  --text-muted: #94a3b8;
-  --text-subtle: #64748b;
-  --tag-bg: rgba(16, 185, 129, 0.12);
-  --tag-text: #34d399;
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-  --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
-  --shadow-hover: 0 10px 25px -4px rgba(0, 0, 0, 0.5);
+<style>
+/* ===================== DESIGN TOKENS ===================== */
+:root {
+  --bg: #050505;
+  --bg-card: #0a0a0a;
+  --bg-glass: rgba(18, 18, 18, 0.72);
+  --text: #F1EEE8;
+  --text-muted: #A09B93;
+  --text-subtle: #68635c;
+  --accent: #E88A45;
+  --accent-glow: rgba(232, 138, 69, 0.18);
+  --border: rgba(255, 255, 255, 0.12);
+  --border-light: rgba(255, 255, 255, 0.06);
+  --grid-line: rgba(255, 255, 255, 0.03);
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --radius-pill: 9999px;
+  --radius-card: 14px;
 }
 
 /* ===================== RESET & BASE ===================== */
@@ -63,12 +38,15 @@
 }
 html {
   scroll-behavior: smooth;
+  background-color: var(--bg);
+  color: var(--text);
 }
 body {
-  font-family: var(--font-main);
-  background: var(--bg);
+  font-family: var(--font-sans);
+  background-color: var(--bg);
   color: var(--text);
   line-height: 1.6;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -76,842 +54,892 @@ a {
   color: inherit; text-decoration: none;
 }
 button {
-  font-family: inherit; cursor: pointer;
+  font-family: inherit; cursor: pointer; background: none; border: none;
 }
 img {
-  max-width: 100%; display: block;
+  display: block; max-width: 100%;
 }
 
-/* ===================== CONTAINER ===================== */
-.container {
-  max-width: 1140px;
+/* Vertical Grid Lines across the entire page */
+.grid-lines-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1360px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
+}
+.grid-line-v {
+  width: 1px;
+  height: 100%;
+  background: var(--grid-line);
 }
 
-/* ===================== SECTION BADGE ===================== */
-.section-badge-wrap {
-  text-align: center;
-  margin-bottom: 2.8rem;
+/* Main Container */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
 }
-.section-badge-wrap.align-left {
-  text-align: left;
+
+/* Monospace Editorial Labels */
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
-.section-badge {
+.mono-label .dot {
   display: inline-block;
-  font-size: 1.55rem;
-  font-weight: 700;
-  color: var(--text);
-  padding: 0.45rem 1.7rem;
-  border: 1.5px solid var(--primary-border);
-  background: var(--primary-light);
-  border-radius: var(--radius-md);
-  letter-spacing: -0.01em;
+  color: var(--accent);
+  margin-right: 0.5rem;
+}
+.mono-label .orange-sq {
+  display: inline-block;
+  color: var(--accent);
+  margin-right: 0.6rem;
 }
 
-/* ===================== NAVBAR ===================== */
-nav {
-  position: sticky;
-  top: 0;
+/* ===================== FLOATING NAVBAR ===================== */
+.navbar-wrap {
+  position: fixed;
+  top: 1.6rem;
+  left: 0;
+  right: 0;
   z-index: 100;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-  padding: 1.1rem 0;
-  transition: background 0.2s, border-color 0.2s;
+  display: flex;
+  justify-content: center;
+  padding: 0 1.5rem;
+  pointer-events: none;
 }
-.nav-inner {
+nav {
+  pointer-events: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 3.5rem;
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 0.65rem 0.8rem 0.65rem 1.8rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  max-width: 900px;
+  width: 100%;
 }
-.nav-logo {
-  font-size: 1.45rem;
-  font-weight: 800;
-  color: var(--primary);
-  letter-spacing: -0.02em;
+.nav-brand {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  white-space: nowrap;
 }
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1.8rem;
+  gap: 2.2rem;
 }
-.nav-links a {
-  font-size: 0.95rem;
-  font-weight: 500;
+.nav-link {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 400;
   color: var(--text-muted);
   transition: color 0.2s;
 }
-.nav-links a:hover {
-  color: var(--primary);
+.nav-link:hover {
+  color: var(--text);
 }
-.nav-actions {
-  display: flex;
+.nav-cta {
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 0.55rem 1.3rem;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.4rem;
+  transition: all 0.25s;
+  white-space: nowrap;
 }
-.theme-btn {
-  width: 38px;
-  height: 38px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: var(--bg-card);
-  color: var(--text-muted);
-  display: flex;
+.nav-cta:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+/* Mobile Hamburger */
+.nav-hamburger {
+  display: none;
+  color: var(--text);
+  font-size: 1.3rem;
+  padding: 0.4rem 0.6rem;
+}
+.mobile-drawer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 5, 0.98);
+  backdrop-filter: blur(20px);
+  z-index: 99;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
-  transition: all 0.2s;
+  gap: 2rem;
 }
-.theme-btn:hover {
-  border-color: var(--primary);
-  color: var(--primary);
-}
-.hamburger {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--text);
-  font-size: 1.4rem;
-  padding: 0.2rem;
-}
-.mobile-nav {
-  display: none;
-  flex-direction: column;
-  padding: 1rem 0 1.5rem;
-  border-top: 1px solid var(--border);
-  gap: 1rem;
-}
-.mobile-nav.open {
+.mobile-drawer.open {
   display: flex;
 }
-.mobile-nav a {
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  padding: 0.3rem 0;
-}
-.mobile-nav a:hover {
-  color: var(--primary);
+.mobile-drawer a {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-style: italic;
+  color: var(--text);
 }
 
 /* ===================== HERO SECTION ===================== */
 #hero {
-  padding: 6.5rem 0 5.5rem;
-  text-align: center;
-}
-.hero-tag {
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  color: var(--primary);
-  text-transform: uppercase;
-  margin-bottom: 1.2rem;
-}
-.hero-name {
-  font-size: clamp(2.8rem, 6vw, 4.4rem);
-  font-weight: 800;
-  color: var(--text);
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin-bottom: 0.8rem;
-}
-.hero-subtitle {
-  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
-  font-weight: 500;
-  color: var(--text-muted);
-  margin-bottom: 1.6rem;
-}
-.hero-desc {
-  max-width: 680px;
-  margin: 0 auto 2.2rem;
-  font-size: 1.05rem;
-  color: var(--text-muted);
-  line-height: 1.7;
-}
-.hero-socials {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 8rem;
+  padding-bottom: 4rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.2rem;
-}
-.social-icon-btn {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: var(--bg-card);
-  color: var(--text-muted);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  transition: all 0.2s;
-}
-.social-icon-btn:hover {
-  border-color: var(--primary);
-  color: var(--primary);
-  background: var(--primary-light);
-  transform: translateY(-2px);
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
 }
 
-/* ===================== ABOUT SECTION ===================== */
-#about {
-  padding: 5.5rem 0;
-  border-top: 1px solid var(--border);
+/* Hero Top Peripheral Labels */
+.hero-top-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 1rem;
 }
-.about-grid {
+
+/* Hero Side Peripheral Block */
+.hero-side-block {
+  position: absolute;
+  left: 2rem;
+  top: 42%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  z-index: 10;
+}
+.hero-side-block .plus {
+  color: var(--accent);
+  font-size: 1.1rem;
+  margin: 0.3rem 0;
+}
+.hero-side-block .mono-sub {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  color: var(--text-subtle);
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+
+/* Hero Portrait Stage */
+.hero-portrait-stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* Warm Ambient Glow Behind Portrait */
+.portrait-glow {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, var(--accent-glow) 0%, rgba(232, 138, 69, 0.05) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Portrait Wrapper with Halftone Texture */
+.portrait-wrap {
+  position: relative;
+  width: 380px;
+  height: 480px;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: 12px;
+  mask-image: linear-gradient(to bottom, black 65%, transparent 98%);
+  -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 98%);
+}
+.portrait-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  filter: grayscale(100%) contrast(1.25) brightness(0.92);
+}
+
+/* Halftone/Scanline Overlay */
+.portrait-halftone {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.35) 2px,
+    rgba(0, 0, 0, 0.35) 4px
+  );
+  pointer-events: none;
+  z-index: 3;
+}
+.portrait-caption {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(241, 238, 232, 0.7);
+  z-index: 4;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Overlapping Enormous Serif Name */
+.hero-name-overlap {
+  font-family: var(--font-serif);
+  font-size: clamp(4.5rem, 13.5vw, 11.5rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 0.88;
+  letter-spacing: -0.025em;
+  text-align: center;
+  position: relative;
+  z-index: 5;
+  margin-top: -6rem;
+  pointer-events: none;
+}
+
+/* Hero Subtitle & CTA Buttons */
+.hero-sub-wrap {
+  position: relative;
+  z-index: 6;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+.hero-desc-text {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 540px;
+  margin: 0 auto 1.8rem;
+  line-height: 1.6;
+}
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  flex-wrap: wrap;
+}
+.btn-pill-dark {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 0.75rem 1.8rem;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.25s;
+}
+.btn-pill-dark:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+.btn-link-minimal {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.2s;
+}
+.btn-link-minimal:hover {
+  color: var(--text);
+}
+
+/* Hero Bottom Peripheral Labels */
+.hero-bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 3rem;
+  border-top: 1px solid var(--border-light);
+  margin-top: 3rem;
+}
+.motion-pill {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.25rem 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.motion-pill .rect {
+  width: 4px; height: 10px; background: var(--text-muted);
+}
+
+/* ===================== STATISTICS SECTION ===================== */
+#statistics {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  z-index: 1;
+}
+.stats-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 4rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.stat-cell {
+  padding: 2.8rem 2rem;
+  border-right: 1px solid var(--border);
+  position: relative;
+}
+.stat-cell:last-child {
+  border-right: none;
+}
+.stat-cell.has-orange-bar::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 32px;
+  height: 2px;
+  background: var(--accent);
+}
+.stat-number {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.6rem;
+}
+.stat-number .accent-sup {
+  color: var(--accent);
+  font-size: 0.75em;
+  vertical-align: super;
+}
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.stat-action-cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.stat-action-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.stat-action-arrow {
+  color: var(--text);
+  font-size: 1.3rem;
+  transition: transform 0.2s;
+}
+.stat-cell:hover .stat-action-arrow {
+  transform: translate(3px, -3px);
+  color: var(--accent);
+}
+
+/* ===================== ABOUT SECTION (EDITORIAL) ===================== */
+#about {
+  padding: 6.5rem 0 7rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Section Header Bar */
+.section-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+.section-divider-line {
+  height: 1px;
+  background: var(--border);
+  width: 100%;
+  margin-bottom: 1.4rem;
+}
+.section-sub-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+/* About Layout: Left Wave Canvas + Right Editorial Quote */
+.about-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
   align-items: center;
 }
-.about-content p {
-  font-size: 1.02rem;
-  color: var(--text-muted);
-  line-height: 1.8;
-  margin-bottom: 1.3rem;
-}
-.about-content p:last-child {
-  margin-bottom: 0;
-}
-.about-image-card {
+
+/* Abstract Dotted Particle-Wave Visual */
+.wave-canvas-wrap {
   width: 100%;
-  max-width: 380px;
-  margin: 0 auto;
-  border-radius: var(--radius-lg);
+  height: 480px;
+  position: relative;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.02), transparent 70%);
+  border-radius: var(--radius-card);
   overflow: hidden;
-  box-shadow: var(--shadow-card);
-  border: 1px solid var(--border-card);
-  background: var(--bg-card);
 }
-.about-image-card img {
+#particle-wave-canvas {
   width: 100%;
-  height: 440px;
-  object-fit: cover;
-  object-position: center top;
+  height: 100%;
+  display: block;
+}
+
+/* Right Editorial Text */
+.about-editorial-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.editorial-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(2.6rem, 4.4vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 2.2rem;
+}
+.editorial-headline em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text);
+}
+.editorial-body-text {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.85;
+  margin-bottom: 1.4rem;
+}
+.editorial-body-text strong {
+  color: var(--text);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: rgba(232, 138, 69, 0.6);
+  text-underline-offset: 4px;
 }
 
 /* ===================== FEATURED PROJECTS ===================== */
-#projects {
-  padding: 5.5rem 0;
+#work {
+  padding: 6rem 0;
   border-top: 1px solid var(--border);
-  background: var(--bg-subtle);
 }
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.8rem;
-}
-.project-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: var(--shadow-card);
+.projects-editorial-list {
   display: flex;
   flex-direction: column;
-  transition: box-shadow 0.2s, border-color 0.2s;
+  gap: 2.5rem;
 }
-.project-card:hover {
-  box-shadow: var(--shadow-hover);
-  border-color: var(--border-focus);
+.project-editorial-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  background: var(--bg-card);
+  padding: 2.6rem;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  align-items: center;
+  transition: border-color 0.25s, box-shadow 0.25s;
 }
-.project-banner {
-  height: 160px;
+.project-editorial-card:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+}
+.project-meta-top {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.project-category-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.project-editorial-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.2vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--text);
+  letter-spacing: -0.015em;
+  margin-bottom: 1rem;
+}
+.project-editorial-desc {
+  font-size: 0.96rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 1.6rem;
+}
+.project-tech-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+.tech-tag-mono {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+}
+.project-links-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.link-editorial-action {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.2s;
+}
+.link-editorial-action:hover {
+  color: var(--accent);
+}
+.btn-specs-open {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2px;
+  transition: all 0.2s;
+}
+.btn-specs-open:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+/* Project Visual Preview */
+.project-visual-preview {
+  height: 260px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #000;
+  overflow: hidden;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
-.project-banner-title {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
-  padding: 0 1rem;
+.preview-gradient-glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0.75;
+  transition: opacity 0.3s;
+}
+.project-editorial-card:hover .preview-gradient-glow {
+  opacity: 1;
+}
+.preview-title-watermark {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-style: italic;
+  color: rgba(241, 238, 232, 0.9);
+  position: relative;
+  z-index: 2;
   text-align: center;
-}
-.project-content {
-  padding: 1.6rem;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-.project-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 0.6rem;
-  letter-spacing: -0.01em;
-}
-.project-desc {
-  font-size: 0.92rem;
-  color: var(--text-muted);
-  line-height: 1.65;
-  margin-bottom: 1.2rem;
-  flex-grow: 1;
-}
-.project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  margin-bottom: 1.5rem;
-}
-.tag-pill {
-  font-size: 0.76rem;
-  font-weight: 600;
-  color: var(--tag-text);
-  background: var(--tag-bg);
-  padding: 0.22rem 0.65rem;
-  border-radius: var(--radius-sm);
-}
-.project-actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border);
-}
-.action-link {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  transition: color 0.2s;
-}
-.action-link:hover {
-  color: var(--primary);
-}
-.btn-show-more {
-  font-size: 0.84rem;
-  font-weight: 600;
-  color: var(--primary);
-  background: var(--primary-light);
-  border: 1px solid var(--primary-border);
-  padding: 0.4rem 0.9rem;
-  border-radius: var(--radius-sm);
-  transition: all 0.2s;
-}
-.btn-show-more:hover {
-  background: var(--primary);
-  color: #ffffff;
+  padding: 0 1.5rem;
 }
 
-/* ===================== SKILLS & EXPERTISE ===================== */
+/* ===================== SKILLS & DISCIPLINES ===================== */
 #skills {
-  padding: 5.5rem 0;
+  padding: 6rem 0;
   border-top: 1px solid var(--border);
 }
-.skills-grid {
+.skills-editorial-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  gap: 2rem;
 }
-.skills-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-lg);
-  padding: 1.8rem 1.6rem;
-  box-shadow: var(--shadow-card);
+.skill-col {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
 }
-.skills-card-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-md);
-  background: var(--primary-light);
-  color: var(--primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  margin-bottom: 1.2rem;
+.skill-col-label {
   font-family: var(--font-mono);
-  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.4rem;
 }
-.skills-card-title {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 1.2rem;
-}
-.skills-list {
+.skill-items-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.75rem;
 }
-.skills-list li {
-  font-size: 0.94rem;
-  color: var(--text-muted);
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-}
-.skills-list li::before {
-  content: '•';
-  color: var(--primary);
-  font-size: 1.2rem;
-  line-height: 0;
-}
-
-/* ===================== EXPERIENCE / TRAINING ===================== */
-#experience {
-  padding: 5.5rem 0;
-  border-top: 1px solid var(--border);
-  background: var(--bg-subtle);
-}
-.experience-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
-  border-left: 4px solid var(--primary);
-  border-radius: var(--radius-lg);
-  padding: 2.2rem;
-  box-shadow: var(--shadow-card);
-}
-.exp-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-.exp-role {
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--text);
-}
-.exp-company {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--primary);
-  margin-top: 0.2rem;
-}
-.exp-period {
-  font-size: 0.88rem;
-  font-weight: 500;
-  color: var(--text-subtle);
-  font-family: var(--font-mono);
-}
-.exp-desc {
+.skill-items-list li {
   font-size: 0.98rem;
-  color: var(--text-muted);
-  line-height: 1.75;
-  margin-bottom: 1.4rem;
+  color: var(--text);
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
-.exp-tags {
+
+/* ===================== EXPERIENCE & ACADEMICS ===================== */
+#experience {
+  padding: 6rem 0;
+  border-top: 1px solid var(--border);
+}
+.exp-editorial-block {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  background: var(--bg-card);
+  padding: 3rem;
+  margin-bottom: 3rem;
+}
+.exp-timeline-head {
   display: flex;
+  justify-content: space-between;
+  align-items: baseline;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
 }
-.btn-view-cert {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--primary);
-  background: var(--primary-light);
-  border: 1px solid var(--primary-border);
-  padding: 0.55rem 1.2rem;
-  border-radius: var(--radius-sm);
-  transition: all 0.2s;
-}
-.btn-view-cert:hover {
-  background: var(--primary);
-  color: #ffffff;
-}
-
-/* ===================== ACHIEVEMENTS ===================== */
-#achievements {
-  padding: 5.5rem 0;
-  border-top: 1px solid var(--border);
-}
-.achievements-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-.achievement-box {
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-lg);
-  padding: 1.8rem;
-  box-shadow: var(--shadow-card);
-  display: flex;
-  flex-direction: column;
-}
-.achieve-header {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  margin-bottom: 0.8rem;
-}
-.achieve-icon-badge {
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-md);
-  background: var(--primary-light);
-  color: var(--primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.15rem;
-  flex-shrink: 0;
-}
-.achieve-title {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--text);
-  line-height: 1.3;
-}
-.achieve-desc {
-  font-size: 0.92rem;
-  color: var(--text-muted);
-  line-height: 1.65;
-}
-
-/* ===================== CERTIFICATIONS ===================== */
-#certifications {
-  padding: 5.5rem 0;
-  border-top: 1px solid var(--border);
-  background: var(--bg-subtle);
-}
-.certs-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-.cert-card-item {
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-lg);
-  padding: 1.6rem;
-  box-shadow: var(--shadow-card);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 160px;
-}
-.cert-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 0.8rem;
-  margin-bottom: 0.6rem;
-}
-.cert-name {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--text);
-  line-height: 1.4;
-}
-.cert-actions-pill {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  flex-shrink: 0;
-}
-.cert-view-btn {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--primary);
-  background: var(--primary-light);
-  border: 1px solid var(--primary-border);
-  padding: 0.2rem 0.6rem;
-  border-radius: var(--radius-sm);
-  transition: all 0.2s;
-}
-.cert-view-btn:hover {
-  background: var(--primary);
-  color: #fff;
-}
-.cert-date-tag {
-  font-size: 0.76rem;
-  font-weight: 600;
-  color: var(--tag-text);
-  background: var(--tag-bg);
-  padding: 0.2rem 0.55rem;
-  border-radius: var(--radius-sm);
-  font-family: var(--font-mono);
-}
-.cert-issuer-text {
-  font-size: 0.88rem;
-  color: var(--text-subtle);
-  margin-top: auto;
-}
-
-/* ===================== EDUCATION ===================== */
-#education {
-  padding: 5.5rem 0;
-  border-top: 1px solid var(--border);
-}
-.edu-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-.edu-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-lg);
-  padding: 1.8rem;
-  box-shadow: var(--shadow-card);
-}
-.edu-period-badge {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--tag-text);
-  background: var(--tag-bg);
-  padding: 0.2rem 0.6rem;
-  border-radius: var(--radius-sm);
-  display: inline-block;
-  margin-bottom: 0.8rem;
-  font-family: var(--font-mono);
-}
-.edu-degree-title {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 0.4rem;
-}
-.edu-inst-text {
-  font-size: 0.92rem;
-  color: var(--text-muted);
-  margin-bottom: 0.8rem;
-}
-.edu-score-highlight {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--primary);
-}
-
-/* ===================== CV & RESUME ===================== */
-#resume {
-  padding: 5.5rem 0;
-  border-top: 1px solid var(--border);
-  background: var(--bg-subtle);
-}
-.resume-center-card {
-  max-width: 650px;
-  margin: 0 auto;
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-lg);
-  padding: 3rem 2.5rem;
-  text-align: center;
-  box-shadow: var(--shadow-card);
-}
-.resume-icon-wrap {
-  width: 68px;
-  height: 68px;
-  border-radius: var(--radius-md);
-  background: var(--primary-light);
-  color: var(--primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.exp-headline {
+  font-family: var(--font-serif);
   font-size: 2rem;
-  margin: 0 auto 1.5rem;
-}
-.resume-card-title {
-  font-size: 1.6rem;
-  font-weight: 800;
+  font-weight: 400;
   color: var(--text);
-  margin-bottom: 0.8rem;
 }
-.resume-card-desc {
+.exp-org {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  margin-top: 0.3rem;
+}
+.exp-dates {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+.exp-text {
   font-size: 1rem;
   color: var(--text-muted);
-  line-height: 1.65;
-  margin-bottom: 2rem;
-}
-.resume-btn-group {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-.btn-primary-green {
-  background: var(--primary);
-  color: #ffffff;
-  font-size: 0.95rem;
-  font-weight: 600;
-  padding: 0.75rem 1.8rem;
-  border-radius: var(--radius-md);
-  border: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: background 0.2s;
-}
-.btn-primary-green:hover {
-  background: var(--primary-hover);
-}
-.btn-secondary-outline {
-  background: var(--bg-card);
-  color: var(--text);
-  font-size: 0.95rem;
-  font-weight: 600;
-  padding: 0.75rem 1.8rem;
-  border-radius: var(--radius-md);
-  border: 1.5px solid var(--border);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: all 0.2s;
-}
-.btn-secondary-outline:hover {
-  border-color: var(--primary);
-  color: var(--primary);
+  line-height: 1.8;
+  margin-bottom: 1.8rem;
 }
 
-/* ===================== GET IN TOUCH ===================== */
+/* ===================== CONTACT / GET IN TOUCH ===================== */
 #contact {
-  padding: 5.5rem 0 6rem;
+  padding: 6.5rem 0 8rem;
   border-top: 1px solid var(--border);
 }
-.contact-wrap {
-  max-width: 680px;
-  margin: 0 auto;
-}
-.contact-subtitle {
-  text-align: center;
-  font-size: 1.05rem;
-  color: var(--text-muted);
-  line-height: 1.7;
-  margin-bottom: 2.5rem;
-}
-.contact-form-box {
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-lg);
-  padding: 2.5rem;
-  box-shadow: var(--shadow-card);
-  margin-bottom: 2rem;
-}
-.form-row {
+.contact-split-editorial {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.2rem;
-  margin-bottom: 1.2rem;
+  gap: 5rem;
+  align-items: start;
 }
-.form-field {
+.contact-left h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+.contact-left p {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+.contact-direct-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.contact-direct-item {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--border-light);
+}
+.contact-item-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-subtle);
+  letter-spacing: 0.15em;
+  width: 90px;
+  flex-shrink: 0;
+}
+.contact-item-val {
+  font-size: 1rem;
+  color: var(--text);
+  transition: color 0.2s;
+}
+.contact-item-val:hover {
+  color: var(--accent);
+}
+
+/* Minimalist Dark Form */
+.contact-form-minimal {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+.form-line-group {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
-  margin-bottom: 1.2rem;
 }
-.form-field:last-child {
-  margin-bottom: 1.5rem;
+.form-line-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
-.form-label {
-  font-size: 0.88rem;
-  font-weight: 600;
+.form-line-input, .form-line-textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
   color: var(--text);
-}
-.form-input, .form-textarea {
-  width: 100%;
-  padding: 0.8rem 1rem;
-  border-radius: var(--radius-md);
-  border: 1.5px solid var(--border);
-  background: var(--bg);
-  color: var(--text);
-  font-family: inherit;
-  font-size: 0.95rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  padding: 0.7rem 0;
   outline: none;
-  transition: border-color 0.2s;
+  transition: border-color 0.25s;
 }
-.form-textarea {
-  min-height: 130px;
+.form-line-textarea {
+  min-height: 100px;
   resize: vertical;
 }
-.form-input:focus, .form-textarea:focus {
-  border-color: var(--border-focus);
+.form-line-input:focus, .form-line-textarea:focus {
+  border-color: var(--accent);
 }
-.btn-submit-green {
-  width: 100%;
-  padding: 0.9rem;
-  background: var(--primary);
-  color: #ffffff;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: var(--radius-md);
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  transition: background 0.2s;
-}
-.btn-submit-green:hover {
-  background: var(--primary-hover);
-}
-.contact-info-pills {
-  display: flex;
-  justify-content: center;
-  gap: 1.2rem;
-  flex-wrap: wrap;
-}
-.contact-pill-item {
+.btn-submit-editorial {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #050505;
+  background: var(--text);
+  border: 1px solid var(--text);
+  border-radius: var(--radius-pill);
+  padding: 0.85rem 2.2rem;
+  align-self: flex-start;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  padding: 0.5rem 1rem;
-  border-radius: 30px;
+  transition: all 0.25s;
+  margin-top: 1rem;
 }
-.contact-pill-item:hover {
-  border-color: var(--primary);
-  color: var(--primary);
+.btn-submit-editorial:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
 }
 
 /* ===================== FOOTER ===================== */
 footer {
   border-top: 1px solid var(--border);
-  padding: 2.5rem 0;
+  padding: 3rem 0;
   background: var(--bg);
-  text-align: center;
 }
-.footer-inner {
+.footer-row {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
-}
-.footer-copy {
-  font-size: 0.9rem;
-  color: var(--text-subtle);
-}
-.footer-links {
-  display: flex;
   gap: 1.5rem;
 }
-.footer-links a {
-  font-size: 0.9rem;
-  font-weight: 500;
+.footer-copy {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-subtle);
+  letter-spacing: 0.08em;
+}
+.footer-links-group {
+  display: flex;
+  gap: 2rem;
+}
+.footer-link {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
   color: var(--text-muted);
+  letter-spacing: 0.08em;
   transition: color 0.2s;
 }
-.footer-links a:hover {
-  color: var(--primary);
+.footer-link:hover {
+  color: var(--accent);
 }
 
-/* ===================== PROJECT SPEC MODAL ===================== */
+/* ===================== SPECIFICATION MODAL ===================== */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(4px);
+  background: rgba(5, 5, 5, 0.85);
+  backdrop-filter: blur(12px);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -919,76 +947,69 @@ footer {
   padding: 1.5rem;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.2s;
+  transition: opacity 0.25s;
 }
 .modal-overlay.open {
   opacity: 1;
   pointer-events: all;
 }
 .modal-box {
-  background: var(--bg-card);
-  border: 1px solid var(--border-card);
-  border-radius: var(--radius-lg);
+  background: #0a0a0a;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
   max-width: 780px;
   width: 100%;
   max-height: 85vh;
   overflow-y: auto;
-  padding: 2.2rem;
+  padding: 2.8rem;
   position: relative;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9);
 }
 .modal-close-btn {
   position: absolute;
-  top: 1.2rem;
-  right: 1.2rem;
-  background: var(--bg-subtle);
-  border: 1px solid var(--border);
+  top: 1.5rem;
+  right: 1.5rem;
   color: var(--text-muted);
-  width: 32px;
-  height: 32px;
+  font-size: 1.2rem;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--border);
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
+  transition: all 0.2s;
 }
 .modal-close-btn:hover {
   color: var(--text);
-  border-color: var(--primary);
+  border-color: var(--text);
 }
-.modal-badge {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--primary);
-  background: var(--primary-light);
-  padding: 0.25rem 0.7rem;
-  border-radius: var(--radius-sm);
-  margin-bottom: 0.6rem;
+.modal-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
 }
 .modal-title {
-  font-size: 1.6rem;
-  font-weight: 800;
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 400;
   color: var(--text);
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.4rem;
 }
 .modal-stack {
-  font-size: 0.85rem;
-  color: var(--primary);
   font-family: var(--font-mono);
-  margin-bottom: 1.4rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
 }
 .modal-desc {
   font-size: 1rem;
   color: var(--text-muted);
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
+  line-height: 1.75;
+  margin-bottom: 1.8rem;
 }
 .modal-features-title {
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
   color: var(--text);
   margin-bottom: 0.8rem;
 }
@@ -996,8 +1017,8 @@ footer {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.7rem;
-  margin-bottom: 1.8rem;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
 }
 .modal-features-list li {
   font-size: 0.95rem;
@@ -1008,673 +1029,715 @@ footer {
   gap: 0.6rem;
 }
 .modal-features-list li::before {
-  content: '✓';
-  color: var(--primary);
-  font-weight: 700;
-  margin-top: 1px;
+  content: '—';
+  color: var(--accent);
 }
 .modal-footer {
   display: flex;
   gap: 1rem;
-  padding-top: 1.2rem;
+  padding-top: 1.5rem;
   border-top: 1px solid var(--border);
 }
 
-/* ===================== RESPONSIVE STYLES ===================== */
+/* ===================== RESPONSIVE BREAKPOINTS ===================== */
 @media (max-width: 1024px) {
-  .projects-grid { grid-template-columns: repeat(2, 1fr); }
-  .skills-grid { grid-template-columns: repeat(2, 1fr); }
-  .certs-grid { grid-template-columns: repeat(2, 1fr); }
-  .edu-grid { grid-template-columns: 1fr; }
-  .about-grid { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
-  .about-image-card { order: -1; }
+  .hero-side-block { display: none; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .stat-cell:nth-child(2) { border-right: none; }
+  .stat-cell:nth-child(3) { border-top: 1px solid var(--border); }
+  .stat-cell:nth-child(4) { border-top: 1px solid var(--border); }
+  .about-split { grid-template-columns: 1fr; gap: 3rem; }
+  .wave-canvas-wrap { height: 360px; }
+  .project-editorial-card { grid-template-columns: 1fr; }
+  .skills-editorial-grid { grid-template-columns: 1fr 1fr; }
+  .contact-split-editorial { grid-template-columns: 1fr; gap: 3rem; }
 }
 
 @media (max-width: 768px) {
   .nav-links { display: none; }
-  .hamburger { display: block; }
-  .projects-grid { grid-template-columns: 1fr; }
-  .skills-grid { grid-template-columns: 1fr; }
-  .achievements-grid { grid-template-columns: 1fr; }
-  .certs-grid { grid-template-columns: 1fr; }
-  .form-row { grid-template-columns: 1fr; }
-  .footer-inner { flex-direction: column; text-align: center; }
-  .footer-links { justify-content: center; }
+  .nav-hamburger { display: block; }
+  nav { padding: 0.5rem 1rem 0.5rem 1.4rem; gap: 1rem; }
+  .hero-name-overlap { font-size: clamp(3.2rem, 16vw, 6rem); margin-top: -3.5rem; }
+  .portrait-wrap { width: 300px; height: 380px; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .stat-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .stat-cell:last-child { border-bottom: none; }
+  .skills-editorial-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav>
-  <div class="container nav-inner">
-    <a href="#hero" class="nav-logo">AY</a>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#achievements">Achievements</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#education">Education</a>
-      <a href="#resume">Resume</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <div class="nav-actions">
-      <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme">🌙</button>
-      <button class="hamburger" id="hamburger" aria-label="Open navigation menu">☰</button>
-    </div>
-  </div>
-  <div class="container mobile-nav" id="mobile-nav">
-    <a href="#about" onclick="closeMobileNav()">About</a>
-    <a href="#projects" onclick="closeMobileNav()">Projects</a>
-    <a href="#skills" onclick="closeMobileNav()">Skills</a>
-    <a href="#experience" onclick="closeMobileNav()">Experience</a>
-    <a href="#achievements" onclick="closeMobileNav()">Achievements</a>
-    <a href="#certifications" onclick="closeMobileNav()">Certifications</a>
-    <a href="#education" onclick="closeMobileNav()">Education</a>
-    <a href="#resume" onclick="closeMobileNav()">Resume</a>
-    <a href="#contact" onclick="closeMobileNav()">Contact</a>
-  </div>
-</nav>
+<!-- Vertical Background Grid Lines -->
+<div class="grid-lines-bg">
+  <div class="grid-line-v"></div>
+  <div class="grid-line-v"></div>
+  <div class="grid-line-v"></div>
+  <div class="grid-line-v"></div>
+  <div class="grid-line-v"></div>
+</div>
 
-<!-- HERO SECTION -->
+<!-- ===================== FLOATING NAVBAR ===================== -->
+<div class="navbar-wrap">
+  <nav>
+    <a href="#hero" class="nav-brand">Ankit Yadav</a>
+    <div class="nav-links">
+      <a href="#work" class="nav-link">Work</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#experience" class="nav-link">Academics</a>
+    </div>
+    <a href="#contact" class="nav-cta">
+      <span>Let's talk</span>
+      <span>↗</span>
+    </a>
+    <button class="nav-hamburger" id="hamburger-btn" aria-label="Menu">☰</button>
+  </nav>
+</div>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-drawer" id="mobile-drawer">
+  <a href="#work" onclick="closeDrawer()">Work</a>
+  <a href="#about" onclick="closeDrawer()">About</a>
+  <a href="#skills" onclick="closeDrawer()">Skills</a>
+  <a href="#experience" onclick="closeDrawer()">Academics</a>
+  <a href="#contact" onclick="closeDrawer()">Contact</a>
+  <button onclick="closeDrawer()" style="color:var(--text-muted);font-family:var(--font-mono);font-size:0.9rem;margin-top:2rem;">[ CLOSE ]</button>
+</div>
+
+<!-- ===================== HERO SECTION ===================== -->
 <section id="hero">
   <div class="container">
-    <div class="hero-tag">WELCOME TO MY PORTFOLIO</div>
-    <h1 class="hero-name">Ankit Yadav</h1>
-    <div class="hero-subtitle">Full-Stack Developer · DSA & Systems · Android Developer</div>
-    <p class="hero-desc">
-      B.Tech Computer Science student at Lovely Professional University (CGPA 7.32). I build production-ready full-stack applications, AI integrations, and mobile solutions with the MERN stack, Django REST, and Android (Jetpack Compose).
-    </p>
-    <div class="hero-socials">
-      <a href="https://github.com/ankityadav281" target="_blank" class="social-icon-btn" title="GitHub">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-      </a>
-      <a href="https://linkedin.com/in/AnkitYadav" target="_blank" class="social-icon-btn" title="LinkedIn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451c.979 0 1.778-.773 1.778-1.729V1.73C24 .774 23.205 0 22.225 0z"/></svg>
-      </a>
-      <a href="mailto:ankityadav11005@gmail.com" class="social-icon-btn" title="Email">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-      </a>
+
+    <!-- Hero Top Monospace Peripheral Labels -->
+    <div class="hero-top-labels">
+      <div class="mono-label">
+        <span class="dot">●</span>ENGINEER. BUILDER. PROBLEM SOLVER.
+      </div>
+      <div class="mono-label">
+        BASED IN INDIA · THINKING BEYOND
+      </div>
+    </div>
+
+    <!-- Hero Side Monospace Index Block -->
+    <div class="hero-side-block">
+      <div class="mono-label" style="font-size:0.65rem;">01 / PRESENCE</div>
+      <div class="plus">+</div>
+      <div class="mono-sub">
+        FULL-STACK<br>
+        SYSTEMS ARCHITECTURE<br>
+        HUMAN EXPERIENCE
+      </div>
+    </div>
+
+    <!-- Center Portrait Stage -->
+    <div class="hero-portrait-stage">
+      <div class="portrait-glow"></div>
+
+      <div class="portrait-wrap">
+        <img src="ankit.jpeg" alt="Ankit Yadav">
+        <div class="portrait-halftone"></div>
+        <div class="portrait-caption">A PERSPECTIVE IN TECHNOLOGY</div>
+      </div>
+
+      <!-- Overlapping Large Serif Typography Name -->
+      <h1 class="hero-name-overlap">Ankit Yadav</h1>
+    </div>
+
+    <!-- Subtitle & CTAs -->
+    <div class="hero-sub-wrap">
+      <p class="hero-desc-text">
+        I build production-grade web platforms, optimize algorithmic systems, and craft seamless digital experiences.
+      </p>
+      <div class="hero-actions">
+        <a href="#work" class="btn-pill-dark">
+          <span>Explore my work</span>
+          <span>↓</span>
+        </a>
+        <a href="#contact" class="btn-link-minimal">
+          <span>Start a conversation</span>
+          <span>↗</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero Bottom Bar -->
+    <div class="hero-bottom-bar">
+      <div class="mono-label">SCROLL TO DISCOVER ↓</div>
+      <div class="mono-label">B.TECH CSE · LOVELY PROFESSIONAL UNIVERSITY</div>
+      <div class="motion-pill">
+        <span class="rect"></span>
+        <span>EDITORIAL PORTFOLIO</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== STATISTICS SECTION ===================== -->
+<section id="statistics">
+  <div class="container" style="padding:0;">
+    <div class="stats-grid">
+
+      <!-- Stat 1 -->
+      <div class="stat-cell has-orange-bar">
+        <div class="stat-number">1600<span class="accent-sup">+</span></div>
+        <div class="stat-label">LeetCode peak contest rating & competitive ranking</div>
+      </div>
+
+      <!-- Stat 2 -->
+      <div class="stat-cell">
+        <div class="stat-number">200<span class="accent-sup">+</span></div>
+        <div class="stat-label">DSA & algorithmic problems solved across LeetCode & GFG</div>
+      </div>
+
+      <!-- Stat 3 -->
+      <div class="stat-cell">
+        <div class="stat-number">7.32<span class="accent-sup">★</span></div>
+        <div class="stat-label">Cumulative GPA · B.Tech Computer Science @ LPU</div>
+      </div>
+
+      <!-- Stat 4 (Impact Action) -->
+      <div class="stat-cell stat-action-cell">
+        <div class="stat-action-header">
+          <div class="mono-label" style="font-size:0.68rem;">
+            THE WORK.<br>
+            THE REAL-WORLD IMPACT.
+          </div>
+          <a href="#work" class="stat-action-arrow">↗</a>
+        </div>
+        <div class="mono-label" style="color:var(--text-subtle);font-size:0.65rem;margin-top:1.5rem;">
+          6 PRODUCTION PROJECTS
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ABOUT SECTION -->
+<!-- ===================== ABOUT SECTION ===================== -->
 <section id="about">
   <div class="container">
-    <div class="section-badge-wrap">
-      <span class="section-badge">About</span>
-    </div>
-    <div class="about-grid">
-      <div class="about-content">
-        <p>
-          I am a third-year B.Tech Computer Science student at Lovely Professional University, Phagwara (Punjab), with an updated CGPA of <strong>7.32</strong>. I possess a strong foundation in software development and a keen passion for engineering scalable, end-to-end systems.
-        </p>
-        <p>
-          My academic focus, combined with hands-on project experience, has enabled me to work across full-stack web architectures (using the <strong>MERN stack</strong> and <strong>Django REST Framework</strong>), robust relational and document databases (<strong>MySQL</strong>, <strong>MongoDB</strong>, <strong>SQLite</strong>), and native mobile engineering with <strong>Android & Jetpack Compose</strong>.
-        </p>
-        <p>
-          Beyond development, I have a deep passion for <strong>Data Structures & Algorithms</strong> in C++, with over <strong>200+ coding problems solved</strong> and a peak <strong>1600 LeetCode contest rating</strong>. I approach system design with structured algorithmic thinking, emphasizing efficiency, clean architecture, and real-world reliability.
-        </p>
-        <p>
-          I am currently seeking software engineering internships and full-time opportunities where I can contribute to impactful software products while continuously expanding my technical skills.
-        </p>
+
+    <!-- Editorial Section Header -->
+    <div class="section-header-bar">
+      <div class="mono-label">
+        <span class="orange-sq">■</span>01 / THE PERSON BEHIND THE WORK
       </div>
-      <div class="about-image-card">
-        <img src="ankit.jpeg" alt="Ankit Yadav — Software Engineer">
+      <div class="mono-label">A CONNECTED PERSPECTIVE</div>
+    </div>
+    <div class="section-divider-line"></div>
+    <div class="section-sub-bar">
+      <div class="mono-label" style="font-size:0.68rem;color:var(--text-subtle);">
+        THREE DISCIPLINES. ONE PERSPECTIVE.
+      </div>
+      <div class="mono-label" style="font-size:0.68rem;color:var(--text-subtle);">
+        01 / 03
       </div>
     </div>
+
+    <!-- Editorial Split: Left Dotted Wave + Right Serif Headline -->
+    <div class="about-split">
+
+      <!-- Left Side: Abstract Dotted Particle-Wave Visual -->
+      <div class="wave-canvas-wrap">
+        <canvas id="particle-wave-canvas"></canvas>
+      </div>
+
+      <!-- Right Side: Editorial Serif Statement & Bio -->
+      <div class="about-editorial-right">
+        <h2 class="editorial-headline">
+          Technology is the starting point.<br>
+          <em>People are the point.</em>
+        </h2>
+
+        <p class="editorial-body-text">
+          I connect <strong>full-stack engineering</strong>, <strong>algorithmic efficiency</strong>, and <strong>human utility</strong>.
+        </p>
+
+        <p class="editorial-body-text">
+          Currently a third-year Computer Science Engineering student at <strong>Lovely Professional University</strong> (CGPA 7.32). My work spans production architectures with the <strong>MERN stack</strong> and <strong>Django REST Framework</strong>, resilient distributed data layers with <strong>MySQL</strong> and <strong>MongoDB</strong>, and mission-critical offline-first mobile apps using <strong>Android & Jetpack Compose</strong>.
+        </p>
+
+        <p class="editorial-body-text">
+          Grounding my engineering is a rigorous foundation in <strong>Data Structures & Algorithms in C++</strong>, where I maintain a <strong>1600 peak contest rating</strong> on LeetCode. I approach software through structured mathematical models, clean code separation, and persistent user focus.
+        </p>
+      </div>
+
+    </div>
+
   </div>
 </section>
 
-<!-- FEATURED PROJECTS -->
-<section id="projects">
+<!-- ===================== PROJECTS SECTION ===================== -->
+<section id="work">
   <div class="container">
-    <div class="section-badge-wrap">
-      <span class="section-badge">Featured Projects</span>
+
+    <div class="section-header-bar">
+      <div class="mono-label">
+        <span class="orange-sq">■</span>02 / SELECTED WORK & ARCHITECTURE
+      </div>
+      <div class="mono-label">ENGINEERED FOR SCALE</div>
     </div>
-    <div class="projects-grid">
+    <div class="section-divider-line"></div>
+    <div class="section-sub-bar">
+      <div class="mono-label" style="font-size:0.68rem;color:var(--text-subtle);">
+        PRODUCTION SYSTEMS. MEASURABLE RESULTS.
+      </div>
+      <div class="mono-label" style="font-size:0.68rem;color:var(--text-subtle);">
+        02 / 03
+      </div>
+    </div>
+
+    <div class="projects-editorial-list">
 
       <!-- Project 1: Paramarsh -->
-      <div class="project-card">
-        <div class="project-banner" style="background: linear-gradient(135deg, #1e3a8a, #0f172a);">
-          <div class="project-banner-title">Paramarsh</div>
-        </div>
-        <div class="project-content">
-          <h3 class="project-title">Paramarsh – AI Healthcare Platform</h3>
-          <p class="project-desc">
-            Full-stack medical consultation platform connecting patients with specialists. Features xAI Grok clinical triage, real-time cross-tab chat via BroadcastChannel, and in-memory MySQL failover.
+      <div class="project-editorial-card">
+        <div>
+          <div class="project-meta-top">
+            <span class="mono-label" style="color:var(--text-subtle);">01</span>
+            <span class="project-category-tag">FULL-STACK · AI HEALTHCARE</span>
+          </div>
+          <h3 class="project-editorial-title">Paramarsh – AI Medical Consultation Platform</h3>
+          <p class="project-editorial-desc">
+            Healthcare web app connecting patients with verified specialists. Integrated with xAI Grok API for clinical triage with in-memory failover, and synchronized two-way doctor consultations via native BroadcastChannel and StorageEvent APIs.
           </p>
-          <div class="project-tags">
-            <span class="tag-pill">React 19</span>
-            <span class="tag-pill">Node.js</span>
-            <span class="tag-pill">Express 5</span>
-            <span class="tag-pill">MySQL</span>
-            <span class="tag-pill">xAI Grok</span>
-            <span class="tag-pill">JWT</span>
+          <div class="project-tech-row">
+            <span class="tech-tag-mono">React 19</span>
+            <span class="tech-tag-mono">Node.js</span>
+            <span class="tech-tag-mono">Express 5</span>
+            <span class="tech-tag-mono">MySQL 8+</span>
+            <span class="tech-tag-mono">xAI Grok</span>
+            <span class="tech-tag-mono">JWT</span>
           </div>
-          <div class="project-actions">
-            <a href="https://github.com/ankityadav281/Paramarsh" target="_blank" class="action-link">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-              Code
+          <div class="project-links-row">
+            <a href="https://github.com/ankityadav281/Paramarsh" target="_blank" class="link-editorial-action">
+              <span>View Repository</span>
+              <span>↗</span>
             </a>
-            <button class="btn-show-more" onclick="openModal('modal-paramarsh')">Show More</button>
+            <button class="btn-specs-open" onclick="openModal('modal-paramarsh')">Full Specifications</button>
           </div>
+        </div>
+        <div class="project-visual-preview">
+          <div class="preview-gradient-glow" style="background: radial-gradient(circle, rgba(30, 58, 138, 0.4) 0%, transparent 75%);"></div>
+          <div class="preview-title-watermark">Paramarsh</div>
         </div>
       </div>
 
       <!-- Project 2: CampusCart -->
-      <div class="project-card">
-        <div class="project-banner" style="background: linear-gradient(135deg, #065f46, #0f172a);">
-          <div class="project-banner-title">CampusCart</div>
-        </div>
-        <div class="project-content">
-          <h3 class="project-title">CampusCart – University Marketplace</h3>
-          <p class="project-desc">
-            Multi-vendor university e-commerce marketplace featuring atomic checkout transactions with row-level locks, scheduled break-time pickup reservations, and multi-tenant merchant dashboards.
+      <div class="project-editorial-card">
+        <div>
+          <div class="project-meta-top">
+            <span class="mono-label" style="color:var(--text-subtle);">02</span>
+            <span class="project-category-tag">MULTI-VENDOR E-COMMERCE · DJANGO</span>
+          </div>
+          <h3 class="project-editorial-title">CampusCart – University Marketplace</h3>
+          <p class="project-editorial-desc">
+            Production-grade university e-commerce platform. Features multi-shop unified cart with atomic multi-order checkout (transaction.atomic + select_for_update), scheduled recess break pickup slot reservations, and role-based multi-tenant merchant dashboards.
           </p>
-          <div class="project-tags">
-            <span class="tag-pill">React 18</span>
-            <span class="tag-pill">Django 6.1</span>
-            <span class="tag-pill">DRF</span>
-            <span class="tag-pill">Tailwind CSS</span>
-            <span class="tag-pill">SQLite</span>
+          <div class="project-tech-row">
+            <span class="tech-tag-mono">React 18</span>
+            <span class="tech-tag-mono">Django 6.1</span>
+            <span class="tech-tag-mono">DRF</span>
+            <span class="tech-tag-mono">Tailwind CSS</span>
+            <span class="tech-tag-mono">SQLite3</span>
+            <span class="tech-tag-mono">JWT</span>
           </div>
-          <div class="project-actions">
-            <a href="https://github.com/ankityadav281/CampusCart" target="_blank" class="action-link">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-              Code
+          <div class="project-links-row">
+            <a href="https://github.com/ankityadav281/CampusCart" target="_blank" class="link-editorial-action">
+              <span>View Repository</span>
+              <span>↗</span>
             </a>
-            <button class="btn-show-more" onclick="openModal('modal-campuscart')">Show More</button>
+            <button class="btn-specs-open" onclick="openModal('modal-campuscart')">Full Specifications</button>
           </div>
+        </div>
+        <div class="project-visual-preview">
+          <div class="preview-gradient-glow" style="background: radial-gradient(circle, rgba(6, 95, 70, 0.4) 0%, transparent 75%);"></div>
+          <div class="preview-title-watermark">CampusCart</div>
         </div>
       </div>
 
       <!-- Project 3: MineImpact -->
-      <div class="project-card">
-        <div class="project-banner" style="background: linear-gradient(135deg, #164e63, #0f172a);">
-          <div class="project-banner-title">MineImpact</div>
-        </div>
-        <div class="project-content">
-          <h3 class="project-title">MineImpact – Mining LCA Platform</h3>
-          <p class="project-desc">
-            Industrial sustainability intelligence platform with an ISO 14044/IPCC-aligned calculation engine quantifying carbon footprints, acidification, water depletion, and automated executive PDF reports.
+      <div class="project-editorial-card">
+        <div>
+          <div class="project-meta-top">
+            <span class="mono-label" style="color:var(--text-subtle);">03</span>
+            <span class="project-category-tag">INDUSTRIAL SUSTAINABILITY · MERN</span>
+          </div>
+          <h3 class="project-editorial-title">MineImpact – Mining LCA & Intelligence</h3>
+          <p class="project-editorial-desc">
+            Industrial environmental intelligence platform with an ISO 14044/IPCC-aligned calculation engine quantifying Global Warming Potential (GWP), acidification, and water depletion across cradle-to-gate boundaries with automated executive PDF reporting.
           </p>
-          <div class="project-tags">
-            <span class="tag-pill">React 18</span>
-            <span class="tag-pill">Node.js</span>
-            <span class="tag-pill">Express</span>
-            <span class="tag-pill">MongoDB</span>
-            <span class="tag-pill">jsPDF</span>
+          <div class="project-tech-row">
+            <span class="tech-tag-mono">React 18</span>
+            <span class="tech-tag-mono">Node.js</span>
+            <span class="tech-tag-mono">Express</span>
+            <span class="tech-tag-mono">MongoDB</span>
+            <span class="tech-tag-mono">jsPDF</span>
+            <span class="tech-tag-mono">LCA Engine</span>
           </div>
-          <div class="project-actions">
-            <a href="https://github.com/ankityadav281/MineImpact" target="_blank" class="action-link">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-              Code
+          <div class="project-links-row">
+            <a href="https://github.com/ankityadav281/MineImpact" target="_blank" class="link-editorial-action">
+              <span>View Repository</span>
+              <span>↗</span>
             </a>
-            <button class="btn-show-more" onclick="openModal('modal-mineimpact')">Show More</button>
+            <button class="btn-specs-open" onclick="openModal('modal-mineimpact')">Full Specifications</button>
           </div>
+        </div>
+        <div class="project-visual-preview">
+          <div class="preview-gradient-glow" style="background: radial-gradient(circle, rgba(22, 78, 99, 0.4) 0%, transparent 75%);"></div>
+          <div class="preview-title-watermark">MineImpact</div>
         </div>
       </div>
 
       <!-- Project 4: Aasha -->
-      <div class="project-card">
-        <div class="project-banner" style="background: linear-gradient(135deg, #4c1d95, #0f172a);">
-          <div class="project-banner-title">Aasha</div>
-        </div>
-        <div class="project-content">
-          <h3 class="project-title">Aasha – Community Health App</h3>
-          <p class="project-desc">
-            Professional offline-first Android application designed for Accredited Social Health Activists (ASHA) in rural India. Built with Clean Architecture, Room SQLite, WorkManager, and trilingual UI.
+      <div class="project-editorial-card">
+        <div>
+          <div class="project-meta-top">
+            <span class="mono-label" style="color:var(--text-subtle);">04</span>
+            <span class="project-category-tag">NATIVE MOBILE · CLEAN ARCHITECTURE</span>
+          </div>
+          <h3 class="project-editorial-title">Aasha – Empowering Community Health Workers</h3>
+          <p class="project-editorial-desc">
+            Offline-first Android application designed for Accredited Social Health Activists (ASHA) in rural India. Built with Clean Architecture & MVVM, featuring Room SQLite persistence with reactive StateFlow, fuzzy duplicate detection, and encrypted MPIN security.
           </p>
-          <div class="project-tags">
-            <span class="tag-pill">Jetpack Compose</span>
-            <span class="tag-pill">Kotlin</span>
-            <span class="tag-pill">Room SQLite</span>
-            <span class="tag-pill">Firebase</span>
-            <span class="tag-pill">Hilt</span>
+          <div class="project-tech-row">
+            <span class="tech-tag-mono">Kotlin</span>
+            <span class="tech-tag-mono">Jetpack Compose</span>
+            <span class="tech-tag-mono">Room SQLite</span>
+            <span class="tech-tag-mono">Firebase</span>
+            <span class="tech-tag-mono">WorkManager</span>
+            <span class="tech-tag-mono">Hilt</span>
           </div>
-          <div class="project-actions">
-            <a href="https://github.com/yosobanta/Aasha" target="_blank" class="action-link">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-              Code
+          <div class="project-links-row">
+            <a href="https://github.com/yosobanta/Aasha" target="_blank" class="link-editorial-action">
+              <span>View Repository</span>
+              <span>↗</span>
             </a>
-            <button class="btn-show-more" onclick="openModal('modal-aasha')">Show More</button>
+            <button class="btn-specs-open" onclick="openModal('modal-aasha')">Full Specifications</button>
           </div>
+        </div>
+        <div class="project-visual-preview">
+          <div class="preview-gradient-glow" style="background: radial-gradient(circle, rgba(76, 29, 149, 0.4) 0%, transparent 75%);"></div>
+          <div class="preview-title-watermark">Aasha</div>
         </div>
       </div>
 
       <!-- Project 5: Student Management System -->
-      <div class="project-card">
-        <div class="project-banner" style="background: linear-gradient(135deg, #334155, #0f172a);">
-          <div class="project-banner-title">Student Management System</div>
-        </div>
-        <div class="project-content">
-          <h3 class="project-title">Student Management System (SMS)</h3>
-          <p class="project-desc">
-            Academic SIS and ERP managing student records, course allocations, daily attendance percentage analytics, automated GPA grade sheets, and fee invoice ledgers with tri-role RBAC permissions.
+      <div class="project-editorial-card">
+        <div>
+          <div class="project-meta-top">
+            <span class="mono-label" style="color:var(--text-subtle);">05</span>
+            <span class="project-category-tag">ACADEMIC SIS · ENTERPRISE ERP</span>
+          </div>
+          <h3 class="project-editorial-title">Student Management System (SMS)</h3>
+          <p class="project-editorial-desc">
+            Academic institutional management system managing student personal records, course allocations, daily attendance percentage analytics, automated GPA calculations, and fee invoice ledgers with tri-role RBAC for Admins, Teachers, and Students.
           </p>
-          <div class="project-tags">
-            <span class="tag-pill">Python</span>
-            <span class="tag-pill">Django</span>
-            <span class="tag-pill">Node.js</span>
-            <span class="tag-pill">Relational DB</span>
-            <span class="tag-pill">JWT</span>
+          <div class="project-tech-row">
+            <span class="tech-tag-mono">Python</span>
+            <span class="tech-tag-mono">Django</span>
+            <span class="tech-tag-mono">Node.js</span>
+            <span class="tech-tag-mono">MySQL</span>
+            <span class="tech-tag-mono">JWT</span>
+            <span class="tech-tag-mono">RBAC</span>
           </div>
-          <div class="project-actions">
-            <a href="https://github.com/ankityadav281/Student-Management-System" target="_blank" class="action-link">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-              Code
+          <div class="project-links-row">
+            <a href="https://github.com/ankityadav281/Student-Management-System" target="_blank" class="link-editorial-action">
+              <span>View Repository</span>
+              <span>↗</span>
             </a>
-            <button class="btn-show-more" onclick="openModal('modal-sms')">Show More</button>
+            <button class="btn-specs-open" onclick="openModal('modal-sms')">Full Specifications</button>
           </div>
+        </div>
+        <div class="project-visual-preview">
+          <div class="preview-gradient-glow" style="background: radial-gradient(circle, rgba(51, 65, 85, 0.4) 0%, transparent 75%);"></div>
+          <div class="preview-title-watermark">Student Management</div>
         </div>
       </div>
 
       <!-- Project 6: Parking Slot Allocation -->
-      <div class="project-card">
-        <div class="project-banner" style="background: linear-gradient(135deg, #78350f, #0f172a);">
-          <div class="project-banner-title">Parking Slot Allocation</div>
-        </div>
-        <div class="project-content">
-          <h3 class="project-title">Parking Slot Allocation System</h3>
-          <p class="project-desc">
-            High-efficiency parking facility management system engineered in C++ using min-heaps and hash tables for O(log n) slot allocation, dynamic vehicle routing, and collision avoidance.
+      <div class="project-editorial-card">
+        <div>
+          <div class="project-meta-top">
+            <span class="mono-label" style="color:var(--text-subtle);">06</span>
+            <span class="project-category-tag">SYSTEMS & ALGORITHMS · C++</span>
+          </div>
+          <h3 class="project-editorial-title">Parking Slot Allocation System</h3>
+          <p class="project-editorial-desc">
+            High-efficiency parking management system engineered in C++ leveraging advanced data structures and algorithms. Employs min-heaps and hash tables for O(log n) slot allocation, dynamic vehicle routing, and collision avoidance.
           </p>
-          <div class="project-tags">
-            <span class="tag-pill">C++</span>
-            <span class="tag-pill">DSA</span>
-            <span class="tag-pill">Heaps</span>
-            <span class="tag-pill">Hash Maps</span>
-            <span class="tag-pill">OOP</span>
+          <div class="project-tech-row">
+            <span class="tech-tag-mono">C++</span>
+            <span class="tech-tag-mono">DSA</span>
+            <span class="tech-tag-mono">Heaps</span>
+            <span class="tech-tag-mono">Priority Queues</span>
+            <span class="tech-tag-mono">Hash Maps</span>
+            <span class="tech-tag-mono">OOP</span>
           </div>
-          <div class="project-actions">
-            <a href="https://github.com/ankityadav281/parking-slot-allocation" target="_blank" class="action-link">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-              Code
+          <div class="project-links-row">
+            <a href="https://github.com/ankityadav281/parking-slot-allocation" target="_blank" class="link-editorial-action">
+              <span>View Repository</span>
+              <span>↗</span>
             </a>
-            <button class="btn-show-more" onclick="openModal('modal-parking')">Show More</button>
+            <button class="btn-specs-open" onclick="openModal('modal-parking')">Full Specifications</button>
           </div>
+        </div>
+        <div class="project-visual-preview">
+          <div class="preview-gradient-glow" style="background: radial-gradient(circle, rgba(120, 53, 15, 0.4) 0%, transparent 75%);"></div>
+          <div class="preview-title-watermark">Parking System</div>
         </div>
       </div>
 
     </div>
+
   </div>
 </section>
 
-<!-- SKILLS & EXPERTISE -->
+<!-- ===================== SKILLS & DISCIPLINES ===================== -->
 <section id="skills">
   <div class="container">
-    <div class="section-badge-wrap">
-      <span class="section-badge">Skills & Expertise</span>
+
+    <div class="section-header-bar">
+      <div class="mono-label">
+        <span class="orange-sq">■</span>03 / CORE COMPETENCIES
+      </div>
+      <div class="mono-label">TECHNICAL DISCIPLINES</div>
     </div>
-    <div class="skills-grid">
+    <div class="section-divider-line"></div>
+
+    <div class="skills-editorial-grid">
 
       <!-- Languages -->
-      <div class="skills-card">
-        <div class="skills-card-icon">&gt;_</div>
-        <h3 class="skills-card-title">Languages</h3>
-        <ul class="skills-list">
+      <div class="skill-col">
+        <div class="skill-col-label">01 / Languages</div>
+        <ul class="skill-items-list">
           <li>C++ (STL & DSA)</li>
           <li>Java</li>
           <li>JavaScript (ES6+)</li>
           <li>Python</li>
-          <li>Kotlin</li>
+          <li>Kotlin (Android)</li>
           <li>SQL</li>
           <li>C</li>
         </ul>
       </div>
 
       <!-- Frameworks -->
-      <div class="skills-card">
-        <div class="skills-card-icon">◫</div>
-        <h3 class="skills-card-title">Frameworks</h3>
-        <ul class="skills-list">
+      <div class="skill-col">
+        <div class="skill-col-label">02 / Frameworks & Mobile</div>
+        <ul class="skill-items-list">
           <li>React.js (v18 & v19)</li>
-          <li>Node.js</li>
-          <li>Express.js 5</li>
-          <li>Django 6.1</li>
-          <li>Django REST</li>
-          <li>Tailwind CSS</li>
+          <li>Node.js & Express.js 5</li>
+          <li>Django 6.1 & REST (DRF)</li>
           <li>Jetpack Compose</li>
+          <li>Tailwind CSS</li>
+          <li>Room Database</li>
         </ul>
       </div>
 
       <!-- Tools & Platforms -->
-      <div class="skills-card">
-        <div class="skills-card-icon">🗄️</div>
-        <h3 class="skills-card-title">Tools & Platforms</h3>
-        <ul class="skills-list">
-          <li>MySQL</li>
-          <li>MongoDB</li>
-          <li>SQLite</li>
-          <li>Firebase</li>
-          <li>Git / GitHub</li>
-          <li>Postman</li>
-          <li>Vercel / Netlify</li>
+      <div class="skill-col">
+        <div class="skill-col-label">03 / Data & Platforms</div>
+        <ul class="skill-items-list">
+          <li>MySQL (mysql2 pool)</li>
+          <li>MongoDB & Mongoose</li>
+          <li>SQLite (Atomic Trans.)</li>
+          <li>Firebase Firestore & Auth</li>
+          <li>Git & GitHub</li>
+          <li>Postman / REST APIs</li>
         </ul>
       </div>
 
       <!-- CS Fundamentals -->
-      <div class="skills-card">
-        <div class="skills-card-icon">&lt;/&gt;</div>
-        <h3 class="skills-card-title">CS Fundamentals</h3>
-        <ul class="skills-list">
+      <div class="skill-col">
+        <div class="skill-col-label">04 / Fundamentals</div>
+        <ul class="skill-items-list">
           <li>Data Structures & Algorithms</li>
           <li>Object-Oriented Programming</li>
           <li>Operating Systems</li>
-          <li>DBMS & SQL</li>
+          <li>Database Management (DBMS)</li>
           <li>Computer Networks</li>
-          <li>RESTful APIs</li>
-          <li>System Design Basics</li>
+          <li>System Design Principles</li>
         </ul>
       </div>
 
     </div>
+
   </div>
 </section>
 
-<!-- EXPERIENCE / TRAINING -->
+<!-- ===================== EXPERIENCE & ACADEMICS ===================== -->
 <section id="experience">
   <div class="container">
-    <div class="section-badge-wrap">
-      <span class="section-badge">Experience</span>
+
+    <div class="section-header-bar">
+      <div class="mono-label">
+        <span class="orange-sq">■</span>04 / TRAINING & ACADEMICS
+      </div>
+      <div class="mono-label">CONTINUOUS DISCIPLINE</div>
     </div>
-    <div class="experience-card">
-      <div class="exp-header">
+    <div class="section-divider-line"></div>
+
+    <!-- Training Card -->
+    <div class="exp-editorial-block">
+      <div class="exp-timeline-head">
         <div>
-          <h3 class="exp-role">Basics of DSA – Intensive Algorithmic Training</h3>
-          <div class="exp-company">Lovely Professional University · Department of Computer Science</div>
+          <h3 class="exp-headline">Basics of DSA – Intensive Algorithmic Training</h3>
+          <div class="exp-org">Lovely Professional University · Department of Computer Science</div>
         </div>
-        <div class="exp-period">Jun 2025 — Jul 2025</div>
+        <div class="exp-dates">JUN 2025 — JUL 2025</div>
       </div>
-      <p class="exp-desc">
-        Completed rigorous algorithmic training solving 100+ comprehensive DSA problems in C++ covering arrays, linked lists, stacks, queues, binary trees, heaps, graphs, hashing, and dynamic programming. Architected and implemented a high-performance Parking Slot Allocation System using core data structures, applying OOP principles and asymptotic time & space complexity optimization.
+      <p class="exp-text">
+        Solved 100+ comprehensive DSA problems in C++ covering arrays, linked lists, stacks, queues, binary trees, heaps, graphs, and dynamic programming. Developed a Parking Slot Allocation System using core data structures, applying OOP principles and asymptotic time & space complexity analysis.
       </p>
-      <div class="exp-tags">
-        <span class="tag-pill">C++</span>
-        <span class="tag-pill">Data Structures</span>
-        <span class="tag-pill">Algorithms</span>
-        <span class="tag-pill">Heaps</span>
-        <span class="tag-pill">Hash Maps</span>
-        <span class="tag-pill">OOP</span>
-        <span class="tag-pill">Time Complexity</span>
-      </div>
-      <div>
-        <a href="12313015.pdf" target="_blank" class="btn-view-cert">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-          View Training Certificate
+      <div style="display:flex;gap:1.5rem;align-items:center;">
+        <a href="12313015.pdf" target="_blank" class="link-editorial-action">
+          <span>View Resume / Credentials</span>
+          <span>↗</span>
         </a>
       </div>
     </div>
+
+    <!-- Academics Grid -->
+    <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:2rem;">
+
+      <div style="border:1px solid var(--border);border-radius:var(--radius-card);background:var(--bg-card);padding:2rem;">
+        <div class="mono-label" style="color:var(--accent);margin-bottom:0.8rem;">2023 — PRESENT</div>
+        <h4 style="font-family:var(--font-serif);font-size:1.4rem;color:var(--text);margin-bottom:0.5rem;">B.Tech — CSE</h4>
+        <div style="font-size:0.9rem;color:var(--text-muted);margin-bottom:1rem;">Lovely Professional University, Punjab</div>
+        <div style="font-family:var(--font-mono);font-size:0.9rem;color:var(--accent);">CGPA: 7.32</div>
+      </div>
+
+      <div style="border:1px solid var(--border);border-radius:var(--radius-card);background:var(--bg-card);padding:2rem;">
+        <div class="mono-label" style="color:var(--accent);margin-bottom:0.8rem;">2020 — 2021</div>
+        <h4 style="font-family:var(--font-serif);font-size:1.4rem;color:var(--text);margin-bottom:0.5rem;">Intermediate — PCM</h4>
+        <div style="font-size:0.9rem;color:var(--text-muted);margin-bottom:1rem;">New Bright Moon Sr. Sec. School, Jaipur</div>
+        <div style="font-family:var(--font-mono);font-size:0.9rem;color:var(--accent);">Percentage: 94.60%</div>
+      </div>
+
+      <div style="border:1px solid var(--border);border-radius:var(--radius-card);background:var(--bg-card);padding:2rem;">
+        <div class="mono-label" style="color:var(--accent);margin-bottom:0.8rem;">2018 — 2019</div>
+        <h4 style="font-family:var(--font-serif);font-size:1.4rem;color:var(--text);margin-bottom:0.5rem;">Matriculation</h4>
+        <div style="font-size:0.9rem;color:var(--text-muted);margin-bottom:1rem;">New Bright Moon Sr. Sec. School, Jaipur</div>
+        <div style="font-family:var(--font-mono);font-size:0.9rem;color:var(--accent);">Percentage: 87.00%</div>
+      </div>
+
+    </div>
+
   </div>
 </section>
 
-<!-- ACHIEVEMENTS -->
-<section id="achievements">
-  <div class="container">
-    <div class="section-badge-wrap">
-      <span class="section-badge">Achievements</span>
-    </div>
-    <div class="achievements-grid">
-
-      <div class="achievement-box">
-        <div class="achieve-header">
-          <div class="achieve-icon-badge">🏆</div>
-          <h3 class="achieve-title">LeetCode Peak Rating: 1600</h3>
-        </div>
-        <p class="achieve-desc">
-          Reached a peak LeetCode contest rating of 1600, showcasing strong competitive programming and algorithmic problem-solving speed.
-        </p>
-      </div>
-
-      <div class="achievement-box">
-        <div class="achieve-header">
-          <div class="achieve-icon-badge">💡</div>
-          <h3 class="achieve-title">200+ Problems Solved</h3>
-        </div>
-        <p class="achieve-desc">
-          Solved 200+ algorithmic and data structure problems across LeetCode, GeeksforGeeks, and competitive programming platforms.
-        </p>
-      </div>
-
-      <div class="achievement-box">
-        <div class="achieve-header">
-          <div class="achieve-icon-badge">🎖️</div>
-          <h3 class="achieve-title">Top LeetCode Badges</h3>
-        </div>
-        <p class="achieve-desc">
-          Earned specialized platform badges recognizing daily problem-solving consistency, streak maintenance, and contest performance.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CERTIFICATIONS & COURSES -->
-<section id="certifications">
-  <div class="container">
-    <div class="section-badge-wrap">
-      <span class="section-badge">Certifications & Courses</span>
-    </div>
-    <div class="certs-grid">
-
-      <div class="cert-card-item">
-        <div class="cert-top">
-          <h4 class="cert-name">Java Programming</h4>
-          <div class="cert-actions-pill">
-            <a href="https://drive.google.com/file/d/1MYskwo1MaUDPj3mvYpFykFp0usZ3ZhXt/view?usp=drive_link" target="_blank" class="cert-view-btn">View</a>
-            <span class="cert-date-tag">May 2025</span>
-          </div>
-        </div>
-        <div class="cert-issuer-text">iamneo</div>
-      </div>
-
-      <div class="cert-card-item">
-        <div class="cert-top">
-          <h4 class="cert-name">Cloud Computing</h4>
-          <div class="cert-actions-pill">
-            <a href="https://drive.google.com/file/d/124muKRV7zJVth1ez3RSBEcL3hxPhJlBd/view?usp=drive_link" target="_blank" class="cert-view-btn">View</a>
-            <span class="cert-date-tag">Apr 2025</span>
-          </div>
-        </div>
-        <div class="cert-issuer-text">NPTEL · IIT Kharagpur</div>
-      </div>
-
-      <div class="cert-card-item">
-        <div class="cert-top">
-          <h4 class="cert-name">Data Structure & Algorithm</h4>
-          <div class="cert-actions-pill">
-            <span class="cert-date-tag">Dec 2024</span>
-          </div>
-        </div>
-        <div class="cert-issuer-text">iamneo</div>
-      </div>
-
-      <div class="cert-card-item">
-        <div class="cert-top">
-          <h4 class="cert-name">Object Oriented Programming</h4>
-          <div class="cert-actions-pill">
-            <span class="cert-date-tag">Dec 2024</span>
-          </div>
-        </div>
-        <div class="cert-issuer-text">iamneo</div>
-      </div>
-
-      <div class="cert-card-item">
-        <div class="cert-top">
-          <h4 class="cert-name">Python for Data Science</h4>
-          <div class="cert-actions-pill">
-            <a href="https://drive.google.com/file/d/1wYUmEFLkWwBCazN-rTn6B8Y70QqPBSWh/view?usp=drive_link" target="_blank" class="cert-view-btn">View</a>
-            <span class="cert-date-tag">Verified</span>
-          </div>
-        </div>
-        <div class="cert-issuer-text">Board Infinity</div>
-      </div>
-
-      <div class="cert-card-item">
-        <div class="cert-top">
-          <h4 class="cert-name">Basics of DSA – C++</h4>
-          <div class="cert-actions-pill">
-            <a href="12313015.pdf" target="_blank" class="cert-view-btn">View</a>
-            <span class="cert-date-tag">Jul 2025</span>
-          </div>
-        </div>
-        <div class="cert-issuer-text">Lovely Professional University</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-  <div class="container">
-    <div class="section-badge-wrap">
-      <span class="section-badge">Education</span>
-    </div>
-    <div class="edu-grid">
-
-      <div class="edu-card">
-        <span class="edu-period-badge">AUG 2023 — PRESENT</span>
-        <h3 class="edu-degree-title">B.Tech — Computer Science & Engineering</h3>
-        <div class="edu-inst-text">Lovely Professional University, Punjab, India</div>
-        <div class="edu-score-highlight">CGPA: 7.32</div>
-      </div>
-
-      <div class="edu-card">
-        <span class="edu-period-badge">JUN 2020 — MAY 2021</span>
-        <h3 class="edu-degree-title">Senior Secondary (Intermediate) — PCM</h3>
-        <div class="edu-inst-text">New Bright Moon Sr. Sec. School, Jaipur, Rajasthan</div>
-        <div class="edu-score-highlight">Percentage: 94.60%</div>
-      </div>
-
-      <div class="edu-card">
-        <span class="edu-period-badge">JUN 2018 — MAY 2019</span>
-        <h3 class="edu-degree-title">Secondary Education (Matriculation)</h3>
-        <div class="edu-inst-text">New Bright Moon Sr. Sec. School, Jaipur, Rajasthan</div>
-        <div class="edu-score-highlight">Percentage: 87.00%</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CV & RESUME -->
-<section id="resume">
-  <div class="container">
-    <div class="section-badge-wrap">
-      <span class="section-badge">CV & Resume</span>
-    </div>
-    <div class="resume-center-card">
-      <div class="resume-icon-wrap">
-        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-      </div>
-      <h3 class="resume-card-title">Download My Resume</h3>
-      <p class="resume-card-desc">
-        Interested in working together? Download my updated resume to see my detailed technical experience, projects, education, and credentials.
-      </p>
-      <div class="resume-btn-group">
-        <a href="12313015.pdf" download="Ankit_Yadav_Resume.pdf" class="btn-primary-green">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-          Download CV
-        </a>
-        <a href="12313015.pdf" target="_blank" class="btn-secondary-outline">
-          Preview
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GET IN TOUCH -->
+<!-- ===================== CONTACT SECTION ===================== -->
 <section id="contact">
   <div class="container">
-    <div class="section-badge-wrap">
-      <span class="section-badge">Get In Touch</span>
+
+    <div class="section-header-bar">
+      <div class="mono-label">
+        <span class="orange-sq">■</span>05 / INQUIRY & CONNECTION
+      </div>
+      <div class="mono-label">ALWAYS OPEN FOR IMPACT</div>
     </div>
-    <div class="contact-wrap">
-      <p class="contact-subtitle">
-        I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
-      </p>
-      <div class="contact-form-box">
-        <div class="form-row">
-          <div class="form-field">
-            <label class="form-label" for="c-name">Name</label>
-            <input type="text" class="form-input" id="c-name" placeholder="Your Name" autocomplete="off">
+    <div class="section-divider-line"></div>
+
+    <div class="contact-split-editorial">
+
+      <div class="contact-left">
+        <h2>Let's build something enduring.</h2>
+        <p>
+          I am actively seeking software engineering internships and junior full-stack / backend developer roles for 2026. Whether you have an engineering challenge, an open opportunity, or just want to connect — reach out directly.
+        </p>
+
+        <div class="contact-direct-links">
+          <div class="contact-direct-item">
+            <span class="contact-item-tag">EMAIL</span>
+            <a href="mailto:ankityadav11005@gmail.com" class="contact-item-val">ankityadav11005@gmail.com</a>
           </div>
-          <div class="form-field">
-            <label class="form-label" for="c-email">Email</label>
-            <input type="email" class="form-input" id="c-email" placeholder="your@email.com" autocomplete="off">
+          <div class="contact-direct-item">
+            <span class="contact-item-tag">PHONE</span>
+            <a href="tel:+919785545041" class="contact-item-val">+91-9785545041</a>
+          </div>
+          <div class="contact-direct-item">
+            <span class="contact-item-tag">LINKEDIN</span>
+            <a href="https://linkedin.com/in/AnkitYadav" target="_blank" class="contact-item-val">linkedin.com/in/AnkitYadav</a>
+          </div>
+          <div class="contact-direct-item">
+            <span class="contact-item-tag">LOCATION</span>
+            <span class="contact-item-val">Jaipur, Rajasthan, India</span>
           </div>
         </div>
-        <div class="form-field">
-          <label class="form-label" for="c-msg">Message</label>
-          <textarea class="form-textarea" id="c-msg" placeholder="Your message here..."></textarea>
+
+        <div style="margin-top:2.5rem;">
+          <a href="12313015.pdf" download="Ankit_Yadav_Resume.pdf" class="btn-pill-dark">
+            <span>Download Resume (PDF)</span>
+            <span>↓</span>
+          </a>
         </div>
-        <button class="btn-submit-green" onclick="handleContactSubmit()">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-          Send Message
+      </div>
+
+      <!-- Minimal Form -->
+      <div class="contact-form-minimal">
+        <div class="form-line-group">
+          <label class="form-line-label" for="inp-name">Your Name</label>
+          <input type="text" id="inp-name" class="form-line-input" placeholder="e.g. Alex Mercer" autocomplete="off">
+        </div>
+        <div class="form-line-group">
+          <label class="form-line-label" for="inp-email">Your Email</label>
+          <input type="email" id="inp-email" class="form-line-input" placeholder="alex@company.com" autocomplete="off">
+        </div>
+        <div class="form-line-group">
+          <label class="form-line-label" for="inp-msg">Your Message</label>
+          <textarea id="inp-msg" class="form-line-textarea" placeholder="Tell me about the role, project, or vision..."></textarea>
+        </div>
+        <button class="btn-submit-editorial" onclick="handleEditorialSubmit()">
+          <span>Send Inquiry</span>
+          <span>↗</span>
         </button>
       </div>
 
-      <div class="contact-info-pills">
-        <a href="mailto:ankityadav11005@gmail.com" class="contact-pill-item">
-          📧 ankityadav11005@gmail.com
-        </a>
-        <a href="tel:+919785545041" class="contact-pill-item">
-          📱 +91-9785545041
-        </a>
-        <span class="contact-pill-item">
-          📍 Jaipur, Rajasthan, India
-        </span>
-      </div>
     </div>
+
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ===================== FOOTER ===================== -->
 <footer>
-  <div class="container footer-inner">
+  <div class="container footer-row">
     <div class="footer-copy">
-      © 2026 Ankit Yadav. Built with clean engineering precision.
+      © 2026 ANKIT YADAV · BUILT WITH EDITORIAL INTENT
     </div>
-    <div class="footer-links">
-      <a href="https://github.com/ankityadav281" target="_blank">GitHub</a>
-      <a href="https://github.com/ankityadav281/portfolio" target="_blank">Portfolio Repo</a>
-      <a href="https://linkedin.com/in/AnkitYadav" target="_blank">LinkedIn</a>
-      <a href="mailto:ankityadav11005@gmail.com">Email</a>
-      <a href="12313015.pdf" download="Ankit_Yadav_Resume.pdf">Resume</a>
+    <div class="footer-links-group">
+      <a href="https://github.com/ankityadav281" target="_blank" class="footer-link">GITHUB</a>
+      <a href="https://github.com/ankityadav281/portfolio" target="_blank" class="footer-link">REPO</a>
+      <a href="https://linkedin.com/in/AnkitYadav" target="_blank" class="footer-link">LINKEDIN</a>
+      <a href="mailto:ankityadav11005@gmail.com" class="footer-link">EMAIL</a>
+      <a href="12313015.pdf" download class="footer-link">RESUME</a>
     </div>
   </div>
 </footer>
 
-<!-- ===================== PROJECT DETAIL MODALS ===================== -->
+<!-- ===================== PROJECT SPECIFICATION MODALS ===================== -->
 
 <!-- Modal 1: Paramarsh -->
 <div class="modal-overlay" id="modal-paramarsh">
   <div class="modal-box">
     <button class="modal-close-btn" onclick="closeModal('modal-paramarsh')">✕</button>
-    <span class="modal-badge">Full Stack · AI Healthcare</span>
+    <div class="modal-tag">01 / HEALTHCARE ARCHITECTURE</div>
     <h2 class="modal-title">Paramarsh – AI Medical Consultation Platform</h2>
     <div class="modal-stack">React 19 · Node.js · Express 5 · MySQL 8+ · xAI Grok API · BroadcastChannel · JWT</div>
     <p class="modal-desc">
-      Paramarsh is a full-stack digital healthcare and consultation web application designed to connect patients with verified medical specialists, featuring intelligent AI triage and low-latency consultation rooms.
+      A digital healthcare consultation web platform connecting patients with verified medical specialists. Delivers an AI-guided clinical triage system alongside low-latency, real-time doctor–patient consultation rooms.
     </p>
-    <h4 class="modal-features-title">Key Architecture & Capabilities</h4>
+    <h4 class="modal-features-title">Technical Specifications & Decisions</h4>
     <ul class="modal-features-list">
-      <li><strong>AI Health Assistant:</strong> Powered by xAI Grok API for clinical inquiry guidance with a local rule engine fallback across 2 inference paths for maximum reliability.</li>
-      <li><strong>Doctor Discovery & Directory:</strong> Filter verified specialists by medical field, experience, consultation fee, and real-time availability.</li>
-      <li><strong>Live Cross-Tab Consultation:</strong> Synchronized two-way messaging using native browser BroadcastChannel and StorageEvent APIs without heavyweight websocket dependencies.</li>
-      <li><strong>Resilient MySQL Data Layer:</strong> Built on MySQL 8+ using mysql2 connection pooling with an automated in-memory failover layer ensuring 100% uptime during database reconnects.</li>
-      <li><strong>Role-Based Access Control:</strong> Dual authentication flows for Patients and Doctors with salted bcryptjs password hashing and stateless JWT tokens.</li>
+      <li>Integrated with xAI Grok API for clinical symptom guidance, featuring an intelligent rule-based local fallback across 2 inference paths for maximum offline/disconnect reliability.</li>
+      <li>Doctor specialty discovery with multi-parameter filtering by medical domain, experience, consultation fee, and live availability status.</li>
+      <li>Cross-tab real-time consultation synchronization leveraging native browser BroadcastChannel and StorageEvent APIs without external websocket overhead.</li>
+      <li>Resilient MySQL 8+ data layer using mysql2 connection pooling and an automatic in-memory failover cache ensuring 100% uptime during database disconnects.</li>
+      <li>Role-based access control with salted bcryptjs password hashing and stateless JWT session handling for Patients and Doctors.</li>
     </ul>
     <div class="modal-footer">
-      <a href="https://github.com/ankityadav281/Paramarsh" target="_blank" class="btn-primary-green">View on GitHub ↗</a>
-      <button class="btn-secondary-outline" onclick="closeModal('modal-paramarsh')">Close</button>
+      <a href="https://github.com/ankityadav281/Paramarsh" target="_blank" class="btn-pill-dark">View Repository ↗</a>
+      <button class="btn-specs-open" onclick="closeModal('modal-paramarsh')">Close</button>
     </div>
   </div>
 </div>
@@ -1683,23 +1746,23 @@ footer {
 <div class="modal-overlay" id="modal-campuscart">
   <div class="modal-box">
     <button class="modal-close-btn" onclick="closeModal('modal-campuscart')">✕</button>
-    <span class="modal-badge">Multi-Vendor E-Commerce</span>
-    <h2 class="modal-title">CampusCart – University Marketplace</h2>
+    <div class="modal-tag">02 / E-COMMERCE & TRANSACTIONS</div>
+    <h2 class="modal-title">CampusCart – University Multi-Vendor Marketplace</h2>
     <div class="modal-stack">React 18 · Vite · Tailwind CSS v4 · Django 6.1 · Django REST Framework · SQLite3</div>
     <p class="modal-desc">
-      Production-ready multi-vendor university marketplace web application designed for campus stores, faculty, students, and hostelers to eliminate break-time counter queues.
+      Production-grade multi-vendor university marketplace web application designed for campus stores, faculty, students, and hostelers to eliminate break-time counter queues.
     </p>
-    <h4 class="modal-features-title">Key Architecture & Capabilities</h4>
+    <h4 class="modal-features-title">Technical Specifications & Decisions</h4>
     <ul class="modal-features-list">
-      <li><strong>Atomic Multi-Order Checkout:</strong> Multi-vendor cart checkout executing within atomic database transactions (transaction.atomic() + select_for_update()) generating 1 Parent OrderGroup and N independent Vendor Orders with strict inventory locking.</li>
-      <li><strong>Scheduled Pickup Slot Reservation:</strong> Scheduled recess break pickup slots (e.g. 10:00 AM – 10:15 AM) eliminating rush-hour canteen queues.</li>
-      <li><strong>Merchant Onboarding & Auto-Handle Derivation:</strong> Vendor portal with real-time lowercase username handle derivation (e.g., "Campus Bakery" ➔ campusbakery) and sanitization.</li>
-      <li><strong>Shop Owner Dashboard:</strong> Multi-tenant shopkeeper dashboard with live KPIs, inventory thresholds with 1-click restock, and a 5-stage fulfillment state machine.</li>
-      <li><strong>Admin Governance:</strong> Campus-wide oversight, store verification queues, and 55+ campus product category sub-types.</li>
+      <li>Atomic multi-vendor cart checkout executing within atomic database transactions (transaction.atomic + select_for_update) generating 1 Parent OrderGroup and N independent Vendor Orders with strict inventory locking.</li>
+      <li>Scheduled recess break pickup slot reservation (e.g. 10:00 AM – 10:15 AM) eliminating rush-hour canteen queues between lectures.</li>
+      <li>Merchant onboarding with real-time lowercase username handle derivation (e.g., "Campus Bakery" ➔ campusbakery) and strict input sanitization.</li>
+      <li>Multi-tenant shopkeeper dashboard with live KPIs, inventory thresholds with 1-click restock, and a 5-stage fulfillment state machine.</li>
+      <li>Automated test suite covering JWT authentication, atomic cart splitting, inventory deduction, and cancellation stock restoration.</li>
     </ul>
     <div class="modal-footer">
-      <a href="https://github.com/ankityadav281/CampusCart" target="_blank" class="btn-primary-green">View on GitHub ↗</a>
-      <button class="btn-secondary-outline" onclick="closeModal('modal-campuscart')">Close</button>
+      <a href="https://github.com/ankityadav281/CampusCart" target="_blank" class="btn-pill-dark">View Repository ↗</a>
+      <button class="btn-specs-open" onclick="closeModal('modal-campuscart')">Close</button>
     </div>
   </div>
 </div>
@@ -1708,23 +1771,23 @@ footer {
 <div class="modal-overlay" id="modal-mineimpact">
   <div class="modal-box">
     <button class="modal-close-btn" onclick="closeModal('modal-mineimpact')">✕</button>
-    <span class="modal-badge">Industrial Sustainability & MERN</span>
+    <div class="modal-tag">03 / SUSTAINABILITY & LCA</div>
     <h2 class="modal-title">MineImpact – Mining LCA & Intelligence Platform</h2>
     <div class="modal-stack">React 18 · Vite · Node.js · Express · MongoDB · Mongoose · jsPDF · html2canvas</div>
     <p class="modal-desc">
-      Comprehensive industrial Life Cycle Assessment (LCA) and environmental sustainability intelligence platform engineered specifically for the mining and mineral extraction industries.
+      Industrial Life Cycle Assessment (LCA) and environmental sustainability intelligence platform engineered specifically for the mining and mineral extraction industries.
     </p>
-    <h4 class="modal-features-title">Key Architecture & Capabilities</h4>
+    <h4 class="modal-features-title">Technical Specifications & Decisions</h4>
     <ul class="modal-features-list">
-      <li><strong>ISO 14044 / IPCC-Aligned Calculation Engine:</strong> Quantifies Global Warming Potential (GWP in kg CO2e), Acidification, Eutrophication, Water Depletion, and Land Transformation.</li>
-      <li><strong>Cradle-to-Gate Scope:</strong> Comprehensive lifecycle boundary modeling covering Extraction, Processing & Beneficiation, Smelting & Refining, and Logistics.</li>
-      <li><strong>Interactive Mineral Presets:</strong> Configurable ore grades, clean energy shares, transport modes, and water recycling ratios for Copper, Iron Ore, Gold, Lithium, and Bauxite.</li>
-      <li><strong>Baseline vs. Green Comparative Modeling:</strong> Executive dashboard highlighting carbon savings and environmental hotspot mitigation.</li>
-      <li><strong>Automated PDF Compliance Reports:</strong> Export high-resolution, audit-ready sustainability reports with embedded data tables and charts using jsPDF and html2canvas.</li>
+      <li>ISO 14044 / IPCC-aligned calculation engine quantifying Global Warming Potential (GWP in kg CO2e), Acidification, Eutrophication, Water Depletion, and Land Transformation.</li>
+      <li>Cradle-to-gate scope modeling: Extraction, Processing & Beneficiation, Smelting & Refining, and Logistics.</li>
+      <li>Interactive mineral presets with configurable ore grades, clean energy shares, transport modes, and water recycling ratios for Copper, Iron Ore, Gold, Lithium, and Bauxite.</li>
+      <li>Baseline vs. Green comparative modeling highlighting projected carbon savings and environmental hotspot mitigation.</li>
+      <li>Executive PDF compliance reports export with embedded data tables and charts using jsPDF and html2canvas.</li>
     </ul>
     <div class="modal-footer">
-      <a href="https://github.com/ankityadav281/MineImpact" target="_blank" class="btn-primary-green">View on GitHub ↗</a>
-      <button class="btn-secondary-outline" onclick="closeModal('modal-mineimpact')">Close</button>
+      <a href="https://github.com/ankityadav281/MineImpact" target="_blank" class="btn-pill-dark">View Repository ↗</a>
+      <button class="btn-specs-open" onclick="closeModal('modal-mineimpact')">Close</button>
     </div>
   </div>
 </div>
@@ -1733,23 +1796,23 @@ footer {
 <div class="modal-overlay" id="modal-aasha">
   <div class="modal-box">
     <button class="modal-close-btn" onclick="closeModal('modal-aasha')">✕</button>
-    <span class="modal-badge">Android · Jetpack Compose</span>
+    <div class="modal-tag">04 / MOBILE & RESILIENCE</div>
     <h2 class="modal-title">Aasha – Empowering Community Health Workers (ASHA)</h2>
     <div class="modal-stack">Kotlin · Jetpack Compose · Room SQLite · Firebase · WorkManager · Hilt · StateFlow</div>
     <p class="modal-desc">
-      Specialized Android application built for Accredited Social Health Activists (ASHA) in rural India, engineered for high reliability in low-connectivity rural environments.
+      Specialized Android application built for Accredited Social Health Activists (ASHA) in rural India, engineered for extreme reliability in low-connectivity rural environments.
     </p>
-    <h4 class="modal-features-title">Key Architecture & Capabilities</h4>
+    <h4 class="modal-features-title">Technical Specifications & Decisions</h4>
     <ul class="modal-features-list">
-      <li><strong>Offline-First Architecture:</strong> Room (SQLite) database with reactive Kotlin StateFlow serves as the single source of truth, synchronizing with Firebase Firestore when connectivity is restored.</li>
-      <li><strong>Patient Lifecycle & Deduplication:</strong> Smart registration with fuzzy duplicate detection preventing redundant records, home visit logs, and vaccination booster dose tracking.</li>
-      <li><strong>Dual-Layer Security:</strong> Cloud authentication via Firebase Auth paired with an encrypted 4-digit hardware MPIN for rapid field unlocking without internet.</li>
-      <li><strong>Automated Background Reminders:</strong> Android WorkManager schedules background workers triggering notifications for immunization and prenatal checkups.</li>
-      <li><strong>Multilingual UI:</strong> Fully localized in Hindi, Bengali, and Marathi with cultural terminology tailored for field health workers.</li>
+      <li>Offline-first architecture with Room (SQLite) database and reactive Kotlin StateFlow as the single source of truth, synchronizing with Firebase Firestore when network connectivity is established.</li>
+      <li>Patient lifecycle onboarding with fuzzy duplicate detection preventing redundant records, home visit logs, and vaccination booster dose tracking.</li>
+      <li>Dual-layer security with Firebase Auth paired with a hardware-encrypted 4-digit MPIN for rapid field unlocking without internet access.</li>
+      <li>Proactive health monitoring with Android WorkManager background workers triggering automated local notifications for upcoming vaccinations.</li>
+      <li>Multilingual localization in Hindi, Bengali, and Marathi with cultural terminology tailored for field health workers.</li>
     </ul>
     <div class="modal-footer">
-      <a href="https://github.com/yosobanta/Aasha" target="_blank" class="btn-primary-green">View on GitHub ↗</a>
-      <button class="btn-secondary-outline" onclick="closeModal('modal-aasha')">Close</button>
+      <a href="https://github.com/yosobanta/Aasha" target="_blank" class="btn-pill-dark">View Repository ↗</a>
+      <button class="btn-specs-open" onclick="closeModal('modal-aasha')">Close</button>
     </div>
   </div>
 </div>
@@ -1758,23 +1821,23 @@ footer {
 <div class="modal-overlay" id="modal-sms">
   <div class="modal-box">
     <button class="modal-close-btn" onclick="closeModal('modal-sms')">✕</button>
-    <span class="modal-badge">Academic SIS & ERP</span>
+    <div class="modal-tag">05 / INSTITUTIONAL SYSTEMS</div>
     <h2 class="modal-title">Student Management System (SMS)</h2>
     <div class="modal-stack">Python · Django · Node.js · Relational Database · JWT · Role-Based Access Control</div>
     <p class="modal-desc">
       Full-featured academic institutional management platform handling student personal profiles, semester course enrollments, attendance tracking, and grading ledgers.
     </p>
-    <h4 class="modal-features-title">Key Architecture & Capabilities</h4>
+    <h4 class="modal-features-title">Technical Specifications & Decisions</h4>
     <ul class="modal-features-list">
-      <li><strong>Tri-Role Governance:</strong> Distinct role-based portals with explicit permission guards for Administrators, Faculty/Teachers, and Students.</li>
-      <li><strong>Student Information System (SIS):</strong> Complete student record lifecycle management, academic archiving, and personal profile verification.</li>
-      <li><strong>Department & Subject Allocations:</strong> Dynamic department hierarchies, course assignments, and class enrollment rosters.</li>
-      <li><strong>Daily Attendance Analytics:</strong> Automated daily attendance percentage calculation, low-attendance warnings, and exportable monthly summaries.</li>
-      <li><strong>Automated GPA & Grade Sheets:</strong> Automated exam mark tallies, GPA calculation engine, and term fee invoice management.</li>
+      <li>Distinct role-based portals with explicit permission guards for Administrators, Faculty/Teachers, and Students.</li>
+      <li>Student Information System (SIS) managing personal profile records, historical academic archives, and document verification.</li>
+      <li>Department and subject hierarchies, teacher allocations, and dynamic class enrollment rosters.</li>
+      <li>Automated daily attendance percentage calculation, threshold warnings, and exportable monthly summaries.</li>
+      <li>Automated exam mark tallies, GPA calculation engine, and term fee invoice management.</li>
     </ul>
     <div class="modal-footer">
-      <a href="https://github.com/ankityadav281/Student-Management-System" target="_blank" class="btn-primary-green">View on GitHub ↗</a>
-      <button class="btn-secondary-outline" onclick="closeModal('modal-sms')">Close</button>
+      <a href="https://github.com/ankityadav281/Student-Management-System" target="_blank" class="btn-pill-dark">View Repository ↗</a>
+      <button class="btn-specs-open" onclick="closeModal('modal-sms')">Close</button>
     </div>
   </div>
 </div>
@@ -1783,53 +1846,40 @@ footer {
 <div class="modal-overlay" id="modal-parking">
   <div class="modal-box">
     <button class="modal-close-btn" onclick="closeModal('modal-parking')">✕</button>
-    <span class="modal-badge">Systems & Algorithms</span>
+    <div class="modal-tag">06 / ALGORITHMIC OPTIMIZATION</div>
     <h2 class="modal-title">Parking Slot Allocation System</h2>
     <div class="modal-stack">C++ · Standard Template Library (STL) · Heaps · Priority Queues · Hash Maps · OOP</div>
     <p class="modal-desc">
       High-efficiency parking facility management system engineered in C++ leveraging advanced data structures and algorithms to maximize space allocation speed and routing.
     </p>
-    <h4 class="modal-features-title">Key Architecture & Capabilities</h4>
+    <h4 class="modal-features-title">Technical Specifications & Decisions</h4>
     <ul class="modal-features-list">
-      <li><strong>Heap-Based Slot Allocation:</strong> Implements min-heaps / priority queues to allocate nearest available slots in O(log n) time complexity.</li>
-      <li><strong>O(1) Fast Vehicle Lookup:</strong> Hash maps for instantaneous vehicle lookup, parking duration calculations, and departure processing.</li>
-      <li><strong>Dynamic Reallocation:</strong> Automatic vacancy detection and rebalancing when vehicles exit the garage.</li>
-      <li><strong>Multi-Level Floor Awareness:</strong> Floor-aware routing algorithms minimizing transit distance within multi-story garages.</li>
-      <li><strong>Clean OOP Architecture:</strong> Adheres to SOLID principles, separation of concerns, and rigorous asymptotic complexity analysis.</li>
+      <li>Implements min-heaps / priority queues to allocate nearest available slots in O(log n) time complexity.</li>
+      <li>Hash maps for instantaneous O(1) vehicle lookup, parking duration calculations, and departure processing.</li>
+      <li>Dynamic reallocation with automatic vacancy detection and rebalancing when vehicles depart.</li>
+      <li>Multi-level floor-aware routing algorithms minimizing transit distance within multi-story garages.</li>
+      <li>Adheres to SOLID principles, clean OOP architecture, and asymptotic complexity analysis.</li>
     </ul>
     <div class="modal-footer">
-      <a href="https://github.com/ankityadav281/parking-slot-allocation" target="_blank" class="btn-primary-green">View on GitHub ↗</a>
-      <button class="btn-secondary-outline" onclick="closeModal('modal-parking')">Close</button>
+      <a href="https://github.com/ankityadav281/parking-slot-allocation" target="_blank" class="btn-pill-dark">View Repository ↗</a>
+      <button class="btn-specs-open" onclick="closeModal('modal-parking')">Close</button>
     </div>
   </div>
 </div>
 
-<!-- JAVASCRIPT LOGIC -->
+<!-- ===================== JAVASCRIPT LOGIC ===================== -->
 <script>
-// THEME TOGGLE (Default: Light Mode matching reference)
-const themeBtn = document.getElementById('theme-toggle');
-let currentTheme = localStorage.getItem('portfolio-theme') || 'light';
-document.documentElement.dataset.theme = currentTheme;
-themeBtn.textContent = currentTheme === 'light' ? '🌙' : '☀️';
-
-themeBtn.addEventListener('click', () => {
-  currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-  document.documentElement.dataset.theme = currentTheme;
-  localStorage.setItem('portfolio-theme', currentTheme);
-  themeBtn.textContent = currentTheme === 'light' ? '🌙' : '☀️';
+// Mobile Drawer Controller
+const hamburgerBtn = document.getElementById('hamburger-btn');
+const mobileDrawer = document.getElementById('mobile-drawer');
+hamburgerBtn.addEventListener('click', () => {
+  mobileDrawer.classList.toggle('open');
 });
-
-// MOBILE MENU
-const hamburger = document.getElementById('hamburger');
-const mobileNav = document.getElementById('mobile-nav');
-hamburger.addEventListener('click', () => {
-  mobileNav.classList.toggle('open');
-});
-function closeMobileNav() {
-  mobileNav.classList.remove('open');
+function closeDrawer() {
+  mobileDrawer.classList.remove('open');
 }
 
-// MODALS
+// Modal Controllers
 function openModal(id) {
   const modal = document.getElementById(id);
   if (modal) {
@@ -1855,25 +1905,84 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-// CONTACT FORM
-function handleContactSubmit() {
-  const name = document.getElementById('c-name').value.trim();
-  const email = document.getElementById('c-email').value.trim();
-  const msg = document.getElementById('c-msg').value.trim();
+// Minimal Contact Submission
+function handleEditorialSubmit() {
+  const name = document.getElementById('inp-name').value.trim();
+  const email = document.getElementById('inp-email').value.trim();
+  const msg = document.getElementById('inp-msg').value.trim();
 
   if (!name || !email || !msg) {
-    alert('Please fill out all fields (Name, Email, Message)!');
+    alert('Please enter your name, email, and message.');
     return;
   }
 
-  const mailtoUrl = `mailto:ankityadav11005@gmail.com?subject=${encodeURIComponent('Portfolio Contact from ' + name)}&body=${encodeURIComponent('From: ' + name + ' (' + email + ')\n\n' + msg)}`;
+  const mailtoUrl = `mailto:ankityadav11005@gmail.com?subject=${encodeURIComponent('Inquiry from ' + name)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + msg)}`;
   window.open(mailtoUrl, '_blank');
 
-  alert('Thank you! Opening your email client to send the message.');
-  document.getElementById('c-name').value = '';
-  document.getElementById('c-email').value = '';
-  document.getElementById('c-msg').value = '';
+  document.getElementById('inp-name').value = '';
+  document.getElementById('inp-email').value = '';
+  document.getElementById('inp-msg').value = '';
 }
+
+// ===================== DOTTED PARTICLE-WAVE CANVAS =====================
+// Draws the exact 3D perspective dotted wave visual from Screenshot 2
+(function initParticleWave() {
+  const canvas = document.getElementById('particle-wave-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let width, height;
+
+  function resize() {
+    const rect = canvas.getBoundingClientRect();
+    width = canvas.width = rect.width * (window.devicePixelRatio || 1);
+    height = canvas.height = rect.height * (window.devicePixelRatio || 1);
+    ctx.scale(window.devicePixelRatio || 1, window.devicePixelRatio || 1);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const rows = 38;
+  const cols = 48;
+  let time = 0;
+
+  function draw() {
+    const dispW = canvas.getBoundingClientRect().width;
+    const dispH = canvas.getBoundingClientRect().height;
+    ctx.clearRect(0, 0, dispW, dispH);
+
+    const centerX = dispW * 0.48;
+    const centerY = dispH * 0.52;
+
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        // Normalize coordinates
+        const xNorm = (c - cols / 2) / (cols / 2);
+        const zNorm = r / rows;
+
+        // Wave elevation with sine harmonics
+        const dist = Math.sqrt(xNorm * xNorm + (zNorm - 0.5) * (zNorm - 0.5));
+        const wave = Math.sin(xNorm * 4 + zNorm * 6 + time) * Math.cos(dist * 3 - time * 0.5);
+
+        // Perspective 3D projection
+        const depth = 0.45 + zNorm * 0.75;
+        const projX = centerX + (xNorm * dispW * 0.42) / depth;
+        const projY = centerY + ((zNorm - 0.5) * dispH * 0.6 + wave * 28) / depth;
+
+        // Alpha and size based on depth and position
+        const alpha = Math.max(0.08, Math.min(0.65, (1 - zNorm) * 0.75 + wave * 0.15));
+        const radius = Math.max(0.6, (1.8 / depth) * 0.85);
+
+        ctx.beginPath();
+        ctx.arc(projX, projY, radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(241, 238, 232, ${alpha})`;
+        ctx.fill();
+      }
+    }
+    time += 0.008;
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
 </script>
 </body>
 </html>
