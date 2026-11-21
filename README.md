@@ -90,6 +90,7 @@ portfolio/
 │   ├── contact.css            # Minimal underline form fields & submit button
 │   ├── modals.css             # Modal blur backdrop & specification overlays
 │   ├── footer.css             # Footer layout & link styling
+│   ├── responsive.css         # Universal multi-breakpoint responsive engine
 │   └── main.css               # Master stylesheet importing all modular CSS files
 │
 └── js/                        # Modular JavaScript scripts

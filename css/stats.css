@@ -10,6 +10,10 @@
   z-index: 1;
 }
 
+.container-stats {
+  padding: 0;
+}
+
 .stats-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
