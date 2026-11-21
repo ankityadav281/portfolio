@@ -1,1486 +1,928 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ankit Yadav — Full Stack & Software Engineer</title>
-<meta name="description" content="Portfolio of Ankit Yadav — Full Stack Developer, DSA & Systems Enthusiast, B.Tech CSE at Lovely Professional University. Experienced in MERN, Django, Android (Jetpack Compose), and C++.">
+<title>Ankit Yadav — Software Engineer & Full Stack Developer</title>
+<meta name="description" content="Portfolio of Ankit Yadav — Full-Stack Developer & Software Engineer at Lovely Professional University (CGPA 7.32). Experienced in MERN, Django REST, Android (Jetpack Compose), and C++ DSA.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&family=Oxanium:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ===================== CSS VARIABLES & DESIGN TOKENS ===================== */
+/* ===================== DESIGN TOKENS & VARIABLES ===================== */
 :root {
-  --bg: #030712;
-  --bg2: #070e1e;
-  --bg-card: rgba(11, 24, 48, 0.72);
-  --surface: rgba(10, 25, 47, 0.75);
-  --surface2: rgba(7, 18, 36, 0.94);
-  --neon: #00f0ff;
-  --neon-glow: rgba(0, 240, 255, 0.35);
-  --neon2: #818cf8;
-  --neon2-glow: rgba(129, 140, 248, 0.35);
-  --neon3: #f43f5e;
-  --gold: #fbbf24;
-  --emerald: #10b981;
-  --emerald-glow: rgba(16, 185, 129, 0.3);
-  --text: #e2e8f0;
-  --text2: #94a3b8;
-  --text-muted: #64748b;
-  --border: rgba(0, 240, 255, 0.16);
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --glow: 0 0 25px rgba(0, 240, 255, 0.35);
-  --glow2: 0 0 35px rgba(129, 140, 248, 0.35);
-  --font-mono: 'Share Tech Mono', 'JetBrains Mono', monospace;
-  --font-head: 'Oxanium', sans-serif;
-  --font-body: 'Rajdhani', sans-serif;
-  --transition: cubic-bezier(0.23, 1, 0.32, 1);
-  --card-radius: 12px;
+  --primary: #10b981;
+  --primary-hover: #059669;
+  --primary-light: rgba(16, 185, 129, 0.08);
+  --primary-border: rgba(16, 185, 129, 0.35);
+  
+  --bg: #ffffff;
+  --bg-subtle: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-input: #ffffff;
+  
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --text-subtle: #64748b;
+  
+  --border-color: #e2e8f0;
+  --border-hover: #cbd5e1;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+  --card-hover-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --radius-pill: 30px;
+  --radius-card: 16px;
+  --radius-btn: 8px;
 }
 
-[data-theme="light"] {
-  --bg: #f8fafc;
-  --bg2: #f1f5f9;
-  --bg-card: rgba(255, 255, 255, 0.9);
-  --surface: rgba(255, 255, 255, 0.85);
-  --surface2: rgba(248, 250, 252, 0.98);
-  --neon: #0284c7;
-  --neon-glow: rgba(2, 132, 199, 0.25);
-  --neon2: #6366f1;
-  --neon2-glow: rgba(99, 102, 241, 0.25);
-  --neon3: #e11d48;
-  --gold: #d97706;
-  --emerald: #059669;
-  --emerald-glow: rgba(5, 150, 105, 0.2);
-  --text: #0f172a;
-  --text2: #475569;
-  --text-muted: #64748b;
-  --border: rgba(2, 132, 199, 0.22);
-  --border-subtle: rgba(0, 0, 0, 0.08);
-  --glow: 0 0 20px rgba(2, 132, 199, 0.2);
-  --glow2: 0 0 25px rgba(99, 102, 241, 0.2);
+[data-theme="dark"] {
+  --bg: #090d16;
+  --bg-subtle: #0f172a;
+  --bg-card: #131d31;
+  --bg-input: #1a263e;
+  
+  --text-main: #f8fafc;
+  --text-muted: #cbd5e1;
+  --text-subtle: #94a3b8;
+  
+  --border-color: #1e293b;
+  --border-hover: #334155;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --card-hover-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.5);
 }
 
 /* ===================== RESET & BASE ===================== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: var(--font-body);
-  background: var(--bg);
-  color: var(--text);
-  overflow-x: hidden;
-  cursor: none;
+  font-family: var(--font-sans);
+  background-color: var(--bg);
+  color: var(--text-main);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
 img { max-width: 100%; display: block; }
 
-/* Custom Selection */
-::selection { background: var(--neon); color: #030712; }
-
-/* ===================== SCROLLBAR ===================== */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(var(--neon), var(--neon2));
-  border-radius: 3px;
-}
-
-/* ===================== CUSTOM CURSOR ===================== */
-#cursor-dot {
-  position: fixed; top: 0; left: 0; width: 8px; height: 8px;
-  background: var(--neon); border-radius: 50%; pointer-events: none;
-  z-index: 10000; transform: translate(-50%, -50%);
-  transition: transform 0.1s, background 0.2s;
-  box-shadow: 0 0 10px var(--neon), 0 0 20px var(--neon);
-}
-#cursor-ring {
-  position: fixed; top: 0; left: 0; width: 38px; height: 38px;
-  border: 1px solid rgba(0, 240, 255, 0.5); border-radius: 50%;
-  pointer-events: none; z-index: 9999; transform: translate(-50%, -50%);
-  transition: width 0.3s var(--transition), height 0.3s var(--transition), opacity 0.3s, border-color 0.3s;
-}
-body.cursor-hover #cursor-dot { transform: translate(-50%,-50%) scale(2.6); background: var(--neon2); }
-body.cursor-hover #cursor-ring { width: 60px; height: 60px; border-color: var(--neon2); opacity: 0.6; }
-
-@media (pointer: coarse) {
-  #cursor-dot, #cursor-ring { display: none !important; }
-  body { cursor: auto !important; }
-  a, button, .project-card, .skill-card, .cert-card, .btn-primary, .btn-ghost { cursor: pointer !important; }
-}
-
-/* ===================== SCROLL PROGRESS ===================== */
-#scroll-progress {
-  position: fixed; top: 0; left: 0; height: 3px;
-  background: linear-gradient(90deg, var(--neon), var(--neon2), var(--neon3));
-  width: 0%; z-index: 9998; transition: width 0.1s;
-  box-shadow: 0 0 10px var(--neon);
-}
-
-/* ===================== PARTICLES CANVAS ===================== */
-#particles-canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
-
 /* ===================== NAVBAR ===================== */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  padding: 1.1rem 3.5rem;
+.navbar {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 4rem;
   display: flex; align-items: center; justify-content: space-between;
-  background: var(--surface);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
-  transition: all 0.3s;
+  transition: background-color 0.2s, border-color 0.2s;
 }
-nav.scrolled { padding: 0.75rem 3.5rem; box-shadow: 0 4px 30px rgba(0,0,0,0.5); }
-.nav-logo {
-  font-family: var(--font-head); font-size: 1.4rem; font-weight: 800;
-  background: linear-gradient(135deg, var(--neon), var(--neon2));
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-  letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem;
+.nav-brand {
+  font-size: 1.35rem; font-weight: 800; color: var(--primary);
+  letter-spacing: -0.02em; display: flex; align-items: center; gap: 0.5rem;
 }
-.nav-logo-badge {
-  font-size: 0.65rem; font-family: var(--font-mono); padding: 0.15rem 0.5rem;
-  border-radius: 4px; background: rgba(0,240,255,0.12); color: var(--neon);
-  border: 1px solid var(--border);
+.nav-links {
+  display: flex; align-items: center; gap: 2rem;
 }
-.nav-links { display: flex; gap: 1.8rem; align-items: center; }
 .nav-links a {
-  font-size: 0.82rem; font-family: var(--font-mono); color: var(--text2);
-  letter-spacing: 0.1em; text-transform: uppercase;
-  position: relative; transition: color 0.3s;
+  font-size: 0.92rem; font-weight: 500; color: var(--text-muted);
+  transition: color 0.15s ease;
 }
-.nav-links a::after {
-  content: ''; position: absolute; bottom: -4px; left: 0;
-  width: 0; height: 2px; background: var(--neon);
-  transition: width 0.3s var(--transition);
+.nav-links a:hover { color: var(--primary); }
+.nav-actions {
+  display: flex; align-items: center; gap: 1rem;
 }
-.nav-links a:hover { color: var(--neon); }
-.nav-links a:hover::after { width: 100%; }
-
-.nav-controls { display: flex; gap: 1rem; align-items: center; }
-.nav-resume-btn {
-  padding: 0.45rem 1rem; font-family: var(--font-mono); font-size: 0.75rem;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  background: rgba(0,240,255,0.08); color: var(--neon);
-  border: 1px solid var(--neon); border-radius: 4px;
-  transition: all 0.3s; display: flex; align-items: center; gap: 0.4rem;
-}
-.nav-resume-btn:hover {
-  background: var(--neon); color: #030712; box-shadow: var(--glow);
-  transform: translateY(-2px);
-}
-#theme-toggle {
-  background: var(--surface); border: 1px solid var(--border);
-  color: var(--neon); width: 38px; height: 38px; border-radius: 50%;
+.theme-btn {
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1px solid var(--border-color); background: var(--bg-card);
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.05rem; transition: all 0.3s;
+  font-size: 1.1rem; color: var(--text-muted);
+  transition: border-color 0.15s, background-color 0.15s;
 }
-#theme-toggle:hover { box-shadow: var(--glow); transform: rotate(15deg); }
+.theme-btn:hover { border-color: var(--primary); color: var(--primary); }
 .hamburger {
-  display: none; flex-direction: column; gap: 5px;
-  background: none; border: none; padding: 4px;
+  display: none; flex-direction: column; gap: 5px; padding: 4px;
 }
 .hamburger span {
-  display: block; width: 24px; height: 2px; background: var(--neon);
-  transition: all 0.3s var(--transition);
+  display: block; width: 22px; height: 2px; background: var(--text-main);
+  border-radius: 2px; transition: transform 0.2s;
 }
-.mobile-menu {
-  display: none; position: fixed; inset: 0; background: rgba(3,7,18,0.98);
-  z-index: 999; flex-direction: column; align-items: center; justify-content: center;
-  gap: 2rem;
+.mobile-nav {
+  display: none; position: fixed; inset: 0; z-index: 99;
+  background: var(--bg); flex-direction: column;
+  align-items: center; justify-content: center; gap: 2rem;
 }
-.mobile-menu.open { display: flex; }
-.mobile-menu a {
-  font-family: var(--font-head); font-size: 1.8rem; font-weight: 600;
-  color: var(--text); transition: color 0.3s;
-}
-.mobile-menu a:hover { color: var(--neon); }
+.mobile-nav.open { display: flex; }
+.mobile-nav a { font-size: 1.4rem; font-weight: 600; color: var(--text-main); }
+.mobile-nav a:hover { color: var(--primary); }
 
-/* ===================== HERO ===================== */
-#hero {
-  position: relative; min-height: 100vh;
-  display: flex; align-items: center; justify-content: center;
-  overflow: hidden; z-index: 1; padding: 7rem 2rem 4rem;
+/* ===================== GLOBAL SECTION STYLING ===================== */
+section {
+  padding: 5.5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-.hero-grid {
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(rgba(0,240,255,0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,240,255,0.035) 1px, transparent 1px);
-  background-size: 55px 55px;
-  animation: gridDrift 24s linear infinite;
+.section-badge-wrapper {
+  display: flex; justify-content: center; margin-bottom: 2.5rem;
 }
-@keyframes gridDrift {
-  0% { transform: perspective(800px) rotateX(20deg) translateY(0); }
-  100% { transform: perspective(800px) rotateX(20deg) translateY(55px); }
-}
-.hero-content {
-  position: relative; z-index: 2; text-align: center;
-  max-width: 950px; padding: 1rem;
-}
-.hero-status-pill {
-  display: inline-flex; align-items: center; gap: 0.6rem;
-  padding: 0.4rem 1.1rem; border-radius: 30px;
-  background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3);
-  color: var(--emerald); font-family: var(--font-mono); font-size: 0.78rem;
-  letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.2rem;
-  opacity: 0; transform: translateY(20px);
-  animation: fadeUp 0.6s 0.05s var(--transition) forwards;
-}
-.status-indicator-dot {
-  width: 8px; height: 8px; border-radius: 50%; background: var(--emerald);
-  box-shadow: 0 0 10px var(--emerald); animation: pulseDot 2s infinite;
-}
-@keyframes pulseDot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.3); } }
-
-.hero-eyebrow {
-  font-family: var(--font-mono); font-size: 0.88rem;
-  color: var(--neon); letter-spacing: 0.3em; text-transform: uppercase;
-  opacity: 0; transform: translateY(20px);
-  animation: fadeUp 0.6s 0.1s var(--transition) forwards;
-  display: flex; align-items: center; justify-content: center; gap: 1rem;
-}
-.hero-eyebrow::before, .hero-eyebrow::after {
-  content: ''; display: block; width: 45px; height: 1px;
-  background: linear-gradient(var(--neon), transparent);
-}
-.hero-name {
-  font-family: var(--font-head); font-weight: 800;
-  font-size: clamp(3.2rem, 9.5vw, 7.8rem);
-  line-height: 0.95; margin: 0.4em 0 0.2em;
-  background: linear-gradient(135deg, #ffffff 10%, var(--neon) 60%, var(--neon2) 100%);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-  opacity: 0; transform: translateY(20px);
-  animation: fadeUp 0.7s 0.15s var(--transition) forwards;
-  letter-spacing: -0.02em;
-}
-.hero-title-wrap {
-  height: 3.2rem; overflow: hidden; margin: 0.5rem 0 1.2rem;
-  opacity: 0; animation: fadeUp 0.6s 0.2s var(--transition) forwards;
-}
-.hero-typed {
-  font-family: var(--font-head); font-size: clamp(1.2rem, 3.2vw, 2.1rem);
-  font-weight: 400; color: var(--text);
-  display: flex; align-items: center; justify-content: center; gap: 0.5rem;
-}
-.typed-text { color: var(--neon); font-weight: 700; text-shadow: 0 0 15px var(--neon-glow); }
-.cursor-blink {
-  display: inline-block; width: 3px; height: 1.2em;
-  background: var(--neon); animation: blink 0.7s infinite;
-  vertical-align: middle;
-}
-@keyframes blink { 50% { opacity: 0; } }
-
-.hero-desc {
-  font-size: 1.15rem; color: var(--text2); max-width: 680px;
-  margin: 0 auto 2.5rem; line-height: 1.75;
-  opacity: 0; animation: fadeUp 0.6s 0.25s var(--transition) forwards;
-}
-.hero-desc strong { color: var(--text); font-weight: 600; }
-
-.hero-btns {
-  display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap;
-  opacity: 0; animation: fadeUp 0.6s 0.3s var(--transition) forwards;
-}
-.btn-primary {
-  padding: 0.9rem 2.4rem; font-family: var(--font-mono);
-  font-size: 0.88rem; letter-spacing: 0.12em; text-transform: uppercase;
-  background: linear-gradient(135deg, var(--neon), var(--neon2));
-  color: #030712; font-weight: 700; border: none; border-radius: 4px;
-  position: relative; overflow: hidden; transition: all 0.3s;
-  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
-  display: inline-flex; align-items: center; gap: 0.5rem;
-}
-.btn-primary:hover {
-  transform: translateY(-3px); box-shadow: var(--glow);
-  color: #000;
-}
-.btn-ghost {
-  padding: 0.9rem 2.4rem; font-family: var(--font-mono);
-  font-size: 0.88rem; letter-spacing: 0.12em; text-transform: uppercase;
-  background: transparent; color: var(--neon); border: 1px solid var(--neon);
-  border-radius: 4px; transition: all 0.3s;
-  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
-  display: inline-flex; align-items: center; gap: 0.5rem;
-}
-.btn-ghost:hover {
-  background: rgba(0, 240, 255, 0.12); box-shadow: var(--glow);
-  transform: translateY(-3px);
-}
-.btn-outline-gold {
-  padding: 0.9rem 2.2rem; font-family: var(--font-mono);
-  font-size: 0.88rem; letter-spacing: 0.12em; text-transform: uppercase;
-  background: rgba(251, 191, 36, 0.08); color: var(--gold);
-  border: 1px solid var(--gold); border-radius: 4px; transition: all 0.3s;
-  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
-  display: inline-flex; align-items: center; gap: 0.5rem;
-}
-.btn-outline-gold:hover {
-  background: var(--gold); color: #030712; font-weight: 700;
-  box-shadow: 0 0 20px rgba(251, 191, 36, 0.4); transform: translateY(-3px);
-}
-
-.hero-stats-bar {
-  display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;
-  margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid var(--border-subtle);
-  opacity: 0; animation: fadeIn 0.8s 0.35s forwards;
-}
-.stat-pill {
+.section-badge {
+  display: inline-block;
+  padding: 0.5rem 1.6rem;
+  border-radius: var(--radius-pill);
+  background: var(--primary-light);
+  border: 1px solid var(--primary-border);
+  color: var(--text-main);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   text-align: center;
 }
-.stat-pill .num {
-  font-family: var(--font-head); font-size: 2.2rem; font-weight: 800;
-  color: var(--neon); line-height: 1;
-}
-.stat-pill .label {
-  font-family: var(--font-mono); font-size: 0.72rem; color: var(--text2);
-  letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.3rem;
+.section-description {
+  text-align: center; color: var(--text-muted); font-size: 1.05rem;
+  max-width: 680px; margin: -1.2rem auto 3rem;
 }
 
-@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-@keyframes fadeIn { to { opacity: 1; } }
-
-/* ===================== SECTION BASE ===================== */
-section {
-  position: relative; z-index: 1;
-  padding: 7rem 3.5rem;
-}
-.section-header { text-align: center; margin-bottom: 4rem; }
-.section-tag {
-  font-family: var(--font-mono); font-size: 0.8rem; color: var(--neon);
-  letter-spacing: 0.3em; text-transform: uppercase;
-  display: flex; align-items: center; justify-content: center; gap: 1rem;
-  margin-bottom: 0.8rem;
-}
-.section-tag::before, .section-tag::after {
-  content: ''; display: block; width: 35px; height: 1px; background: var(--neon);
-}
-.section-title {
-  font-family: var(--font-head); font-size: clamp(2.2rem, 5vw, 3.6rem);
-  font-weight: 800; letter-spacing: -0.02em;
-  background: linear-gradient(135deg, var(--text) 30%, var(--neon2));
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-.section-subtitle {
-  font-size: 1.05rem; color: var(--text2); max-width: 600px;
-  margin: 0.8rem auto 0;
-}
-
-.reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s var(--transition); }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-.reveal-left { opacity: 0; transform: translateX(-40px); transition: all 0.8s var(--transition); }
-.reveal-left.visible { opacity: 1; transform: translateX(0); }
-.reveal-right { opacity: 0; transform: translateX(40px); transition: all 0.8s var(--transition); }
-.reveal-right.visible { opacity: 1; transform: translateX(0); }
-
-/* ===================== ABOUT ===================== */
-#about { background: var(--bg2); }
-.about-inner {
-  max-width: 1200px; margin: 0 auto;
-  display: grid; grid-template-columns: 380px 1fr; gap: 4.5rem; align-items: start;
-}
-.about-left { position: sticky; top: 100px; }
-.about-avatar {
-  width: 320px; height: 400px; margin: 0 auto 1.5rem;
+/* ===================== HERO SECTION ===================== */
+#hero {
+  padding: 6.5rem 2rem 5rem;
+  text-align: center;
   position: relative;
 }
-.about-avatar::before {
-  content: ''; position: absolute; width: 26px; height: 26px;
-  top: -3px; left: -3px; border-top: 2px solid var(--neon); border-left: 2px solid var(--neon);
-  box-shadow: -2px -2px 10px rgba(0,240,255,0.6); z-index: 3;
-}
-.about-avatar::after {
-  content: ''; position: absolute; width: 26px; height: 26px;
-  bottom: -3px; right: -3px; border-bottom: 2px solid var(--neon2); border-right: 2px solid var(--neon2);
-  box-shadow: 2px 2px 10px rgba(129,140,248,0.6); z-index: 3;
-}
-.about-avatar-corners { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
-.about-avatar-corners::before {
-  content: ''; position: absolute; width: 26px; height: 26px;
-  top: -3px; right: -3px; border-top: 2px solid var(--neon); border-right: 2px solid var(--neon);
-  box-shadow: 2px -2px 10px rgba(0,240,255,0.6);
-}
-.about-avatar-corners::after {
-  content: ''; position: absolute; width: 26px; height: 26px;
-  bottom: -3px; left: -3px; border-bottom: 2px solid var(--neon2); border-left: 2px solid var(--neon2);
-  box-shadow: -2px 2px 10px rgba(129,140,248,0.6);
-}
-.about-avatar-ring {
-  position: absolute; inset: -1px; border-radius: 12px;
-  border: 1px solid rgba(0, 240, 255, 0.3);
-  box-shadow: 0 0 25px rgba(0, 240, 255, 0.2), inset 0 0 30px rgba(0,240,255,0.05);
-  z-index: 2; pointer-events: none;
-}
-.about-avatar-inner {
-  position: absolute; inset: 0; border-radius: 10px;
-  overflow: hidden; z-index: 1; background: #0a1728;
-}
-.about-avatar-inner img {
-  width: 100%; height: 100%; object-fit: cover; object-position: center top;
-  filter: saturate(1.05) contrast(1.03); transition: transform 0.6s var(--transition);
-}
-.about-avatar:hover .about-avatar-inner img { transform: scale(1.04); }
-.about-avatar-scan {
-  position: absolute; inset: 0;
-  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,240,255,0.018) 2px, rgba(0,240,255,0.018) 4px);
-  border-radius: 10px; z-index: 2; pointer-events: none;
-}
-.about-location-badge {
-  display: flex; align-items: center; justify-content: center; gap: 0.5rem;
-  font-family: var(--font-mono); font-size: 0.8rem; color: var(--neon);
-  letter-spacing: 0.1em; text-align: center; margin-top: 0.6rem;
-}
-.cv-btn-wrap {
-  display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.4rem;
-}
-.cv-download-btn {
-  padding: 0.8rem 1.6rem; font-family: var(--font-mono); font-size: 0.82rem;
-  letter-spacing: 0.1em; text-transform: uppercase; text-align: center;
-  color: #030712; background: linear-gradient(135deg, var(--neon), var(--neon2));
-  font-weight: 700; border-radius: 4px; transition: all 0.3s;
-  display: flex; align-items: center; justify-content: center; gap: 0.5rem;
-}
-.cv-download-btn:hover { box-shadow: var(--glow); transform: translateY(-2px); }
-.cv-preview-btn {
-  padding: 0.65rem 1.6rem; font-family: var(--font-mono); font-size: 0.78rem;
-  letter-spacing: 0.1em; text-transform: uppercase; text-align: center;
-  color: var(--neon); background: rgba(0,240,255,0.06); border: 1px solid var(--border);
-  border-radius: 4px; transition: all 0.3s;
-}
-.cv-preview-btn:hover { background: rgba(0,240,255,0.15); border-color: var(--neon); }
-
-.about-text {
-  font-size: 1.12rem; line-height: 1.85; color: var(--text2); margin-bottom: 1.5rem;
-}
-.about-text strong { color: var(--neon); font-weight: 600; }
-
-.academic-cards-grid {
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem;
-  margin: 2rem 0;
-}
-.info-kpi-card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: 8px; padding: 1.3rem; backdrop-filter: blur(10px);
-  transition: all 0.3s;
-}
-.info-kpi-card:hover { border-color: var(--neon); box-shadow: var(--glow); transform: translateY(-3px); }
-.info-kpi-header {
-  display: flex; justify-content: space-between; align-items: baseline;
-  margin-bottom: 0.4rem;
-}
-.info-kpi-val {
-  font-family: var(--font-head); font-size: 2.2rem; font-weight: 800;
-  color: var(--neon); line-height: 1;
-}
-.info-kpi-tag {
-  font-family: var(--font-mono); font-size: 0.68rem; color: var(--gold);
-  border: 1px solid rgba(251,191,36,0.3); padding: 0.15rem 0.5rem;
-  border-radius: 12px; background: rgba(251,191,36,0.08);
-}
-.info-kpi-title { font-size: 0.95rem; font-weight: 700; color: var(--text); }
-.info-kpi-sub { font-size: 0.8rem; color: var(--text2); margin-top: 0.2rem; }
-
-/* Skill bars */
-.skill-bars-card {
-  background: var(--surface); border: 1px solid var(--border-subtle);
-  border-radius: 10px; padding: 1.5rem; margin-top: 1.5rem;
-}
-.skill-bars-title {
-  font-family: var(--font-head); font-size: 1.05rem; font-weight: 700;
-  color: var(--text); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;
-}
-.skill-bar-item { margin-bottom: 1rem; }
-.skill-bar-item:last-child { margin-bottom: 0; }
-.skill-bar-head {
-  display: flex; justify-content: space-between;
-  font-family: var(--font-mono); font-size: 0.78rem; color: var(--text2);
-  margin-bottom: 0.4rem;
-}
-.skill-bar-track {
-  height: 6px; background: rgba(255,255,255,0.06); border-radius: 3px; overflow: hidden;
-}
-.skill-bar-fill {
-  height: 100%; border-radius: 3px; width: 0%;
-  background: linear-gradient(90deg, var(--neon), var(--neon2));
-  box-shadow: 0 0 10px var(--neon); transition: width 1.5s var(--transition);
-}
-
-/* ===================== ACHIEVEMENTS & CODING STATS ===================== */
-#achievements { background: var(--bg); }
-.achievements-grid {
-  max-width: 1200px; margin: 0 auto;
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
-}
-.achievement-card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: 10px; padding: 1.8rem 1.4rem; text-align: center;
-  position: relative; overflow: hidden; transition: all 0.3s;
-}
-.achievement-card::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(circle at center, rgba(0,240,255,0.08), transparent 70%);
-  opacity: 0; transition: opacity 0.3s;
-}
-.achievement-card:hover {
-  transform: translateY(-5px); border-color: var(--neon);
-  box-shadow: var(--glow);
-}
-.achievement-card:hover::before { opacity: 1; }
-.achieve-icon {
-  font-size: 2.2rem; margin-bottom: 0.8rem; display: inline-block;
-}
-.achieve-number {
-  font-family: var(--font-head); font-size: 2.4rem; font-weight: 800;
-  color: var(--neon); line-height: 1; margin-bottom: 0.4rem;
-}
-.achieve-title {
-  font-family: var(--font-head); font-size: 1.05rem; font-weight: 700;
-  color: var(--text); margin-bottom: 0.4rem;
-}
-.achieve-desc {
-  font-size: 0.85rem; color: var(--text2); line-height: 1.5;
-}
-.achieve-badge {
-  display: inline-block; font-family: var(--font-mono); font-size: 0.65rem;
-  letter-spacing: 0.1em; color: var(--gold); border: 1px solid rgba(251,191,36,0.3);
-  padding: 0.15rem 0.5rem; border-radius: 12px; background: rgba(251,191,36,0.1);
-  margin-top: 0.8rem;
-}
-
-/* ===================== SKILLS & TECH ===================== */
-#skills { background: var(--bg2); }
-.skills-container { max-width: 1200px; margin: 0 auto; }
-.skills-section-block { margin-bottom: 2.5rem; }
-.skills-block-header {
-  display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.2rem;
-  padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-subtle);
-}
-.skills-block-icon { font-size: 1.2rem; color: var(--neon); }
-.skills-block-title {
-  font-family: var(--font-head); font-size: 1.15rem; font-weight: 700;
-  color: var(--text); text-transform: uppercase; letter-spacing: 0.08em;
-}
-.skills-badges-wrap {
-  display: flex; flex-wrap: wrap; gap: 0.75rem;
-}
-.skill-pill {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  padding: 0.55rem 1rem; border-radius: 6px;
-  background: var(--surface); border: 1px solid var(--border);
-  font-family: var(--font-mono); font-size: 0.82rem; color: var(--text);
-  transition: all 0.3s;
-}
-.skill-pill:hover {
-  border-color: var(--neon); box-shadow: 0 0 15px rgba(0,240,255,0.25);
-  transform: translateY(-2px); color: var(--neon);
-}
-.skill-pill .pill-icon { font-size: 1rem; }
-
-/* ===================== PROJECTS ===================== */
-#projects { background: var(--bg); }
-.projects-filter-bar {
-  display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap;
-  margin-bottom: 3rem;
-}
-.filter-btn {
-  padding: 0.6rem 1.4rem; font-family: var(--font-mono); font-size: 0.8rem;
-  letter-spacing: 0.08em; text-transform: uppercase; border-radius: 20px;
-  background: var(--surface); border: 1px solid var(--border); color: var(--text2);
-  transition: all 0.3s;
-}
-.filter-btn:hover, .filter-btn.active {
-  background: var(--neon); color: #030712; font-weight: 700;
-  border-color: var(--neon); box-shadow: var(--glow);
-}
-
-.projects-grid {
-  max-width: 1250px; margin: 0 auto;
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-  gap: 2rem;
-}
-.project-card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--card-radius); overflow: hidden;
-  transition: all 0.4s var(--transition); position: relative;
-  display: flex; flex-direction: column;
-}
-.project-card:hover {
-  transform: translateY(-8px); border-color: var(--neon);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.6), var(--glow);
-}
-.project-banner {
-  height: 180px; position: relative; overflow: hidden;
-  display: flex; align-items: center; justify-content: center;
-}
-.project-banner-bg {
-  position: absolute; inset: 0;
-  animation: bannerShift 10s ease-in-out infinite;
-}
-@keyframes bannerShift {
-  0%, 100% { transform: scale(1.05) translate(0,0); }
-  50% { transform: scale(1.12) translate(-2%, 2%); }
-}
-.project-num {
-  font-family: var(--font-head); font-size: 5.5rem; font-weight: 800;
-  color: rgba(255,255,255,0.06); position: absolute; right: 1rem; bottom: -0.8rem;
-  line-height: 1; pointer-events: none;
-}
-.project-badge {
-  position: absolute; top: 1rem; left: 1rem;
-  font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em;
-  padding: 0.35rem 0.85rem; border-radius: 20px; text-transform: uppercase;
+.hero-tagline {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
   font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 1.2rem;
 }
-.project-timeline-tag {
-  position: absolute; top: 1rem; right: 1rem;
-  font-family: var(--font-mono); font-size: 0.68rem; color: rgba(255,255,255,0.7);
-  background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);
-  padding: 0.25rem 0.6rem; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);
+.hero-title {
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-main);
+  line-height: 1.1;
+  margin-bottom: 1.2rem;
 }
-.project-body { padding: 1.6rem; display: flex; flex-direction: column; flex-grow: 1; }
-.project-title {
-  font-family: var(--font-head); font-size: 1.35rem; font-weight: 700;
-  margin-bottom: 0.6rem; color: var(--text);
+.hero-roles {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
 }
-.project-desc {
-  font-size: 0.92rem; color: var(--text2); line-height: 1.65;
-  margin-bottom: 1.2rem; flex-grow: 1;
+.hero-bio {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 750px;
+  margin: 0 auto 2.2rem;
+  line-height: 1.75;
 }
-.project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.3rem; }
-.tag {
-  font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.05em;
-  padding: 0.25rem 0.65rem; border-radius: 4px;
-  background: rgba(0,240,255,0.08); color: var(--neon); border: 1px solid rgba(0,240,255,0.22);
+.hero-socials {
+  display: flex; justify-content: center; align-items: center; gap: 1.5rem;
 }
-.project-stat-highlight {
-  display: flex; align-items: center; gap: 0.4rem; font-family: var(--font-mono);
-  font-size: 0.74rem; color: var(--gold); margin-bottom: 1.2rem;
-  padding: 0.4rem 0.7rem; background: rgba(251,191,36,0.08); border-radius: 4px;
-  border-left: 2px solid var(--gold);
-}
-.project-actions { display: flex; gap: 0.8rem; margin-top: auto; }
-.project-btn {
-  flex: 1; padding: 0.7rem; font-family: var(--font-mono); font-size: 0.76rem;
-  letter-spacing: 0.08em; text-transform: uppercase; border-radius: 4px;
-  transition: all 0.3s; text-align: center; display: inline-flex;
-  align-items: center; justify-content: center; gap: 0.4rem;
-}
-.project-btn.primary {
-  background: linear-gradient(135deg, var(--neon), var(--neon2));
-  color: #030712; font-weight: 700; border: none;
-}
-.project-btn.primary:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: var(--glow); }
-.project-btn.ghost {
-  background: transparent; color: var(--neon2); border: 1px solid var(--neon2);
-}
-.project-btn.ghost:hover {
-  background: rgba(129,140,248,0.12); border-color: var(--neon2); transform: translateY(-2px);
-}
-
-/* ===================== MODALS ===================== */
-.modal-overlay {
-  position: fixed; inset: 0; background: rgba(3,7,18,0.88);
-  backdrop-filter: blur(10px); z-index: 5000;
+.social-icon-link {
+  width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid var(--border-color); background: var(--bg-card);
   display: flex; align-items: center; justify-content: center;
-  opacity: 0; pointer-events: none; transition: opacity 0.3s;
-  padding: 1.5rem;
+  font-size: 1.2rem; color: var(--text-muted);
+  transition: all 0.2s ease;
 }
-.modal-overlay.open { opacity: 1; pointer-events: all; }
-.modal {
-  background: var(--surface2); border: 1px solid var(--border);
-  border-radius: 16px; max-width: 820px; width: 100%;
-  padding: 2.5rem; max-height: 85vh; overflow-y: auto;
-  transform: scale(0.92) translateY(20px);
-  transition: transform 0.4s var(--transition);
-  position: relative; box-shadow: 0 25px 80px rgba(0,0,0,0.8), 0 0 40px rgba(0,240,255,0.15);
-}
-.modal-overlay.open .modal { transform: scale(1) translateY(0); }
-.modal-close {
-  position: absolute; top: 1.5rem; right: 1.5rem;
-  background: none; border: 1px solid var(--border); color: var(--text2);
-  width: 36px; height: 36px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
-  transition: all 0.3s;
-}
-.modal-close:hover { border-color: var(--neon3); color: var(--neon3); transform: rotate(90deg); }
-.modal-header { margin-bottom: 1.5rem; padding-right: 2.5rem; }
-.modal-badge {
-  display: inline-block; font-family: var(--font-mono); font-size: 0.72rem;
-  padding: 0.25rem 0.75rem; border-radius: 20px; text-transform: uppercase;
-  margin-bottom: 0.6rem;
-}
-.modal-title {
-  font-family: var(--font-head); font-size: 2rem; font-weight: 800;
-  color: var(--text); line-height: 1.2;
-}
-.modal-subtitle {
-  font-family: var(--font-mono); font-size: 0.78rem; color: var(--neon);
-  letter-spacing: 0.12em; margin-top: 0.4rem;
-}
-.modal-body { color: var(--text2); font-size: 1rem; line-height: 1.8; }
-.modal-section-title {
-  font-family: var(--font-head); font-size: 1.15rem; font-weight: 700;
-  color: var(--text); margin: 1.5rem 0 0.8rem;
-  display: flex; align-items: center; gap: 0.5rem;
-}
-.modal-features { list-style: none; margin-top: 0.5rem; }
-.modal-features li {
-  padding: 0.55rem 0; border-bottom: 1px solid var(--border-subtle);
-  display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.95rem;
-}
-.modal-features li::before {
-  content: '▸'; color: var(--neon); font-size: 0.9rem; margin-top: 2px; flex-shrink: 0;
-}
-.modal-tech-box {
-  background: rgba(0,0,0,0.3); border: 1px solid var(--border-subtle);
-  border-radius: 8px; padding: 1rem; margin-top: 1.2rem;
-}
-.modal-links-row {
-  display: flex; gap: 1rem; margin-top: 2rem; padding-top: 1.2rem;
-  border-top: 1px solid var(--border-subtle);
+.social-icon-link:hover {
+  border-color: var(--primary); color: var(--primary);
+  transform: translateY(-2px);
 }
 
-/* ===================== TRAINING & EXPERIENCE ===================== */
-#training { background: var(--bg2); }
-.training-card {
-  max-width: 1000px; margin: 0 auto;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: 12px; padding: 2.2rem; position: relative;
-  overflow: hidden;
-}
-.training-header {
-  display: flex; justify-content: space-between; align-items: flex-start;
-  flex-wrap: wrap; gap: 1rem; margin-bottom: 1.2rem;
-}
-.training-title {
-  font-family: var(--font-head); font-size: 1.5rem; font-weight: 700;
-  color: var(--text);
-}
-.training-org {
-  font-family: var(--font-mono); font-size: 0.85rem; color: var(--neon);
-  margin-top: 0.2rem;
-}
-.training-dates {
-  font-family: var(--font-mono); font-size: 0.8rem; color: var(--gold);
-  padding: 0.3rem 0.8rem; border-radius: 20px;
-  background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.3);
-}
-.training-list { list-style: none; margin-top: 1rem; }
-.training-list li {
-  padding: 0.6rem 0; border-bottom: 1px solid var(--border-subtle);
-  display: flex; align-items: flex-start; gap: 0.75rem; color: var(--text2);
-  font-size: 0.98rem; line-height: 1.7;
-}
-.training-list li::before {
-  content: '⚡'; color: var(--neon); font-size: 0.85rem; flex-shrink: 0; margin-top: 2px;
-}
-.training-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
-
-/* ===================== CERTIFICATIONS ===================== */
-#certifications { background: var(--bg); }
-.certs-grid {
-  max-width: 1200px; margin: 0 auto;
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+/* ===================== SKILLS & EXPERTISE ===================== */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
 }
-.cert-link { text-decoration: none; color: inherit; display: block; }
-.cert-card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: 10px; padding: 1.5rem;
-  transition: all 0.3s var(--transition);
-  display: flex; align-items: flex-start; gap: 1.2rem;
+.skill-category-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-card);
+  padding: 2rem 1.6rem;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
-.cert-card:hover {
-  border-color: var(--gold); box-shadow: 0 0 25px rgba(251,191,36,0.25);
+.skill-category-card:hover {
+  border-color: var(--primary-border);
+  box-shadow: var(--card-hover-shadow);
+  transform: translateY(-3px);
+}
+.skill-icon-badge {
+  width: 42px; height: 42px; border-radius: 10px;
+  background: var(--primary-light); color: var(--primary);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; font-weight: 700; margin-bottom: 1.2rem;
+  border: 1px solid var(--primary-border);
+}
+.skill-category-title {
+  font-size: 1.2rem; font-weight: 700; color: var(--text-main);
+  margin-bottom: 1.2rem;
+}
+.skill-list {
+  list-style: none; display: flex; flex-direction: column; gap: 0.65rem;
+}
+.skill-list-item {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-size: 0.95rem; color: var(--text-muted);
+}
+.skill-list-item::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background-color: var(--primary); flex-shrink: 0;
+}
+
+/* ===================== FEATURED PROJECTS ===================== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+}
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  display: flex; flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.project-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--card-hover-shadow);
   transform: translateY(-4px);
 }
-.cert-icon {
-  width: 50px; height: 50px; border-radius: 10px; flex-shrink: 0;
+.project-thumb {
+  height: 175px; width: 100%;
+  position: relative; overflow: hidden;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.6rem;
 }
-.cert-info { flex-grow: 1; }
-.cert-name {
-  font-family: var(--font-head); font-size: 1.1rem; font-weight: 700;
-  color: var(--text); margin-bottom: 0.25rem;
+.project-thumb-text {
+  font-weight: 700; font-size: 1.3rem; letter-spacing: -0.01em;
+  opacity: 0.45; color: #ffffff; text-align: center; padding: 1rem;
+}
+.project-content {
+  padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1;
+}
+.project-name {
+  font-size: 1.25rem; font-weight: 700; color: var(--text-main);
+  margin-bottom: 0.6rem;
+}
+.project-desc {
+  font-size: 0.92rem; color: var(--text-muted); line-height: 1.6;
+  margin-bottom: 1.2rem; flex-grow: 1;
+}
+.project-tags {
+  display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.4rem;
+}
+.project-tag {
+  font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500;
+  padding: 0.25rem 0.6rem; border-radius: 6px;
+  background: var(--primary-light); color: var(--primary);
+  border: 1px solid var(--primary-border);
+}
+.project-card-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  border-top: 1px solid var(--border-color); padding-top: 1rem;
+  margin-top: auto;
+}
+.project-link-btn {
+  font-size: 0.85rem; font-weight: 600; color: var(--text-muted);
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  transition: color 0.15s ease;
+}
+.project-link-btn:hover { color: var(--primary); }
+.btn-show-more {
+  font-size: 0.82rem; font-weight: 600; padding: 0.35rem 0.85rem;
+  border-radius: 6px; border: 1px solid var(--border-color);
+  background: var(--bg-subtle); color: var(--text-muted);
+  transition: all 0.15s ease;
+}
+.btn-show-more:hover {
+  border-color: var(--primary); color: var(--primary);
+}
+
+/* ===================== EXPERIENCE / TRAINING ===================== */
+.experience-container {
+  display: flex; flex-direction: column; gap: 1.5rem;
+}
+.experience-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius-card);
+  padding: 2rem;
+  box-shadow: var(--card-shadow);
+}
+.experience-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.4rem;
+}
+.experience-role {
+  font-size: 1.25rem; font-weight: 700; color: var(--text-main);
+}
+.experience-org {
+  font-size: 0.98rem; font-weight: 600; color: var(--primary);
+  margin-bottom: 0.8rem;
+}
+.experience-date {
+  font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-subtle);
+}
+.experience-body {
+  font-size: 0.98rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.2rem;
+}
+.experience-tags {
+  display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.2rem;
+}
+
+/* ===================== ACHIEVEMENTS ===================== */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.achievement-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-card);
+  padding: 1.8rem 1.4rem;
+  box-shadow: var(--card-shadow);
+  display: flex; flex-direction: column; gap: 0.8rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.achievement-card:hover {
+  transform: translateY(-3px); box-shadow: var(--card-hover-shadow);
+}
+.achievement-icon-circle {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: var(--primary-light); color: var(--primary);
+  border: 1px solid var(--primary-border);
+  display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+}
+.achievement-title {
+  font-size: 1.1rem; font-weight: 700; color: var(--text-main);
+}
+.achievement-text {
+  font-size: 0.92rem; color: var(--text-muted); line-height: 1.55;
+}
+
+/* ===================== CERTIFICATIONS & COURSES ===================== */
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.cert-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-card);
+  padding: 1.6rem;
+  box-shadow: var(--card-shadow);
+  display: flex; flex-direction: column; justify-content: space-between;
+  gap: 1.2rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.cert-card:hover {
+  transform: translateY(-3px); box-shadow: var(--card-hover-shadow);
+}
+.cert-top {
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 0.8rem;
+}
+.cert-title {
+  font-size: 1rem; font-weight: 700; color: var(--text-main);
+  text-transform: uppercase; letter-spacing: -0.01em; line-height: 1.35;
+}
+.cert-meta-row {
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.cert-btn {
+  font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.65rem;
+  border-radius: 6px; border: 1px solid var(--border-color);
+  color: var(--text-muted); background: var(--bg-subtle);
+}
+.cert-btn:hover { border-color: var(--primary); color: var(--primary); }
+.cert-date-badge {
+  font-family: var(--font-mono); font-size: 0.72rem; padding: 0.25rem 0.55rem;
+  border-radius: 6px; background: var(--primary-light); color: var(--primary);
+  font-weight: 500;
 }
 .cert-issuer {
-  font-family: var(--font-mono); font-size: 0.75rem; color: var(--text2);
-  letter-spacing: 0.05em;
+  font-size: 0.88rem; color: var(--text-subtle);
 }
-.cert-date {
-  font-family: var(--font-mono); font-size: 0.7rem; color: var(--neon);
-  margin-top: 0.3rem;
+
+/* ===================== CV & RESUME ===================== */
+.resume-card {
+  max-width: 680px; margin: 0 auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-card);
+  padding: 3rem 2.5rem;
+  text-align: center;
+  box-shadow: var(--card-shadow);
 }
-.cert-badge {
-  font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em;
-  padding: 0.25rem 0.6rem; border-radius: 20px;
-  background: rgba(251,191,36,0.1); color: var(--gold); border: 1px solid rgba(251,191,36,0.3);
-  align-self: flex-start;
+.resume-icon-wrap {
+  width: 65px; height: 65px; border-radius: 16px;
+  background: var(--primary-light); border: 1px solid var(--primary-border);
+  color: var(--primary); margin: 0 auto 1.5rem;
+  display: flex; align-items: center; justify-content: center; font-size: 2rem;
+}
+.resume-heading {
+  font-size: 1.5rem; font-weight: 700; color: var(--text-main);
+  margin-bottom: 0.6rem;
+}
+.resume-subtext {
+  font-size: 0.98rem; color: var(--text-muted);
+  max-width: 520px; margin: 0 auto 2rem; line-height: 1.6;
+}
+.resume-actions {
+  display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;
+}
+.btn-primary-green {
+  background: var(--primary); color: #ffffff;
+  padding: 0.75rem 2rem; border-radius: var(--radius-btn);
+  font-weight: 600; font-size: 0.95rem;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  transition: background-color 0.15s ease, transform 0.15s;
+}
+.btn-primary-green:hover {
+  background: var(--primary-hover); transform: translateY(-2px);
+}
+.btn-outline {
+  border: 1px solid var(--border-color); color: var(--text-main);
+  background: var(--bg-card); padding: 0.75rem 2rem;
+  border-radius: var(--radius-btn); font-weight: 600; font-size: 0.95rem;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.btn-outline:hover {
+  border-color: var(--text-main); transform: translateY(-2px);
 }
 
 /* ===================== EDUCATION ===================== */
-#education { background: var(--bg2); }
-.edu-timeline {
-  max-width: 900px; margin: 0 auto;
-  position: relative; padding-left: 2rem;
+.education-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
 }
-.edu-timeline::before {
-  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-  width: 2px; background: linear-gradient(var(--neon), var(--neon2), transparent);
+.edu-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-card);
+  padding: 1.8rem;
+  box-shadow: var(--card-shadow);
 }
-.edu-item {
-  position: relative; margin-bottom: 3rem;
-  padding-left: 2.8rem;
-}
-.edu-dot {
-  position: absolute; left: -2.8rem; top: 0.3rem;
-  width: 18px; height: 18px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--neon), var(--neon2));
-  box-shadow: 0 0 15px var(--neon);
-  display: flex; align-items: center; justify-content: center;
-}
-.edu-dot::after {
-  content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--bg2);
-}
-.edu-year {
-  font-family: var(--font-mono); font-size: 0.8rem; color: var(--neon);
-  letter-spacing: 0.12em; margin-bottom: 0.4rem; font-weight: 700;
+.edu-date {
+  font-family: var(--font-mono); font-size: 0.8rem; color: var(--primary);
+  font-weight: 600; margin-bottom: 0.4rem;
 }
 .edu-degree {
-  font-family: var(--font-head); font-size: 1.4rem; font-weight: 700;
-  color: var(--text); margin-bottom: 0.3rem;
+  font-size: 1.15rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.4rem;
 }
-.edu-institution {
-  font-size: 1rem; color: var(--text2); margin-bottom: 0.5rem;
+.edu-school {
+  font-size: 0.95rem; color: var(--text-muted); margin-bottom: 0.8rem;
 }
-.edu-grade-tag {
-  display: inline-block; font-family: var(--font-mono); font-size: 0.82rem;
-  color: var(--neon2); font-weight: 700; background: rgba(129,140,248,0.1);
-  padding: 0.2rem 0.7rem; border-radius: 4px; border: 1px solid rgba(129,140,248,0.25);
+.edu-score-badge {
+  display: inline-block; font-weight: 600; font-size: 0.85rem;
+  padding: 0.25rem 0.7rem; border-radius: 6px;
+  background: var(--primary-light); color: var(--primary);
+  border: 1px solid var(--primary-border);
 }
 
-/* ===================== CONTACT ===================== */
-#contact { background: var(--bg); }
-.contact-inner {
-  max-width: 1200px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+/* ===================== GET IN TOUCH (CONTACT) ===================== */
+.contact-container {
+  max-width: 680px; margin: 0 auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-card);
+  padding: 2.5rem;
+  box-shadow: var(--card-shadow);
 }
-.contact-title {
-  font-family: var(--font-head); font-size: clamp(2rem, 4vw, 2.8rem);
-  font-weight: 800; margin-bottom: 1rem;
-  background: linear-gradient(135deg, var(--text), var(--neon));
-  -webkit-background-clip: text; background-clip: text; color: transparent;
+.form-row-2 {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.2rem;
 }
-.contact-text { font-size: 1.05rem; color: var(--text2); line-height: 1.8; margin-bottom: 2rem; }
-.contact-links { display: flex; flex-direction: column; gap: 1rem; }
-.contact-link {
-  display: flex; align-items: center; gap: 1.2rem;
-  padding: 1.1rem 1.5rem; background: var(--surface);
-  border: 1px solid var(--border); border-radius: 8px;
-  transition: all 0.3s;
+.form-field-group {
+  display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.2rem;
 }
-.contact-link:hover {
-  border-color: var(--neon); box-shadow: var(--glow); transform: translateX(8px);
+.form-field-group label {
+  font-size: 0.88rem; font-weight: 600; color: var(--text-main);
 }
-.contact-link-icon {
-  font-size: 1.3rem; width: 32px; text-align: center; flex-shrink: 0;
+.form-control {
+  width: 100%; padding: 0.75rem 1rem;
+  border-radius: var(--radius-btn);
+  border: 1px solid var(--border-color);
+  background: var(--bg-input);
+  color: var(--text-main);
+  font-family: var(--font-sans); font-size: 0.95rem;
+  outline: none; transition: border-color 0.15s;
 }
-.contact-link-label { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text2); letter-spacing: 0.1em; }
-.contact-link-value { font-size: 0.95rem; color: var(--text); font-weight: 600; margin-top: 0.1rem; }
+.form-control:focus {
+  border-color: var(--primary);
+}
+textarea.form-control { min-height: 130px; resize: vertical; }
+.btn-send {
+  width: 100%; background: var(--primary); color: #ffffff;
+  padding: 0.85rem; border-radius: var(--radius-btn);
+  font-weight: 600; font-size: 1rem;
+  display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+  transition: background-color 0.15s ease;
+}
+.btn-send:hover { background: var(--primary-hover); }
 
-.form-group { position: relative; margin-bottom: 1.5rem; }
-.form-input, .form-textarea {
-  width: 100%; padding: 1.3rem 1.1rem 0.6rem;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: 8px; color: var(--text);
-  font-family: var(--font-body); font-size: 1rem;
-  outline: none; transition: all 0.3s; resize: none;
-  backdrop-filter: blur(10px);
+/* Direct Contact Info Row */
+.direct-contact-row {
+  display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
+  margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border-color);
 }
-.form-textarea { min-height: 130px; }
-.form-input:focus, .form-textarea:focus { border-color: var(--neon); box-shadow: var(--glow); }
-.form-label {
-  position: absolute; left: 1.1rem; top: 0.95rem;
-  font-family: var(--font-mono); font-size: 0.78rem; color: var(--text2);
-  letter-spacing: 0.05em; pointer-events: none;
-  transition: all 0.3s var(--transition);
+.direct-contact-item {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-size: 0.95rem; color: var(--text-muted);
 }
-.form-input:focus + .form-label,
-.form-input:not(:placeholder-shown) + .form-label,
-.form-textarea:focus + .form-label,
-.form-textarea:not(:placeholder-shown) + .form-label {
-  top: 0.35rem; font-size: 0.68rem; color: var(--neon); letter-spacing: 0.1em;
-}
-.form-input::placeholder, .form-textarea::placeholder { color: transparent; }
-.form-submit {
-  width: 100%; padding: 1.1rem;
-  background: linear-gradient(135deg, var(--neon), var(--neon2));
-  color: #030712; font-weight: 700; border: none; border-radius: 8px;
-  font-family: var(--font-mono); font-size: 0.88rem; letter-spacing: 0.15em;
-  text-transform: uppercase; position: relative; overflow: hidden;
-  transition: all 0.3s;
-}
-.form-submit:hover { transform: translateY(-2px); box-shadow: var(--glow); }
+.direct-contact-item a:hover { color: var(--primary); }
 
 /* ===================== FOOTER ===================== */
 footer {
-  background: #020408; border-top: 1px solid var(--border);
-  padding: 3rem 3.5rem; z-index: 1; position: relative;
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  background: var(--bg);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  color: var(--text-subtle);
+  font-size: 0.9rem;
 }
-.footer-text { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text2); }
-.footer-text span { color: var(--neon); }
-.footer-links { display: flex; gap: 1.8rem; }
-.footer-links a { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text2); transition: color 0.3s; }
-.footer-links a:hover { color: var(--neon); }
+.footer-links {
+  display: flex; justify-content: center; gap: 1.5rem; margin-top: 0.8rem;
+}
+.footer-links a:hover { color: var(--primary); }
 
-/* ===================== EASTER EGG ===================== */
-#easter-egg {
-  position: fixed; inset: 0; background: #030712;
-  z-index: 99998; display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  font-family: var(--font-mono);
-  opacity: 0; pointer-events: none; transition: opacity 0.5s; padding: 2rem;
+/* ===================== MODAL STYLES ===================== */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex; align-items: center; justify-content: center;
+  padding: 1.5rem; opacity: 0; pointer-events: none;
+  transition: opacity 0.2s ease;
 }
-#easter-egg.show { opacity: 1; pointer-events: all; }
-.egg-text { color: var(--neon); font-size: 1rem; text-align: center; max-width: 650px; line-height: 2; }
-.egg-close {
-  margin-top: 2rem; padding: 0.7rem 1.8rem;
-  border: 1px solid var(--neon); background: none; color: var(--neon);
-  font-family: var(--font-mono); font-size: 0.85rem;
-  border-radius: 4px; transition: all 0.3s;
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-card);
+  max-width: 780px; width: 100%; max-height: 85vh;
+  overflow-y: auto; padding: 2.2rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  position: relative;
 }
-.egg-close:hover { background: var(--neon); color: #030712; }
+.modal-close-btn {
+  position: absolute; top: 1.4rem; right: 1.4rem;
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid var(--border-color); color: var(--text-muted);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+}
+.modal-close-btn:hover { border-color: var(--text-main); color: var(--text-main); }
+.modal-badge-tag {
+  display: inline-block; font-size: 0.75rem; font-weight: 600;
+  padding: 0.25rem 0.65rem; border-radius: 6px;
+  background: var(--primary-light); color: var(--primary);
+  border: 1px solid var(--primary-border); margin-bottom: 0.6rem;
+}
+.modal-title { font-size: 1.8rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem; }
+.modal-sub { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+.modal-section-h { font-size: 1.1rem; font-weight: 700; color: var(--text-main); margin: 1.4rem 0 0.8rem; }
+.modal-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+.modal-bullets li {
+  position: relative; padding-left: 1.3rem; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;
+}
+.modal-bullets li::before {
+  content: '•'; color: var(--primary); position: absolute; left: 0; font-size: 1.2rem; line-height: 1;
+}
+.modal-tech-box {
+  background: var(--bg-subtle); border: 1px solid var(--border-color);
+  border-radius: 8px; padding: 1rem; margin-top: 1.4rem;
+  font-size: 0.9rem; color: var(--text-muted);
+}
+.modal-footer-actions {
+  display: flex; gap: 1rem; margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid var(--border-color);
+}
 
-/* ===================== RESPONSIVE ===================== */
+/* ===================== RESPONSIVE BREAKPOINTS ===================== */
 @media (max-width: 1024px) {
-  nav { padding: 1rem 2rem; }
-  section { padding: 5.5rem 2rem; }
-  .about-inner { grid-template-columns: 1fr; gap: 3rem; }
-  .about-left { position: static; }
-  .about-avatar { width: 280px; height: 350px; }
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
   .achievements-grid { grid-template-columns: repeat(2, 1fr); }
-  .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .certs-grid { grid-template-columns: repeat(2, 1fr); }
+  .education-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
-  nav { padding: 0.8rem 1.5rem; }
+  .navbar { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
   .hamburger { display: flex; }
-  section { padding: 4.5rem 1.5rem; }
-  .hero-stats-bar { gap: 1.5rem; }
+  section { padding: 4rem 1.2rem; }
   .projects-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
   .achievements-grid { grid-template-columns: 1fr; }
   .certs-grid { grid-template-columns: 1fr; }
-  .academic-cards-grid { grid-template-columns: 1fr; }
-  footer { flex-direction: column; text-align: center; }
+  .form-row-2 { grid-template-columns: 1fr; }
+  .direct-contact-row { flex-direction: column; align-items: center; }
 }
 </style>
 </head>
 <body>
 
-<!-- CUSTOM CURSOR -->
-<div id="cursor-dot"></div>
-<div id="cursor-ring"></div>
-
-<!-- SCROLL PROGRESS -->
-<div id="scroll-progress"></div>
-
-<!-- PARTICLES CANVAS -->
-<canvas id="particles-canvas"></canvas>
-
 <!-- NAVBAR -->
-<nav id="navbar">
-  <a href="#hero" class="nav-logo">
-    ANKIT<span style="opacity:0.4">.</span>YADAV
-    <span class="nav-logo-badge">CSE '27</span>
-  </a>
-  <div class="nav-links">
+<header class="navbar">
+  <a href="#hero" class="nav-brand">AY</a>
+  <nav class="nav-links">
     <a href="#about">About</a>
-    <a href="#achievements">Stats</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
-    <a href="#training">Training</a>
-    <a href="#certifications">Certs</a>
-    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#resume">CV & Resume</a>
     <a href="#contact">Contact</a>
-  </div>
-  <div class="nav-controls">
-    <a href="https://github.com/ankityadav281/portfolio" target="_blank" class="nav-resume-btn" title="View Portfolio Repository on GitHub" style="color:var(--text);border-color:var(--border);">
-      <span>🐙 Repo</span>
-    </a>
-    <a href="12313015.pdf" download="Ankit_Yadav_Resume.pdf" class="nav-resume-btn" title="Download Updated Resume">
-      <span>CV ⬇</span>
-    </a>
-    <button id="theme-toggle" aria-label="Toggle theme">☀️</button>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
+  </nav>
+  <div class="nav-actions">
+    <button class="theme-btn" id="theme-btn" aria-label="Toggle Theme">🌙</button>
+    <button class="hamburger" id="hamburger-btn" aria-label="Open Navigation Menu">
       <span></span><span></span><span></span>
     </button>
   </div>
-</nav>
+</header>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobile-menu">
+<!-- MOBILE NAVIGATION DRAWER -->
+<div class="mobile-nav" id="mobile-nav">
   <a href="#about" onclick="closeMobile()">About</a>
-  <a href="#achievements" onclick="closeMobile()">Achievements</a>
-  <a href="#skills" onclick="closeMobile()">Skills & Tech</a>
+  <a href="#skills" onclick="closeMobile()">Skills</a>
   <a href="#projects" onclick="closeMobile()">Projects</a>
-  <a href="#training" onclick="closeMobile()">Training</a>
-  <a href="#certifications" onclick="closeMobile()">Certificates</a>
-  <a href="#education" onclick="closeMobile()">Education</a>
+  <a href="#experience" onclick="closeMobile()">Experience</a>
+  <a href="#achievements" onclick="closeMobile()">Achievements</a>
+  <a href="#certifications" onclick="closeMobile()">Certifications</a>
+  <a href="#resume" onclick="closeMobile()">CV & Resume</a>
   <a href="#contact" onclick="closeMobile()">Contact</a>
-  <a href="12313015.pdf" download="Ankit_Yadav_Resume.pdf" style="color:var(--neon);font-size:1.4rem;">⬇ Download CV</a>
 </div>
 
 <!-- ===== HERO SECTION ===== -->
 <section id="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <div class="hero-status-pill">
-      <span class="status-indicator-dot"></span>
-      <span>Available for 2026 Roles & Internships</span>
-    </div>
-    <div class="hero-eyebrow">Computer Science & Engineering · LPU</div>
-    <h1 class="hero-name">Ankit Yadav</h1>
-    <div class="hero-title-wrap">
-      <div class="hero-typed">
-        <span class="typed-text" id="typed-text"></span><span class="cursor-blink"></span>
-      </div>
-    </div>
-    <p class="hero-desc">
-      Passionate Software Engineer crafting high-performance full-stack applications with <strong>MERN</strong>, 
-      <strong>Django</strong>, and <strong>Android (Jetpack Compose)</strong>. Competitive programmer with a 
-      <strong>1600 LeetCode rating</strong>, combining algorithmic problem-solving with scalable system design.
-    </p>
-    <div class="hero-btns">
-      <a href="#projects" class="btn-primary"><span>View Projects (6) ➔</span></a>
-      <a href="12313015.pdf" download="Ankit_Yadav_Resume.pdf" class="btn-outline-gold"><span>Download CV ⬇</span></a>
-      <a href="#contact" class="btn-ghost">Let's Connect</a>
-    </div>
-
-    <!-- Quick Stats Bar -->
-    <div class="hero-stats-bar">
-      <div class="stat-pill">
-        <div class="num">6+</div>
-        <div class="label">Production Projects</div>
-      </div>
-      <div class="stat-pill">
-        <div class="num">1600</div>
-        <div class="label">LeetCode Peak Rating</div>
-      </div>
-      <div class="stat-pill">
-        <div class="num">200+</div>
-        <div class="label">Problems Solved</div>
-      </div>
-      <div class="stat-pill">
-        <div class="num">7.32</div>
-        <div class="label">B.Tech CGPA @ LPU</div>
-      </div>
-    </div>
+  <div class="hero-tagline">Welcome to my portfolio</div>
+  <h1 class="hero-title">Ankit Yadav</h1>
+  <div class="hero-roles">Full-Stack Developer · Competitive Programmer · Systems & DSA</div>
+  <p class="hero-bio">
+    B.Tech Computer Science student at Lovely Professional University (CGPA 7.32). I build production-ready full-stack applications, robust backend architectures, and offline-first mobile apps with the MERN stack, Django REST, and Android (Jetpack Compose).
+  </p>
+  <div class="hero-socials">
+    <a href="https://github.com/ankityadav281" target="_blank" class="social-icon-link" title="GitHub">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+    </a>
+    <a href="https://linkedin.com/in/AnkitYadav" target="_blank" class="social-icon-link" title="LinkedIn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </a>
+    <a href="mailto:ankityadav11005@gmail.com" class="social-icon-link" title="Email">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </a>
+    <a href="tel:+919785545041" class="social-icon-link" title="Phone">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+    </a>
   </div>
 </section>
 
-<!-- ===== ABOUT SECTION ===== -->
-<section id="about">
-  <div class="section-header reveal">
-    <div class="section-tag">Profile Overview</div>
-    <h2 class="section-title">About Me</h2>
-    <p class="section-subtitle">Bridging strong algorithmic thinking with clean, resilient software architecture</p>
-  </div>
-  <div class="about-inner">
-    <div class="about-left reveal-left">
-      <!-- Framed Avatar -->
-      <div class="about-avatar">
-        <div class="about-avatar-ring"></div>
-        <div class="about-avatar-corners"></div>
-        <div class="about-avatar-inner">
-          <img src="ankit.jpeg" alt="Ankit Yadav — Software Engineer">
-        </div>
-        <div class="about-avatar-scan"></div>
-      </div>
-
-      <div class="about-location-badge">
-        <span>📍 Jaipur, Rajasthan, India</span>
-      </div>
-
-      <div class="cv-btn-wrap">
-        <a href="12313015.pdf" download="Ankit_Yadav_Resume.pdf" class="cv-download-btn">
-          <span>Download Resume (PDF)</span>
-          <span>⬇</span>
-        </a>
-        <a href="12313015.pdf" target="_blank" class="cv-preview-btn">
-          View in Browser ↗
-        </a>
-      </div>
-    </div>
-
-    <div class="about-right reveal-right">
-      <p class="about-text">
-        I am a <strong>Computer Science and Engineering</strong> undergraduate at <strong>Lovely Professional University (2023–2027)</strong> with an updated CGPA of <strong>7.32</strong>. My technical journey is defined by engineering software that solves tangible real-world problems with reliability, speed, and clean code.
-      </p>
-
-      <p class="about-text">
-        With a disciplined foundation in <strong>Data Structures & Algorithms (C++)</strong> and competitive programming (solving <strong>200+ problems</strong> with a peak contest rating of <strong>1600</strong> on LeetCode), I tackle complex bottlenecks through systematic complexity analysis, caching, and robust state machines.
-      </p>
-
-      <p class="about-text">
-        On the development front, I build end-to-end applications across the <strong>MERN stack</strong> (React 19/18, Node.js, Express, MongoDB), <strong>Django REST Framework</strong> with atomic transactional processing, and modern <strong>Android development with Jetpack Compose & Room</strong> for mission-critical, offline-first systems.
-      </p>
-
-      <!-- Academic Highlights Grid -->
-      <div class="academic-cards-grid">
-        <div class="info-kpi-card">
-          <div class="info-kpi-header">
-            <span class="info-kpi-val">7.32</span>
-            <span class="info-kpi-tag">CURRENT</span>
-          </div>
-          <div class="info-kpi-title">B.Tech — CSE</div>
-          <div class="info-kpi-sub">Lovely Professional University, Punjab (2023–Present)</div>
-        </div>
-        <div class="info-kpi-card">
-          <div class="info-kpi-header">
-            <span class="info-kpi-val">94.6%</span>
-            <span class="info-kpi-tag">INTERMEDIATE</span>
-          </div>
-          <div class="info-kpi-title">New Bright Moon Sr. Sec. School</div>
-          <div class="info-kpi-sub">Jaipur, Rajasthan · PCM (Jun' 20 – May' 21)</div>
-        </div>
-      </div>
-
-      <!-- Core Proficiency Bars -->
-      <div class="skill-bars-card">
-        <div class="skill-bars-title">
-          <span>⚡ Technical Domain Proficiency</span>
-        </div>
-        <div class="skill-bars">
-          <div class="skill-bar-item">
-            <div class="skill-bar-head"><span>Full Stack Web Development (MERN, Django)</span><span>90%</span></div>
-            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="90"></div></div>
-          </div>
-          <div class="skill-bar-item">
-            <div class="skill-bar-head"><span>Data Structures & Algorithmic Optimization (C++)</span><span>85%</span></div>
-            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="85"></div></div>
-          </div>
-          <div class="skill-bar-item">
-            <div class="skill-bar-head"><span>Database Engineering & REST APIs (MySQL, MongoDB, SQLite)</span><span>82%</span></div>
-            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="82"></div></div>
-          </div>
-          <div class="skill-bar-item">
-            <div class="skill-bar-head"><span>Mobile Engineering (Android, Jetpack Compose, Offline-First)</span><span>75%</span></div>
-            <div class="skill-bar-track"><div class="skill-bar-fill" data-width="75"></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== ACHIEVEMENTS & STATS SECTION ===== -->
-<section id="achievements">
-  <div class="section-header reveal">
-    <div class="section-tag">Proof of Excellence</div>
-    <h2 class="section-title">Achievements & Milestones</h2>
-    <p class="section-subtitle">Consistent problem-solving track record and competitive coding benchmarks</p>
-  </div>
-  <div class="achievements-grid">
-    <div class="achievement-card reveal" data-delay="0">
-      <div class="achieve-icon">🏆</div>
-      <div class="achieve-number">1600</div>
-      <div class="achieve-title">Peak Contest Rating</div>
-      <div class="achieve-desc">Attained top-tier competitive standing in LeetCode global coding contests.</div>
-      <span class="achieve-badge">LeetCode Contest</span>
-    </div>
-    <div class="achievement-card reveal" data-delay="100">
-      <div class="achieve-icon">💡</div>
-      <div class="achieve-number">200+</div>
-      <div class="achieve-title">Problems Solved</div>
-      <div class="achieve-desc">Mastered complex algorithmic challenges across LeetCode & GeeksforGeeks.</div>
-      <span class="achieve-badge">DSA & Problem Solving</span>
-    </div>
-    <div class="achievement-card reveal" data-delay="200">
-      <div class="achieve-icon">🎖️</div>
-      <div class="achieve-number">Top Badges</div>
-      <div class="achieve-title">LeetCode Badges</div>
-      <div class="achieve-desc">Earned specialized badges for daily algorithmic consistency and streak excellence.</div>
-      <span class="achieve-badge">Verified Credentials</span>
-    </div>
-    <div class="achievement-card reveal" data-delay="300">
-      <div class="achieve-icon">⚡</div>
-      <div class="achieve-number">100+</div>
-      <div class="achieve-title">DSA Training Solves</div>
-      <div class="achieve-desc">Deep algorithmic training at LPU covering trees, graphs, heaps, and dynamic programming.</div>
-      <span class="achieve-badge">LPU Certified</span>
-    </div>
-  </div>
-</section>
-
-<!-- ===== SKILLS & TECHNOLOGIES ===== -->
+<!-- ===== SKILLS & EXPERTISE ===== -->
 <section id="skills">
-  <div class="section-header reveal">
-    <div class="section-tag">Engineering Arsenal</div>
-    <h2 class="section-title">Skills & Technologies</h2>
-    <p class="section-subtitle">Categorized breakdown of programming languages, frameworks, databases, and foundational CS</p>
+  <div class="section-badge-wrapper">
+    <div class="section-badge">Skills & Expertise</div>
   </div>
-
-  <div class="skills-container">
+  <div class="skills-grid">
     <!-- Languages -->
-    <div class="skills-section-block reveal">
-      <div class="skills-block-header">
-        <span class="skills-block-icon">💻</span>
-        <h3 class="skills-block-title">Programming Languages</h3>
-      </div>
-      <div class="skills-badges-wrap">
-        <div class="skill-pill"><span class="pill-icon">🔷</span><span>C++ (STL & DSA)</span></div>
-        <div class="skill-pill"><span class="pill-icon">☕</span><span>Java</span></div>
-        <div class="skill-pill"><span class="pill-icon">🌐</span><span>JavaScript (ES6+)</span></div>
-        <div class="skill-pill"><span class="pill-icon">🐍</span><span>Python</span></div>
-        <div class="skill-pill"><span class="pill-icon">⚡</span><span>C</span></div>
-        <div class="skill-pill"><span class="pill-icon">🗄️</span><span>SQL</span></div>
-        <div class="skill-pill"><span class="pill-icon">📱</span><span>Kotlin (Android)</span></div>
-      </div>
+    <div class="skill-category-card">
+      <div class="skill-icon-badge">&gt;_</div>
+      <h3 class="skill-category-title">Languages</h3>
+      <ul class="skill-list">
+        <li class="skill-list-item">C++</li>
+        <li class="skill-list-item">Java</li>
+        <li class="skill-list-item">JavaScript (ES6+)</li>
+        <li class="skill-list-item">Python</li>
+        <li class="skill-list-item">C</li>
+        <li class="skill-list-item">Kotlin</li>
+        <li class="skill-list-item">SQL</li>
+      </ul>
     </div>
 
-    <!-- Frontend & Mobile -->
-    <div class="skills-section-block reveal">
-      <div class="skills-block-header">
-        <span class="skills-block-icon">🎨</span>
-        <h3 class="skills-block-title">Frontend & Mobile Technologies</h3>
+    <!-- Frameworks -->
+    <div class="skill-category-card">
+      <div class="skill-icon-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
       </div>
-      <div class="skills-badges-wrap">
-        <div class="skill-pill"><span class="pill-icon">⚛️</span><span>React.js (v18 & v19)</span></div>
-        <div class="skill-pill"><span class="pill-icon">⚡</span><span>Vite</span></div>
-        <div class="skill-pill"><span class="pill-icon">💨</span><span>Tailwind CSS</span></div>
-        <div class="skill-pill"><span class="pill-icon">🏗️</span><span>HTML5</span></div>
-        <div class="skill-pill"><span class="pill-icon">🎨</span><span>CSS3 & Modern Tokens</span></div>
-        <div class="skill-pill"><span class="pill-icon">🤖</span><span>Jetpack Compose</span></div>
-        <div class="skill-pill"><span class="pill-icon">🧭</span><span>React Router v7</span></div>
-        <div class="skill-pill"><span class="pill-icon">✨</span><span>Lucide React</span></div>
-      </div>
+      <h3 class="skill-category-title">Frameworks</h3>
+      <ul class="skill-list">
+        <li class="skill-list-item">React.js (v18 & v19)</li>
+        <li class="skill-list-item">Node.js</li>
+        <li class="skill-list-item">Express.js</li>
+        <li class="skill-list-item">Django 6.1</li>
+        <li class="skill-list-item">Django REST Framework</li>
+        <li class="skill-list-item">Tailwind CSS</li>
+        <li class="skill-list-item">Jetpack Compose</li>
+      </ul>
     </div>
 
-    <!-- Backend, Frameworks & APIs -->
-    <div class="skills-section-block reveal">
-      <div class="skills-block-header">
-        <span class="skills-block-icon">⚙️</span>
-        <h3 class="skills-block-title">Backend & Frameworks</h3>
+    <!-- Tools & Platforms -->
+    <div class="skill-category-card">
+      <div class="skill-icon-badge">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
       </div>
-      <div class="skills-badges-wrap">
-        <div class="skill-pill"><span class="pill-icon">🟢</span><span>Node.js</span></div>
-        <div class="skill-pill"><span class="pill-icon">🚂</span><span>Express.js 5</span></div>
-        <div class="skill-pill"><span class="pill-icon">🐍</span><span>Django 6.1</span></div>
-        <div class="skill-pill"><span class="pill-icon">📡</span><span>Django REST Framework (DRF)</span></div>
-        <div class="skill-pill"><span class="pill-icon">🔗</span><span>RESTful API Architecture</span></div>
-        <div class="skill-pill"><span class="pill-icon">🔐</span><span>JWT & bcrypt Authentication</span></div>
-        <div class="skill-pill"><span class="pill-icon">🤖</span><span>xAI (Grok API) Integration</span></div>
-      </div>
+      <h3 class="skill-category-title">Tools & Platforms</h3>
+      <ul class="skill-list">
+        <li class="skill-list-item">MySQL</li>
+        <li class="skill-list-item">MongoDB</li>
+        <li class="skill-list-item">SQLite3</li>
+        <li class="skill-list-item">Firebase</li>
+        <li class="skill-list-item">Git / GitHub</li>
+        <li class="skill-list-item">Postman</li>
+        <li class="skill-list-item">Netlify / Vercel</li>
+      </ul>
     </div>
 
-    <!-- Databases & Cloud -->
-    <div class="skills-section-block reveal">
-      <div class="skills-block-header">
-        <span class="skills-block-icon">🗄️</span>
-        <h3 class="skills-block-title">Databases & Cloud</h3>
-      </div>
-      <div class="skills-badges-wrap">
-        <div class="skill-pill"><span class="pill-icon">🐬</span><span>MySQL (mysql2 connection pool)</span></div>
-        <div class="skill-pill"><span class="pill-icon">🍃</span><span>MongoDB & Mongoose</span></div>
-        <div class="skill-pill"><span class="pill-icon">💾</span><span>SQLite3 (Atomic Transactions)</span></div>
-        <div class="skill-pill"><span class="pill-icon">🔥</span><span>Firebase (Firestore & Auth)</span></div>
-        <div class="skill-pill"><span class="pill-icon">📦</span><span>Room Database (Android SQLite)</span></div>
-        <div class="skill-pill"><span class="pill-icon">☁️</span><span>Cloud Computing Fundamentals</span></div>
-      </div>
-    </div>
-
-    <!-- Core CS Fundamentals & Soft Skills -->
-    <div class="skills-section-block reveal">
-      <div class="skills-block-header">
-        <span class="skills-block-icon">🧠</span>
-        <h3 class="skills-block-title">Core CS Fundamentals & Tools</h3>
-      </div>
-      <div class="skills-badges-wrap">
-        <div class="skill-pill"><span class="pill-icon">📚</span><span>Data Structures & Algorithms (DSA)</span></div>
-        <div class="skill-pill"><span class="pill-icon">🏗️</span><span>Object-Oriented Programming (OOP)</span></div>
-        <div class="skill-pill"><span class="pill-icon">💾</span><span>Database Management Systems (DBMS)</span></div>
-        <div class="skill-pill"><span class="pill-icon">🖥️</span><span>Operating Systems (OS)</span></div>
-        <div class="skill-pill"><span class="pill-icon">🌐</span><span>Computer Networks (CN)</span></div>
-        <div class="skill-pill"><span class="pill-icon">🐙</span><span>Git & GitHub</span></div>
-        <div class="skill-pill"><span class="pill-icon">🎯</span><span>Time Management & Rapid Learning</span></div>
-      </div>
+    <!-- CS Fundamentals -->
+    <div class="skill-category-card">
+      <div class="skill-icon-badge">&lt;/&gt;</div>
+      <h3 class="skill-category-title">CS Fundamentals</h3>
+      <ul class="skill-list">
+        <li class="skill-list-item">DSA</li>
+        <li class="skill-list-item">OOP</li>
+        <li class="skill-list-item">Operating Systems</li>
+        <li class="skill-list-item">DBMS</li>
+        <li class="skill-list-item">Computer Networks</li>
+        <li class="skill-list-item">REST APIs</li>
+        <li class="skill-list-item">System Design</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- ===== PROJECTS SECTION ===== -->
+<!-- ===== FEATURED PROJECTS ===== -->
 <section id="projects">
-  <div class="section-header reveal">
-    <div class="section-tag">Featured Work</div>
-    <h2 class="section-title">Production & Engineering Projects</h2>
-    <p class="section-subtitle">Real-world full-stack platforms, offline-first mobile apps, and algorithmic systems</p>
+  <div class="section-badge-wrapper">
+    <div class="section-badge">Featured Projects</div>
   </div>
-
-  <!-- Filter Bar -->
-  <div class="projects-filter-bar reveal">
-    <button class="filter-btn active" data-filter="all">All Projects (6)</button>
-    <button class="filter-btn" data-filter="web">Full Stack Web</button>
-    <button class="filter-btn" data-filter="mobile">Android / Mobile</button>
-    <button class="filter-btn" data-filter="systems">AI & Systems</button>
-  </div>
-
   <div class="projects-grid">
 
-    <!-- Project 1: Paramarsh -->
-    <div class="project-card reveal" data-category="web systems" data-delay="0">
-      <div class="project-banner">
-        <div class="project-banner-bg" style="background: linear-gradient(135deg, #09203f, #1e3c72, #0f2027);"></div>
-        <div class="project-num">01</div>
-        <div class="project-badge" style="background:rgba(0,240,255,0.15);color:var(--neon);border:1px solid rgba(0,240,255,0.3);">🩺 AI Healthcare & Real-Time</div>
-        <div class="project-timeline-tag">Apr' 26 – May' 26</div>
+    <!-- 1. Paramarsh -->
+    <div class="project-card">
+      <div class="project-thumb" style="background: linear-gradient(135deg, #1e3a8a, #0284c7);">
+        <div class="project-thumb-text">Paramarsh</div>
       </div>
-      <div class="project-body">
-        <h3 class="project-title">Paramarsh – AI Medical Consultation Platform</h3>
+      <div class="project-content">
+        <h3 class="project-name">Paramarsh</h3>
         <p class="project-desc">
-          Full-stack healthcare consultation web app connecting patients with verified specialists. Features xAI Grok clinical triage, real-time cross-tab doctor chat, and in-memory MySQL failover.
+          AI-powered medical consultation platform with xAI Grok clinical triage, real-time cross-tab chat via BroadcastChannel, and in-memory MySQL failover.
         </p>
-        <div class="project-stat-highlight">
-          <span>⚡ Real-Time Cross-Tab Sync via BroadcastChannel & StorageEvent</span>
-        </div>
         <div class="project-tags">
-          <span class="tag">React 19</span><span class="tag">Node.js</span><span class="tag">Express 5</span><span class="tag">MySQL</span><span class="tag">xAI Grok</span><span class="tag">JWT</span>
+          <span class="project-tag">React 19</span>
+          <span class="project-tag">Node.js</span>
+          <span class="project-tag">Express.js</span>
+          <span class="project-tag">MySQL</span>
+          <span class="project-tag">xAI Grok</span>
         </div>
-        <div class="project-actions">
-          <button class="project-btn primary" onclick="openModal('modal-paramarsh')">Full Specs ➔</button>
-          <a href="https://github.com/ankityadav281/Paramarsh" target="_blank" class="project-btn ghost">GitHub ↗</a>
+        <div class="project-card-footer">
+          <a href="https://github.com/ankityadav281/Paramarsh" target="_blank" class="project-link-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            <span>Code</span>
+          </a>
+          <button class="btn-show-more" onclick="openModal('modal-paramarsh')">Show More</button>
         </div>
       </div>
     </div>
 
-    <!-- Project 2: CampusCart -->
-    <div class="project-card reveal" data-category="web" data-delay="100">
-      <div class="project-banner">
-        <div class="project-banner-bg" style="background: linear-gradient(135deg, #1b2838, #2a475e, #102a43);"></div>
-        <div class="project-num">02</div>
-        <div class="project-badge" style="background:rgba(251,191,36,0.15);color:var(--gold);border:1px solid rgba(251,191,36,0.3);">🛒 Multi-Vendor E-Commerce</div>
-        <div class="project-timeline-tag">Django + React</div>
+    <!-- 2. CampusCart -->
+    <div class="project-card">
+      <div class="project-thumb" style="background: linear-gradient(135deg, #065f46, #0d9488);">
+        <div class="project-thumb-text">CampusCart</div>
       </div>
-      <div class="project-body">
-        <h3 class="project-title">CampusCart – University Multi-Vendor Marketplace</h3>
+      <div class="project-content">
+        <h3 class="project-name">CampusCart</h3>
         <p class="project-desc">
-          Production-ready campus marketplace unifying university canteens, stationery, and bookstores. Features atomic multi-vendor checkout, scheduled break pickup slot reservation, and role-based merchant dashboards.
+          University multi-vendor marketplace with atomic multi-order checkout (transaction.atomic + select_for_update), scheduled pickup slots, and merchant dashboard.
         </p>
-        <div class="project-stat-highlight">
-          <span>🔒 Atomic Multi-Order Checkout with transaction.atomic() & select_for_update()</span>
-        </div>
         <div class="project-tags">
-          <span class="tag">React 18</span><span class="tag">Django 6.1</span><span class="tag">DRF</span><span class="tag">Tailwind CSS</span><span class="tag">SQLite</span><span class="tag">JWT</span>
+          <span class="project-tag">React 18</span>
+          <span class="project-tag">Django 6.1</span>
+          <span class="project-tag">DRF</span>
+          <span class="project-tag">Tailwind CSS</span>
+          <span class="project-tag">SQLite</span>
         </div>
-        <div class="project-actions">
-          <button class="project-btn primary" onclick="openModal('modal-campuscart')">Full Specs ➔</button>
-          <a href="https://github.com/ankityadav281/CampusCart" target="_blank" class="project-btn ghost">GitHub ↗</a>
+        <div class="project-card-footer">
+          <a href="https://github.com/ankityadav281/CampusCart" target="_blank" class="project-link-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            <span>Code</span>
+          </a>
+          <button class="btn-show-more" onclick="openModal('modal-campuscart')">Show More</button>
         </div>
       </div>
     </div>
 
-    <!-- Project 3: MineImpact -->
-    <div class="project-card reveal" data-category="web systems" data-delay="200">
-      <div class="project-banner">
-        <div class="project-banner-bg" style="background: linear-gradient(135deg, #064e3b, #047857, #065f46);"></div>
-        <div class="project-num">03</div>
-        <div class="project-badge" style="background:rgba(16,185,129,0.15);color:var(--emerald);border:1px solid rgba(16,185,129,0.3);">🌱 Industrial Sustainability & LCA</div>
-        <div class="project-timeline-tag">Oct' 25 – Dec' 25</div>
+    <!-- 3. MineImpact -->
+    <div class="project-card">
+      <div class="project-thumb" style="background: linear-gradient(135deg, #1e293b, #334155);">
+        <div class="project-thumb-text">MineImpact</div>
       </div>
-      <div class="project-body">
-        <h3 class="project-title">MineImpact – Mining LCA & Sustainability Platform</h3>
+      <div class="project-content">
+        <h3 class="project-name">MineImpact</h3>
         <p class="project-desc">
-          Comprehensive MERN environmental intelligence platform. Features an ISO 14044 / IPCC-aligned calculation engine quantifying carbon footprints (GWP), acidification, water depletion, and automated executive PDF reports.
+          Mining Life Cycle Assessment (LCA) intelligence platform with an ISO 14044/IPCC calculation engine quantifying GWP, acidification, and automated executive PDF reports.
         </p>
-        <div class="project-stat-highlight">
-          <span>📊 Full Life-Cycle Cradle-to-Gate Boundary Modeling & ISO PDF Reporting</span>
-        </div>
         <div class="project-tags">
-          <span class="tag">React 18</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MongoDB</span><span class="tag">jsPDF</span><span class="tag">LCA Engine</span>
+          <span class="project-tag">React 18</span>
+          <span class="project-tag">Node.js</span>
+          <span class="project-tag">Express.js</span>
+          <span class="project-tag">MongoDB</span>
+          <span class="project-tag">jsPDF</span>
         </div>
-        <div class="project-actions">
-          <button class="project-btn primary" onclick="openModal('modal-mineimpact')">Full Specs ➔</button>
-          <a href="https://github.com/ankityadav281/MineImpact" target="_blank" class="project-btn ghost">GitHub ↗</a>
+        <div class="project-card-footer">
+          <a href="https://github.com/ankityadav281/MineImpact" target="_blank" class="project-link-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            <span>Code</span>
+          </a>
+          <button class="btn-show-more" onclick="openModal('modal-mineimpact')">Show More</button>
         </div>
       </div>
     </div>
 
-    <!-- Project 4: Aasha -->
-    <div class="project-card reveal" data-category="mobile" data-delay="300">
-      <div class="project-banner">
-        <div class="project-banner-bg" style="background: linear-gradient(135deg, #31103f, #581c87, #1e1b4b);"></div>
-        <div class="project-num">04</div>
-        <div class="project-badge" style="background:rgba(129,140,248,0.15);color:var(--neon2);border:1px solid rgba(129,140,248,0.3);">📱 Android / Jetpack Compose</div>
-        <div class="project-timeline-tag">Offline-First App</div>
+    <!-- 4. Aasha -->
+    <div class="project-card">
+      <div class="project-thumb" style="background: linear-gradient(135deg, #4c1d95, #6d28d9);">
+        <div class="project-thumb-text">Aasha</div>
       </div>
-      <div class="project-body">
-        <h3 class="project-title">Aasha – Empowering Community Health Workers</h3>
+      <div class="project-content">
+        <h3 class="project-name">Aasha</h3>
         <p class="project-desc">
-          Specialized Android app built for Accredited Social Health Activists (ASHA) in rural India. Built with Clean Architecture & MVVM, featuring offline-first Room persistence, fuzzy duplicate detection, and encrypted MPIN security.
+          Offline-first Android app for Accredited Social Health Activists (ASHA) in rural India. Built with Clean Architecture, Room SQLite, fuzzy deduplication, and encrypted MPIN.
         </p>
-        <div class="project-stat-highlight">
-          <span>📶 Offline-First Room DB + WorkManager Cloud Sync & Multilingual UI</span>
-        </div>
         <div class="project-tags">
-          <span class="tag">Jetpack Compose</span><span class="tag">Kotlin</span><span class="tag">Hilt</span><span class="tag">Room SQLite</span><span class="tag">Firebase</span><span class="tag">WorkManager</span>
+          <span class="project-tag">Kotlin</span>
+          <span class="project-tag">Jetpack Compose</span>
+          <span class="project-tag">Room DB</span>
+          <span class="project-tag">Firebase</span>
+          <span class="project-tag">Hilt</span>
         </div>
-        <div class="project-actions">
-          <button class="project-btn primary" onclick="openModal('modal-aasha')">Full Specs ➔</button>
-          <a href="https://github.com/yosobanta/Aasha" target="_blank" class="project-btn ghost">GitHub ↗</a>
+        <div class="project-card-footer">
+          <a href="https://github.com/yosobanta/Aasha" target="_blank" class="project-link-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            <span>Code</span>
+          </a>
+          <button class="btn-show-more" onclick="openModal('modal-aasha')">Show More</button>
         </div>
       </div>
     </div>
 
-    <!-- Project 5: Student Management System -->
-    <div class="project-card reveal" data-category="web" data-delay="400">
-      <div class="project-banner">
-        <div class="project-banner-bg" style="background: linear-gradient(135deg, #1e293b, #334155, #0f172a);"></div>
-        <div class="project-num">05</div>
-        <div class="project-badge" style="background:rgba(56,189,248,0.15);color:#38bdf8;border:1px solid rgba(56,189,248,0.3);">🎓 Academic ERP & SIS</div>
-        <div class="project-timeline-tag">Full Stack</div>
+    <!-- 5. Student Management System -->
+    <div class="project-card">
+      <div class="project-thumb" style="background: linear-gradient(135deg, #0369a1, #0284c7);">
+        <div class="project-thumb-text">Student Management System</div>
       </div>
-      <div class="project-body">
-        <h3 class="project-title">Student Management System (SMS)</h3>
+      <div class="project-content">
+        <h3 class="project-name">Student Management System</h3>
         <p class="project-desc">
-          Full-featured academic management system handling student profiles, course registrations, daily attendance tracking with automated GPA calculations, fee management, and role-based permissions for Admins, Teachers, and Students.
+          Full-featured academic ERP and SIS managing student profiles, course registrations, daily attendance tracking with automated GPA calculations, and fee management.
         </p>
-        <div class="project-stat-highlight">
-          <span>👥 Multi-Role RBAC Portals (Admin / Faculty / Student)</span>
-        </div>
         <div class="project-tags">
-          <span class="tag">Python</span><span class="tag">Django</span><span class="tag">Node.js</span><span class="tag">Relational DB</span><span class="tag">JWT</span><span class="tag">Analytics</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Django</span>
+          <span class="project-tag">Node.js</span>
+          <span class="project-tag">Relational DB</span>
+          <span class="project-tag">JWT</span>
         </div>
-        <div class="project-actions">
-          <button class="project-btn primary" onclick="openModal('modal-sms')">Full Specs ➔</button>
-          <a href="https://github.com/ankityadav281/Student-Management-System" target="_blank" class="project-btn ghost">GitHub ↗</a>
+        <div class="project-card-footer">
+          <a href="https://github.com/ankityadav281/Student-Management-System" target="_blank" class="project-link-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            <span>Code</span>
+          </a>
+          <button class="btn-show-more" onclick="openModal('modal-sms')">Show More</button>
         </div>
       </div>
     </div>
 
-    <!-- Project 6: Parking Slot Allocation System -->
-    <div class="project-card reveal" data-category="systems" data-delay="500">
-      <div class="project-banner">
-        <div class="project-banner-bg" style="background: linear-gradient(135deg, #451a03, #78350f, #311303);"></div>
-        <div class="project-num">06</div>
-        <div class="project-badge" style="background:rgba(249,115,22,0.15);color:#f97316;border:1px solid rgba(249,115,22,0.3);">⚙️ Core DSA & Optimization</div>
-        <div class="project-timeline-tag">LPU DSA Project</div>
+    <!-- 6. Parking Slot Allocation System -->
+    <div class="project-card">
+      <div class="project-thumb" style="background: linear-gradient(135deg, #78350f, #9a3412);">
+        <div class="project-thumb-text">Parking Slot System</div>
       </div>
-      <div class="project-body">
-        <h3 class="project-title">Parking Slot Allocation System</h3>
+      <div class="project-content">
+        <h3 class="project-name">Parking Slot Allocation System</h3>
         <p class="project-desc">
-          High-efficiency parking management system engineered in C++ leveraging advanced Data Structures and Algorithms. Features heap-based space allocation, dynamic routing, and rigorous time & space complexity optimization.
+          High-efficiency parking facility management system engineered in C++ using min-heaps, priority queues, and hash maps achieving O(log n) space allocation.
         </p>
-        <div class="project-stat-highlight">
-          <span>🚗 O(log n) Slot Lookup & Allocation via Heaps & Priority Queues</span>
-        </div>
         <div class="project-tags">
-          <span class="tag">C++</span><span class="tag">DSA</span><span class="tag">OOPs</span><span class="tag">Priority Queues</span><span class="tag">Hash Maps</span><span class="tag">Complexity Analysis</span>
+          <span class="project-tag">C++</span>
+          <span class="project-tag">DSA</span>
+          <span class="project-tag">OOPs</span>
+          <span class="project-tag">Priority Queues</span>
+          <span class="project-tag">Hash Maps</span>
         </div>
-        <div class="project-actions">
-          <button class="project-btn primary" onclick="openModal('modal-parking')">Full Specs ➔</button>
-          <a href="https://github.com/ankityadav281/parking-slot-allocation" target="_blank" class="project-btn ghost">GitHub ↗</a>
+        <div class="project-card-footer">
+          <a href="https://github.com/ankityadav281/parking-slot-allocation" target="_blank" class="project-link-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            <span>Code</span>
+          </a>
+          <button class="btn-show-more" onclick="openModal('modal-parking')">Show More</button>
         </div>
       </div>
     </div>
@@ -1488,703 +930,432 @@ footer {
   </div>
 </section>
 
-<!-- ===== TRAINING & EXPERIENCE ===== -->
-<section id="training">
-  <div class="section-header reveal">
-    <div class="section-tag">Rigorous Preparation</div>
-    <h2 class="section-title">Training & Professional Development</h2>
-    <p class="section-subtitle">Deep intensive coursework and practical algorithmic system implementations</p>
+<!-- ===== EXPERIENCE / TRAINING ===== -->
+<section id="experience">
+  <div class="section-badge-wrapper">
+    <div class="section-badge">Experience</div>
   </div>
-  <div class="training-card reveal">
-    <div class="training-header">
+  <div class="experience-container">
+    <div class="experience-card">
+      <div class="experience-header">
+        <h3 class="experience-role">DSA & Algorithmic Systems Trainee</h3>
+        <span class="experience-date">Jun 2025 — Jul 2025</span>
+      </div>
+      <div class="experience-org">Lovely Professional University</div>
+      <p class="experience-body">
+        Solved 100+ comprehensive DSA problems covering arrays, linked lists, stacks, queues, trees, heaps, graphs, hashing, and dynamic programming using C++. Architected an optimized Parking Slot Allocation System using Core Data Structures and Algorithms (DSA), implementing efficient slot assignment, space management, and fast vehicle allocation with rigorous time and space complexity analysis.
+      </p>
+      <div class="experience-tags">
+        <span class="project-tag">C++</span>
+        <span class="project-tag">Data Structures</span>
+        <span class="project-tag">Algorithms</span>
+        <span class="project-tag">OOPs</span>
+        <span class="project-tag">Heaps & Priority Queues</span>
+        <span class="project-tag">Hash Maps</span>
+        <span class="project-tag">Complexity Analysis</span>
+      </div>
       <div>
-        <h3 class="training-title">Basics of DSA – Lovely Professional University</h3>
-        <div class="training-org">Department of Computer Science & Engineering · LPU</div>
+        <button class="btn-show-more" onclick="openModal('modal-parking')">
+          📄 View Details
+        </button>
       </div>
-      <div class="training-dates">Jun’ 25 – Jul’ 25</div>
-    </div>
-    <ul class="training-list">
-      <li>
-        <strong>Algorithmic Problem-Solving at Scale:</strong> Solved 100+ comprehensive DSA problems covering arrays, singly/doubly linked lists, stacks, queues, binary trees, binary search trees, heaps, graphs (BFS/DFS), hashing, and dynamic programming in C++.
-      </li>
-      <li>
-        <strong>Applied System Implementation:</strong> Architected and implemented a full-scale Parking Slot Allocation System using core data structures, delivering optimal space utilization, rapid vehicle routing, and collision-free assignment.
-      </li>
-      <li>
-        <strong>Complexity Analysis & Clean OOP:</strong> Applied Object-Oriented Programming (OOP) paradigms (encapsulation, abstraction, inheritance, polymorphism) and performed rigorous asymptotic time and space complexity evaluations.
-      </li>
-    </ul>
-    <div class="training-tags">
-      <span class="tag">C++</span>
-      <span class="tag">Data Structures & Algorithms</span>
-      <span class="tag">Object-Oriented Programming (OOPs)</span>
-      <span class="tag">Heaps & Priority Queues</span>
-      <span class="tag">Hash Maps</span>
-      <span class="tag">Time & Space Complexity</span>
-      <span class="tag">Competitive Coding</span>
     </div>
   </div>
 </section>
 
-<!-- ===== CERTIFICATIONS ===== -->
+<!-- ===== ACHIEVEMENTS ===== -->
+<section id="achievements">
+  <div class="section-badge-wrapper">
+    <div class="section-badge">Achievements</div>
+  </div>
+  <div class="achievements-grid">
+    <div class="achievement-card">
+      <div class="achievement-icon-circle">🏆</div>
+      <h3 class="achievement-title">LeetCode Peak Rating: 1600</h3>
+      <p class="achievement-text">Reached a peak LeetCode contest rating of 1600, showcasing strong competitive programming aptitude and algorithmic problem-solving.</p>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-icon-circle">⚡</div>
+      <h3 class="achievement-title">200+ DSA Problems Solved</h3>
+      <p class="achievement-text">Solved 200+ algorithmic and data structure problems across LeetCode and GeeksforGeeks with optimal time & space complexity.</p>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-icon-circle">🎖️</div>
+      <h3 class="achievement-title">Top LeetCode Badges</h3>
+      <p class="achievement-text">Earned top consistency badges on LeetCode for problem-solving streaks and competitive contest participation.</p>
+    </div>
+    <div class="achievement-card">
+      <div class="achievement-icon-circle">💡</div>
+      <h3 class="achievement-title">100+ LPU DSA Training Solves</h3>
+      <p class="achievement-text">Completed rigorous hands-on DSA training at LPU covering graph traversals, heap algorithms, and dynamic programming in C++.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CERTIFICATIONS & COURSES ===== -->
 <section id="certifications">
-  <div class="section-header reveal">
-    <div class="section-tag">Continuous Learning</div>
-    <h2 class="section-title">Certifications & Credentials</h2>
-    <p class="section-subtitle">Verified industry and academic certifications from premier platforms</p>
+  <div class="section-badge-wrapper">
+    <div class="section-badge">Certifications & Courses</div>
   </div>
   <div class="certs-grid">
-
-    <!-- Java Programming -->
-    <a href="https://drive.google.com/file/d/1MYskwo1MaUDPj3mvYpFykFp0usZ3ZhXt/view?usp=drive_link" target="_blank" class="cert-link">
-      <div class="cert-card reveal" data-delay="0">
-        <div class="cert-icon" style="background:rgba(255,165,0,0.12);">☕</div>
-        <div class="cert-info">
-          <div class="cert-name">Java Programming</div>
-          <div class="cert-issuer">iamneo · Industry Assessment</div>
-          <div class="cert-date">Issued: May’ 25</div>
+    <!-- Java -->
+    <div class="cert-card">
+      <div class="cert-top">
+        <h4 class="cert-title">JAVA PROGRAMMING</h4>
+        <div class="cert-meta-row">
+          <a href="https://drive.google.com/file/d/1MYskwo1MaUDPj3mvYpFykFp0usZ3ZhXt/view?usp=drive_link" target="_blank" class="cert-btn">View</a>
+          <span class="cert-date-badge">May 2025</span>
         </div>
-        <div class="cert-badge">✓ Verified</div>
       </div>
-    </a>
+      <div class="cert-issuer">iamneo</div>
+    </div>
 
     <!-- Cloud Computing -->
-    <a href="https://drive.google.com/file/d/124muKRV7zJVth1ez3RSBEcL3hxPhJlBd/view?usp=drive_link" target="_blank" class="cert-link">
-      <div class="cert-card reveal" data-delay="100">
-        <div class="cert-icon" style="background:rgba(0,140,255,0.12);">☁️</div>
-        <div class="cert-info">
-          <div class="cert-name">Cloud Computing</div>
-          <div class="cert-issuer">NPTEL · IIT Kharagpur</div>
-          <div class="cert-date">Issued: Apr’ 25</div>
+    <div class="cert-card">
+      <div class="cert-top">
+        <h4 class="cert-title">CLOUD COMPUTING</h4>
+        <div class="cert-meta-row">
+          <a href="https://drive.google.com/file/d/124muKRV7zJVth1ez3RSBEcL3hxPhJlBd/view?usp=drive_link" target="_blank" class="cert-btn">View</a>
+          <span class="cert-date-badge">Apr 2025</span>
         </div>
-        <div class="cert-badge">✓ Verified</div>
       </div>
-    </a>
+      <div class="cert-issuer">NPTEL · IIT Kharagpur</div>
+    </div>
 
-    <!-- Data Structures and Algorithm -->
-    <div class="cert-card reveal" data-delay="200">
-      <div class="cert-icon" style="background:rgba(0,240,255,0.12);">⚡</div>
-      <div class="cert-info">
-        <div class="cert-name">Data Structure and Algorithm</div>
-        <div class="cert-issuer">iamneo · Algorithmic Competency</div>
-        <div class="cert-date">Issued: Dec’ 24</div>
+    <!-- Data Structures -->
+    <div class="cert-card">
+      <div class="cert-top">
+        <h4 class="cert-title">DATA STRUCTURE & ALGORITHM</h4>
+        <div class="cert-meta-row">
+          <span class="cert-btn">Verified</span>
+          <span class="cert-date-badge">Dec 2024</span>
+        </div>
       </div>
-      <div class="cert-badge">✓ Verified</div>
+      <div class="cert-issuer">iamneo</div>
     </div>
 
     <!-- Object Oriented Programming -->
-    <div class="cert-card reveal" data-delay="300">
-      <div class="cert-icon" style="background:rgba(129,140,248,0.12);">🏗️</div>
-      <div class="cert-info">
-        <div class="cert-name">Object Oriented Programming</div>
-        <div class="cert-issuer">iamneo · Software Architecture</div>
-        <div class="cert-date">Issued: Dec’ 24</div>
+    <div class="cert-card">
+      <div class="cert-top">
+        <h4 class="cert-title">OBJECT ORIENTED PROGRAMMING</h4>
+        <div class="cert-meta-row">
+          <span class="cert-btn">Verified</span>
+          <span class="cert-date-badge">Dec 2024</span>
+        </div>
       </div>
-      <div class="cert-badge">✓ Verified</div>
+      <div class="cert-issuer">iamneo</div>
     </div>
 
     <!-- Python for Data Science -->
-    <a href="https://drive.google.com/file/d/1wYUmEFLkWwBCazN-rTn6B8Y70QqPBSWh/view?usp=drive_link" target="_blank" class="cert-link">
-      <div class="cert-card reveal" data-delay="400">
-        <div class="cert-icon" style="background:rgba(16,185,129,0.12);">🐍</div>
-        <div class="cert-info">
-          <div class="cert-name">Python for Data Science</div>
-          <div class="cert-issuer">Board Infinity · Professional Certification</div>
-          <div class="cert-date">Issued: Verified</div>
+    <div class="cert-card">
+      <div class="cert-top">
+        <h4 class="cert-title">PYTHON FOR DATA SCIENCE</h4>
+        <div class="cert-meta-row">
+          <a href="https://drive.google.com/file/d/1wYUmEFLkWwBCazN-rTn6B8Y70QqPBSWh/view?usp=drive_link" target="_blank" class="cert-btn">View</a>
+          <span class="cert-date-badge">Verified</span>
         </div>
-        <div class="cert-badge">✓ Verified</div>
       </div>
-    </a>
+      <div class="cert-issuer">Board Infinity</div>
+    </div>
 
+    <!-- DSA Training -->
+    <div class="cert-card">
+      <div class="cert-top">
+        <h4 class="cert-title">BASICS OF DSA</h4>
+        <div class="cert-meta-row">
+          <span class="cert-btn">Certificate</span>
+          <span class="cert-date-badge">Jul 2025</span>
+        </div>
+      </div>
+      <div class="cert-issuer">Lovely Professional University</div>
+    </div>
   </div>
 </section>
 
-<!-- ===== EDUCATION SECTION ===== -->
-<section id="education">
-  <div class="section-header reveal">
-    <div class="section-tag">Academic Background</div>
-    <h2 class="section-title">Education & Milestones</h2>
-    <p class="section-subtitle">Consistent academic foundation in computer science and mathematical sciences</p>
+<!-- ===== CV & RESUME ===== -->
+<section id="resume">
+  <div class="section-badge-wrapper">
+    <div class="section-badge">CV & Resume</div>
   </div>
-  <div class="edu-timeline">
-
-    <!-- B.Tech -->
-    <div class="edu-item reveal">
-      <div class="edu-dot"></div>
-      <div class="edu-year">AUG’ 2023 — PRESENT (EXPECTED 2027)</div>
-      <div class="edu-degree">Bachelor of Technology — Computer Science and Engineering</div>
-      <div class="edu-institution">Lovely Professional University, Punjab, India</div>
-      <div>
-        <span class="edu-grade-tag">CGPA: 7.32</span>
-        <span style="font-size:0.88rem;color:var(--text2);margin-left:0.6rem;">Core coursework: DSA, DBMS, OS, Computer Networks, OOP, Discrete Math</span>
-      </div>
+  <div class="resume-card">
+    <div class="resume-icon-wrap">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
     </div>
-
-    <!-- Intermediate -->
-    <div class="edu-item reveal">
-      <div class="edu-dot"></div>
-      <div class="edu-year">JUN’ 2020 — MAY’ 2021</div>
-      <div class="edu-degree">Senior Secondary (Intermediate) — Physics, Chemistry, Mathematics</div>
-      <div class="edu-institution">New Bright Moon Sr. Sec. School, Jaipur, Rajasthan</div>
-      <div>
-        <span class="edu-grade-tag">Percentage: 94.60%</span>
-        <span style="font-size:0.88rem;color:var(--text2);margin-left:0.6rem;">State Board of Secondary Education · Distinction in Sciences</span>
-      </div>
+    <h3 class="resume-heading">Download My Resume</h3>
+    <p class="resume-subtext">
+      Interested in working together? Download my full resume to see my detailed experience, education, and technical skills.
+    </p>
+    <div class="resume-actions">
+      <a href="12313015.pdf" download="Ankit_Yadav_Resume.pdf" class="btn-primary-green">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        <span>Download CV</span>
+      </a>
+      <a href="12313015.pdf" target="_blank" class="btn-outline">
+        Preview
+      </a>
     </div>
-
-    <!-- Matriculation -->
-    <div class="edu-item reveal">
-      <div class="edu-dot"></div>
-      <div class="edu-year">JUN’ 2018 — MAY’ 2019</div>
-      <div class="edu-degree">Secondary Education (Matriculation)</div>
-      <div class="edu-institution">New Bright Moon Sr. Sec. School, Jaipur, Rajasthan</div>
-      <div>
-        <span class="edu-grade-tag">Percentage: 87.00%</span>
-        <span style="font-size:0.88rem;color:var(--text2);margin-left:0.6rem;">State Board of Secondary Education</span>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- ===== CONTACT SECTION ===== -->
+<!-- ===== EDUCATION ===== -->
+<section id="about">
+  <div class="section-badge-wrapper">
+    <div class="section-badge">Education</div>
+  </div>
+  <div class="education-grid">
+    <div class="edu-card">
+      <div class="edu-date">2023 — 2027 (EXPECTED)</div>
+      <h3 class="edu-degree">B.Tech — Computer Science & Engineering</h3>
+      <div class="edu-school">Lovely Professional University, Punjab</div>
+      <span class="edu-score-badge">CGPA: 7.32</span>
+    </div>
+    <div class="edu-card">
+      <div class="edu-date">2020 — 2021</div>
+      <h3 class="edu-degree">Senior Secondary (PCM)</h3>
+      <div class="edu-school">New Bright Moon Sr. Sec. School, Jaipur, Rajasthan</div>
+      <span class="edu-score-badge">Percentage: 94.60%</span>
+    </div>
+    <div class="edu-card">
+      <div class="edu-date">2018 — 2019</div>
+      <h3 class="edu-degree">Secondary Education (Matriculation)</h3>
+      <div class="edu-school">New Bright Moon Sr. Sec. School, Jaipur, Rajasthan</div>
+      <span class="edu-score-badge">Percentage: 87.00%</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GET IN TOUCH (CONTACT) ===== -->
 <section id="contact">
-  <div class="section-header reveal">
-    <div class="section-tag">Get in Touch</div>
-    <h2 class="section-title">Let’s Build Something Exceptional</h2>
-    <p class="section-subtitle">Have an opening, an engineering idea, or want to collaborate? I'd love to hear from you.</p>
+  <div class="section-badge-wrapper">
+    <div class="section-badge">Get In Touch</div>
   </div>
-  <div class="contact-inner">
-    <div class="contact-info reveal-left">
-      <h3 class="contact-title">Direct Communication Channels</h3>
-      <p class="contact-text">
-        I am currently seeking software engineering internships and junior full-stack / backend developer roles for 2026. 
-        Feel free to reach out directly via email, phone, or LinkedIn.
-      </p>
-      <div class="contact-links">
-        <!-- Email -->
-        <a href="mailto:ankityadav11005@gmail.com" class="contact-link" title="Click to email">
-          <span class="contact-link-icon">📧</span>
-          <div>
-            <div class="contact-link-label">EMAIL</div>
-            <div class="contact-link-value">ankityadav11005@gmail.com</div>
-          </div>
-        </a>
-
-        <!-- Phone -->
-        <a href="tel:+919785545041" class="contact-link" title="Click to call">
-          <span class="contact-link-icon">📱</span>
-          <div>
-            <div class="contact-link-label">PHONE / MOBILE</div>
-            <div class="contact-link-value">+91-9785545041</div>
-          </div>
-        </a>
-
-        <!-- GitHub -->
-        <a href="https://github.com/ankityadav281" target="_blank" class="contact-link" title="GitHub Profile">
-          <span class="contact-link-icon">🐙</span>
-          <div>
-            <div class="contact-link-label">GITHUB REPOSITORIES</div>
-            <div class="contact-link-value">github.com/ankityadav281</div>
-          </div>
-        </a>
-
-        <!-- LinkedIn -->
-        <a href="https://linkedin.com/in/AnkitYadav" target="_blank" class="contact-link" title="LinkedIn Profile">
-          <span class="contact-link-icon">💼</span>
-          <div>
-            <div class="contact-link-label">LINKEDIN CONNECT</div>
-            <div class="contact-link-value">linkedin.com/in/AnkitYadav</div>
-          </div>
-        </a>
-
-        <!-- Location -->
-        <div class="contact-link">
-          <span class="contact-link-icon">📍</span>
-          <div>
-            <div class="contact-link-label">LOCATION</div>
-            <div class="contact-link-value">Jaipur, Rajasthan, India</div>
-          </div>
+  <p class="section-description">
+    I'm currently looking for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+  </p>
+  <div class="contact-container">
+    <form onsubmit="event.preventDefault(); handleContactSubmit();">
+      <div class="form-row-2">
+        <div class="form-field-group">
+          <label for="contact-name">Name</label>
+          <input type="text" id="contact-name" class="form-control" placeholder="Your Name" required>
+        </div>
+        <div class="form-field-group">
+          <label for="contact-email">Email</label>
+          <input type="email" id="contact-email" class="form-control" placeholder="your@email.com" required>
         </div>
       </div>
-    </div>
+      <div class="form-field-group">
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" class="form-control" placeholder="Your message here..." required></textarea>
+      </div>
+      <button type="submit" class="btn-send" id="btn-submit-contact">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+        <span>Send Message</span>
+      </button>
+    </form>
+  </div>
 
-    <!-- Interactive Contact Form -->
-    <div class="contact-form reveal-right">
-      <div class="form-group">
-        <input type="text" class="form-input" id="f-name" placeholder="Name" autocomplete="off" required>
-        <label class="form-label" for="f-name">Your Full Name</label>
-      </div>
-      <div class="form-group">
-        <input type="email" class="form-input" id="f-email" placeholder="Email" autocomplete="off" required>
-        <label class="form-label" for="f-email">Your Email Address</label>
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-input" id="f-subject" placeholder="Subject" autocomplete="off">
-        <label class="form-label" for="f-subject">Subject / Purpose</label>
-      </div>
-      <div class="form-group">
-        <textarea class="form-textarea" id="f-msg" placeholder="Message" required></textarea>
-        <label class="form-label" for="f-msg">Your Message</label>
-      </div>
-      <button class="form-submit" onclick="handleSubmit()">Send Message ➔</button>
+  <div class="direct-contact-row">
+    <div class="direct-contact-item">
+      <span>📧</span>
+      <a href="mailto:ankityadav11005@gmail.com">ankityadav11005@gmail.com</a>
+    </div>
+    <div class="direct-contact-item">
+      <span>📱</span>
+      <a href="tel:+919785545041">+91-9785545041</a>
+    </div>
+    <div class="direct-contact-item">
+      <span>📍</span>
+      <span>Jaipur, Rajasthan, India</span>
     </div>
   </div>
 </section>
 
-<!-- ===== MODALS FOR EACH PROJECT ===== -->
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div>© 2026 Ankit Yadav. All rights reserved.</div>
+  <div class="footer-links">
+    <a href="https://github.com/ankityadav281" target="_blank">GitHub Profile</a>
+    <a href="https://github.com/ankityadav281/portfolio" target="_blank">Portfolio Repo</a>
+    <a href="https://linkedin.com/in/AnkitYadav" target="_blank">LinkedIn</a>
+    <a href="mailto:ankityadav11005@gmail.com">Email</a>
+  </div>
+</footer>
+
+<!-- ===== MODAL DIALOGS ===== -->
 
 <!-- 1. Paramarsh Modal -->
 <div class="modal-overlay" id="modal-paramarsh">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('modal-paramarsh')">✕</button>
-    <div class="modal-header">
-      <span class="modal-badge" style="background:rgba(0,240,255,0.15);color:var(--neon);border:1px solid rgba(0,240,255,0.3);">FULL STACK · AI HEALTHCARE</span>
-      <h2 class="modal-title">Paramarsh — Smart Medical Consultation Platform</h2>
-      <div class="modal-subtitle">REACT 19 · NODE.JS · EXPRESS 5 · MYSQL · xAI GROK API · BROADCASTCHANNEL</div>
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="closeModal('modal-paramarsh')">✕</button>
+    <span class="modal-badge-tag">FULL-STACK · HEALTHCARE AI</span>
+    <h2 class="modal-title">Paramarsh</h2>
+    <div class="modal-sub">Smart Medical Consultation Platform</div>
+    <h4 class="modal-section-h">Overview & Architectural Highlights</h4>
+    <ul class="modal-bullets">
+      <li><strong>AI Clinical Assistant:</strong> Integrated with xAI (Grok) for contextual symptom guidance with a rule-based fallback across 2 inference paths.</li>
+      <li><strong>Doctor Directory & Specialty Discovery:</strong> Advanced search with specialization, experience, consultation fee, and availability filters.</li>
+      <li><strong>Real-Time Doctor–Patient Chat:</strong> Low-latency two-way messaging synchronized across browser tabs using native <code>BroadcastChannel</code> and <code>StorageEvent</code> APIs.</li>
+      <li><strong>Resilient MySQL Data Layer:</strong> Built on MySQL 8+ using <code>mysql2</code> connection pooling with automatic in-memory failover during temporary disconnects.</li>
+      <li><strong>Role-Based Access Control:</strong> Distinct authentication and dashboard portals for Patients and Doctors using <code>bcryptjs</code> and stateless JWT.</li>
+    </ul>
+    <div class="modal-tech-box">
+      <strong>Technologies:</strong> React 19, React Router 7, Vite, Node.js, Express.js 5, MySQL, RESTful APIs, JWT, bcryptjs, xAI Grok, BroadcastChannel, Lucide React.
     </div>
-    <div class="modal-body">
-      <p>
-        Paramarsh is a full-stack digital healthcare and medical consultation web application engineered to bridge patients with verified medical specialists. It delivers an AI-guided clinical triage system alongside low-latency, real-time doctor–patient consultation rooms.
-      </p>
-
-      <h4 class="modal-section-title">🌟 Architectural & Technical Highlights</h4>
-      <ul class="modal-features">
-        <li><strong>AI Clinical Assistant (xAI Grok + Intelligent Fallback):</strong> Integrated with xAI Grok API for contextual symptom guidance, equipped with a dual-inference path that seamlessly falls back to a deterministic local rule engine if external APIs are unreachable.</li>
-        <li><strong>Doctor Directory & Specialty Discovery:</strong> Advanced search with multi-parameter filtering by specialization, years of experience, consultation fee, and real-time availability status.</li>
-        <li><strong>Real-Time Doctor–Patient Chat:</strong> Synchronized two-way communication across browser tabs leveraging native <code>BroadcastChannel</code> and <code>StorageEvent</code> listeners without requiring external websocket infrastructure.</li>
-        <li><strong>Resilient MySQL Data Architecture:</strong> Built on MySQL 8+ using <code>mysql2</code> connection pooling for user and consultation entities, with an automatic in-memory cache failover layer ensuring 100% uptime during transient database disconnects.</li>
-        <li><strong>Role-Based Access Control (RBAC):</strong> Dual authentication lifecycle for Patients and Medical Doctors with <code>bcryptjs</code> salted password hashing and stateless JSON Web Tokens (JWT).</li>
-        <li><strong>Modern Medical UI:</strong> Crafted with React 19, React Router 7, Vite, Lucide React, and medical design tokens.</li>
-      </ul>
-
-      <div class="modal-tech-box">
-        <strong>Technologies:</strong> React 19, React Router 7, Vite, Node.js, Express.js 5, MySQL, RESTful APIs, JWT, bcryptjs, xAI Grok, BroadcastChannel, Lucide React.
-      </div>
-
-      <div class="modal-links-row">
-        <a href="https://github.com/ankityadav281/Paramarsh" target="_blank" class="btn-primary">View on GitHub ↗</a>
-        <button class="btn-ghost" onclick="closeModal('modal-paramarsh')">Close</button>
-      </div>
+    <div class="modal-footer-actions">
+      <a href="https://github.com/ankityadav281/Paramarsh" target="_blank" class="btn-primary-green">View Code on GitHub ↗</a>
+      <button class="btn-outline" onclick="closeModal('modal-paramarsh')">Close</button>
     </div>
   </div>
 </div>
 
 <!-- 2. CampusCart Modal -->
 <div class="modal-overlay" id="modal-campuscart">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('modal-campuscart')">✕</button>
-    <div class="modal-header">
-      <span class="modal-badge" style="background:rgba(251,191,36,0.15);color:var(--gold);border:1px solid rgba(251,191,36,0.3);">MULTI-VENDOR E-COMMERCE · DJANGO</span>
-      <h2 class="modal-title">CampusCart — University Marketplace Web Application</h2>
-      <div class="modal-subtitle">REACT 18 · TAILWIND CSS v4 · DJANGO 6.1 · DRF · SQLITE ATOMIC TRANSACTIONS</div>
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="closeModal('modal-campuscart')">✕</button>
+    <span class="modal-badge-tag">MULTI-VENDOR E-COMMERCE · DJANGO</span>
+    <h2 class="modal-title">CampusCart</h2>
+    <div class="modal-sub">University Multi-Vendor Marketplace</div>
+    <h4 class="modal-section-h">Overview & Architectural Highlights</h4>
+    <ul class="modal-bullets">
+      <li><strong>Atomic Multi-Order Checkout:</strong> Multi-shop unified cart allows ordering across different stores simultaneously. The backend generates 1 parent <code>OrderGroup</code> and N independent merchant orders using <code>transaction.atomic()</code> + <code>select_for_update()</code>.</li>
+      <li><strong>Scheduled Pickup Slots:</strong> Students reserve designated break-time pickup windows to avoid queue congestion between lectures.</li>
+      <li><strong>Merchant Onboarding & Handle Derivation:</strong> Dedicated seller registration with real-time lowercase username handle derivation and input sanitization.</li>
+      <li><strong>Multi-Tenant Shop Owner Dashboard:</strong> Vendors manage product CRUD, stock thresholds with 1-click restock, live revenue metrics, and a 5-stage fulfillment state machine.</li>
+      <li><strong>Platform Admin Dashboard:</strong> Platform-wide order oversight, merchant application approval queues, and store categorization.</li>
+    </ul>
+    <div class="modal-tech-box">
+      <strong>Technologies:</strong> React 18, Vite 8, Tailwind CSS v4, Django 6.1, Django REST Framework, SQLite3, SimpleJWT, Axios Interceptors.
     </div>
-    <div class="modal-body">
-      <p>
-        CampusCart is a production-grade, multi-vendor university e-commerce marketplace web app designed for college campuses, faculty, hostelers, and campus merchants. It unifies campus canteens, stationery stores, photocopy centers, and marts into a frictionless digital platform.
-      </p>
-
-      <h4 class="modal-section-title">🌟 Architectural & Technical Highlights</h4>
-      <ul class="modal-features">
-        <li><strong>Atomic Multi-Order Checkout:</strong> Multi-shop unified cart allows students to order from multiple stores at once. The backend executes inside an atomic database transaction (<code>transaction.atomic()</code> + <code>select_for_update()</code>) generating 1 Parent OrderGroup and N independent Vendor Orders with strict inventory locking.</li>
-        <li><strong>Scheduled Campus Pickup Slot Reservations:</strong> Students select designated counter pickup slots (e.g., 10:00 AM – 10:15 AM Recess Break) to completely eliminate rush-hour lines between academic lectures.</li>
-        <li><strong>Merchant Onboarding & Auto-Handle Derivation:</strong> Dedicated seller registration with real-time lowercase username handle derivation (e.g., "Lovely Bake Studio" ➔ <code>lovelybakestudio</code>) and strict input sanitization.</li>
-        <li><strong>Shop Owner Dashboard (/shop-dashboard):</strong> Strict RBAC multi-tenancy where vendors manage product CRUD, stock thresholds with 1-click restock, live revenue charts, and a strict 5-stage fulfillment state machine (Pending ➔ Accepted ➔ Preparing ➔ Ready for Pickup ➔ Completed).</li>
-        <li><strong>Platform Admin Governance (/admin-dashboard):</strong> Platform-wide order oversight, merchant application approval/suspension queues, and 55+ campus store category sub-types.</li>
-        <li><strong>Automated Test Suite:</strong> Comprehensive unit and integration test suite covering JWT authentication, atomic cart splitting, inventory deduction, and cancellation stock restoration.</li>
-      </ul>
-
-      <div class="modal-tech-box">
-        <strong>Technologies:</strong> React 18, Vite 8, Tailwind CSS v4, Django 6.1, Django REST Framework, SQLite3, SimpleJWT, Axios Interceptors, Context API.
-      </div>
-
-      <div class="modal-links-row">
-        <a href="https://github.com/ankityadav281/CampusCart" target="_blank" class="btn-primary">View on GitHub ↗</a>
-        <button class="btn-ghost" onclick="closeModal('modal-campuscart')">Close</button>
-      </div>
+    <div class="modal-footer-actions">
+      <a href="https://github.com/ankityadav281/CampusCart" target="_blank" class="btn-primary-green">View Code on GitHub ↗</a>
+      <button class="btn-outline" onclick="closeModal('modal-campuscart')">Close</button>
     </div>
   </div>
 </div>
 
 <!-- 3. MineImpact Modal -->
 <div class="modal-overlay" id="modal-mineimpact">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('modal-mineimpact')">✕</button>
-    <div class="modal-header">
-      <span class="modal-badge" style="background:rgba(16,185,129,0.15);color:var(--emerald);border:1px solid rgba(16,185,129,0.3);">MERN · INDUSTRIAL SUSTAINABILITY</span>
-      <h2 class="modal-title">MineImpact — Mining Life Cycle Assessment & Intelligence</h2>
-      <div class="modal-subtitle">REACT 18 · NODE.JS · EXPRESS · MONGODB · ISO 14044 LCA ENGINE · jsPDF</div>
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="closeModal('modal-mineimpact')">✕</button>
+    <span class="modal-badge-tag">MERN · INDUSTRIAL SUSTAINABILITY</span>
+    <h2 class="modal-title">MineImpact</h2>
+    <div class="modal-sub">Mining Life Cycle Assessment (LCA) Platform</div>
+    <h4 class="modal-section-h">Overview & Architectural Highlights</h4>
+    <ul class="modal-bullets">
+      <li><strong>ISO 14044 / IPCC LCA Engine:</strong> Quantifies carbon footprint (GWP in kg CO2e), acidification, eutrophication, water depletion, and land transformation across cradle-to-gate operations.</li>
+      <li><strong>Full Life-Cycle Boundary Support:</strong> Covers extraction, processing/beneficiation, smelting/refining, and product logistics.</li>
+      <li><strong>Interactive Assessment Wizard:</strong> Presets for Copper, Iron Ore, Gold, Lithium, and Bauxite with customizable clean energy shares and recycling ratios.</li>
+      <li><strong>Baseline vs. Green Modeling:</strong> Comparative environmental dashboard showing projected carbon and cost savings.</li>
+      <li><strong>Automated PDF Reports:</strong> One-click generation of audit-ready compliance reports using <code>jsPDF</code> and <code>html2canvas</code>.</li>
+    </ul>
+    <div class="modal-tech-box">
+      <strong>Technologies:</strong> React 18, Vite, Node.js, Express.js, MongoDB, Mongoose, JWT, bcryptjs, jsPDF, html2canvas, Lucide React.
     </div>
-    <div class="modal-body">
-      <p>
-        MineImpact is a full-stack industrial Life Cycle Assessment (LCA) and sustainability intelligence platform engineered specifically for the mining and mineral extraction industries. It models, benchmarks, and provides actionable pathways to decarbonize operations.
-      </p>
-
-      <h4 class="modal-section-title">🌟 Architectural & Technical Highlights</h4>
-      <ul class="modal-features">
-        <li><strong>ISO 14044 / IPCC-Aligned Calculation Engine:</strong> Quantifies Global Warming Potential (GWP in kg CO2e), Acidification (kg SO2e), Eutrophication (kg PO43-e), Net Water Depletion (m³), and Land Transformation (m²).</li>
-        <li><strong>Comprehensive Cradle-to-Gate Scope:</strong> Covers all core life-cycle stages: Extraction & Excavation, Beneficiation & Processing, Smelting & Refining, and Product Logistics.</li>
-        <li><strong>Interactive Assessment Wizard:</strong> Mineral presets for Copper, Iron Ore, Gold, Lithium, and Bauxite with dynamic sliders for ore grade, clean energy shares, transport modes, and water recycling.</li>
-        <li><strong>Baseline vs. Green Scenario Modeling:</strong> Comparative analytics dashboard calculating projected carbon savings, environmental hotspots, and mitigation ROI.</li>
-        <li><strong>Executive PDF Compliance Reports:</strong> One-click generation of high-resolution, audit-ready sustainability reports with embedded data tables and charts using <code>jsPDF</code> and <code>html2canvas</code>.</li>
-        <li><strong>Secure REST Backend:</strong> Node.js and Express RESTful service architecture with JWT session handling and MongoDB persistence via Mongoose schemas.</li>
-      </ul>
-
-      <div class="modal-tech-box">
-        <strong>Technologies:</strong> React 18, Vite, Node.js, Express.js, MongoDB, Mongoose ODM, JWT, bcryptjs, jsPDF, html2canvas, Lucide React.
-      </div>
-
-      <div class="modal-links-row">
-        <a href="https://github.com/ankityadav281/MineImpact" target="_blank" class="btn-primary">View on GitHub ↗</a>
-        <button class="btn-ghost" onclick="closeModal('modal-mineimpact')">Close</button>
-      </div>
+    <div class="modal-footer-actions">
+      <a href="https://github.com/ankityadav281/MineImpact" target="_blank" class="btn-primary-green">View Code on GitHub ↗</a>
+      <button class="btn-outline" onclick="closeModal('modal-mineimpact')">Close</button>
     </div>
   </div>
 </div>
 
 <!-- 4. Aasha Modal -->
 <div class="modal-overlay" id="modal-aasha">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('modal-aasha')">✕</button>
-    <div class="modal-header">
-      <span class="modal-badge" style="background:rgba(129,140,248,0.15);color:var(--neon2);border:1px solid rgba(129,140,248,0.3);">ANDROID · CLEAN ARCHITECTURE</span>
-      <h2 class="modal-title">Aasha — Empowering Community Health Workers (ASHA)</h2>
-      <div class="modal-subtitle">KOTLIN · JETPACK COMPOSE · ROOM SQLITE · FIREBASE · WORKMANAGER · HILT</div>
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="closeModal('modal-aasha')">✕</button>
+    <span class="modal-badge-tag">ANDROID · CLEAN ARCHITECTURE</span>
+    <h2 class="modal-title">Aasha</h2>
+    <div class="modal-sub">Empowering Community Health Workers (ASHA)</div>
+    <h4 class="modal-section-h">Overview & Architectural Highlights</h4>
+    <ul class="modal-bullets">
+      <li><strong>Offline-First Architecture:</strong> Room (SQLite) database acts as single source of truth with reactive Kotlin StateFlow. Syncs with Firebase Firestore when internet is available.</li>
+      <li><strong>Deduplication & Patient Lifecycle:</strong> Smart onboarding with fuzzy duplicate detection, home visit logs, and vaccination booster dose scheduling.</li>
+      <li><strong>Dual-Layer Security:</strong> Firebase Authentication + encrypted 4-digit MPIN for instant field unlocking without network connectivity.</li>
+      <li><strong>Proactive Health Reminders:</strong> Background tasks managed by Android WorkManager trigger automated notification alerts.</li>
+      <li><strong>Multilingual Support:</strong> Localized in Hindi, Bengali, and Marathi tailored for grassroots health workers.</li>
+    </ul>
+    <div class="modal-tech-box">
+      <strong>Technologies:</strong> Kotlin, Jetpack Compose, Room DB, Firebase, WorkManager, Hilt, Coroutines, StateFlow, Compose Navigation.
     </div>
-    <div class="modal-body">
-      <p>
-        Aasha is a specialized Android application designed to digitalize and streamline the field workflows of Accredited Social Health Activists (ASHA) across India. Built for extreme resilience in low-connectivity rural environments.
-      </p>
-
-      <h4 class="modal-section-title">🌟 Architectural & Technical Highlights</h4>
-      <ul class="modal-features">
-        <li><strong>Offline-First Architecture:</strong> Room (SQLite) database serves as the single source of truth with reactive Kotlin StateFlow. Field records are persisted locally first and synchronized with Firebase Firestore when network connectivity is established.</li>
-        <li><strong>Comprehensive Patient Lifecycle & Deduplication:</strong> Smart patient registration with integrated fuzzy duplicate detection preventing redundant records, home visit logs, and vaccination tracking with automated booster scheduling.</li>
-        <li><strong>Dual-Layer Security:</strong> Cloud authentication via Firebase Auth paired with a 4-digit hardware-encrypted MPIN, allowing workers to quickly unlock the app in the field without internet access.</li>
-        <li><strong>Proactive Health Reminders:</strong> Background workers using Android <code>WorkManager</code> trigger automated local notifications for upcoming immunizations and prenatal checkup appointments.</li>
-        <li><strong>Multilingual Localization:</strong> Localized in Hindi, Bengali, and Marathi, with cultural nuances and terminology tailored specifically for grassroots health workers.</li>
-        <li><strong>Clean Architecture & MVVM:</strong> Clean separation across data, domain, UI, and viewmodel layers, with Hilt dependency injection and structured Kotlin Coroutines.</li>
-      </ul>
-
-      <div class="modal-tech-box">
-        <strong>Technologies:</strong> Kotlin, Jetpack Compose, Room DB, Firebase (Firestore & Auth), Android WorkManager, Hilt (Dagger), Coroutines, StateFlow, Compose Navigation.
-      </div>
-
-      <div class="modal-links-row">
-        <a href="https://github.com/yosobanta/Aasha" target="_blank" class="btn-primary">View on GitHub ↗</a>
-        <button class="btn-ghost" onclick="closeModal('modal-aasha')">Close</button>
-      </div>
+    <div class="modal-footer-actions">
+      <a href="https://github.com/yosobanta/Aasha" target="_blank" class="btn-primary-green">View Code on GitHub ↗</a>
+      <button class="btn-outline" onclick="closeModal('modal-aasha')">Close</button>
     </div>
   </div>
 </div>
 
 <!-- 5. Student Management System Modal -->
 <div class="modal-overlay" id="modal-sms">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('modal-sms')">✕</button>
-    <div class="modal-header">
-      <span class="modal-badge" style="background:rgba(56,189,248,0.15);color:#38bdf8;border:1px solid rgba(56,189,248,0.3);">ACADEMIC ERP · MULTI-ROLE RBAC</span>
-      <h2 class="modal-title">Student Management System (SMS)</h2>
-      <div class="modal-subtitle">PYTHON · DJANGO · NODE.JS · MYSQL / SQLITE · ROLE-BASED ACCESS CONTROL</div>
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="closeModal('modal-sms')">✕</button>
+    <span class="modal-badge-tag">ACADEMIC ERP · MULTI-ROLE RBAC</span>
+    <h2 class="modal-title">Student Management System (SMS)</h2>
+    <div class="modal-sub">Enterprise Student Information System</div>
+    <h4 class="modal-section-h">Overview & Architectural Highlights</h4>
+    <ul class="modal-bullets">
+      <li><strong>Tri-Role Governance:</strong> Distinct role-based interfaces and permissions for Administrators, Teachers, and Students.</li>
+      <li><strong>Student Information System (SIS):</strong> Complete student profiles, course registrations, and personal academic archives.</li>
+      <li><strong>Attendance & Academic Grading:</strong> Daily attendance logging with percentage aggregation, GPA calculation engine, and automated report cards.</li>
+      <li><strong>Fee Management:</strong> Student fee invoicing and payment record tracking.</li>
+    </ul>
+    <div class="modal-tech-box">
+      <strong>Technologies:</strong> Python (Django) / Node.js Express, MySQL / SQLite, HTML5, CSS3, JavaScript, JWT, RESTful APIs.
     </div>
-    <div class="modal-body">
-      <p>
-        A comprehensive enterprise Student Information System (SIS) engineered to handle institutional academic records, semester course enrollments, automated attendance tracking, and fee invoice management.
-      </p>
-
-      <h4 class="modal-section-title">🌟 Architectural & Technical Highlights</h4>
-      <ul class="modal-features">
-        <li><strong>Tri-Role Governance (RBAC):</strong> Tailored role-based portals with explicit permission guards for Administrators, Faculty/Teachers, and Students.</li>
-        <li><strong>Student Information System (SIS):</strong> End-to-end student record management, personal profiling, historical academic archives, and document verification.</li>
-        <li><strong>Department & Subject Allocations:</strong> Dynamic department hierarchy configuration, subject assignments, teacher enrollment pipelines, and class roster generation.</li>
-        <li><strong>Attendance Tracking & Analytics:</strong> Daily attendance logging with real-time percentage aggregation, automatic low-attendance alerts, and exportable monthly summaries.</li>
-        <li><strong>Automated Grading & Transcripts:</strong> Automated exam and assignment score tallying, GPA calculation engine, and downloadable term report cards.</li>
-        <li><strong>Fee & Invoice Management:</strong> Invoice generation, fee ledger tracking, and payment receipt status monitoring.</li>
-      </ul>
-
-      <div class="modal-tech-box">
-        <strong>Technologies:</strong> Python (Django) / Node.js Express, MySQL / SQLite, HTML5, CSS3, JavaScript, JWT Authentication, RESTful APIs.
-      </div>
-
-      <div class="modal-links-row">
-        <a href="https://github.com/ankityadav281/Student-Management-System" target="_blank" class="btn-primary">View on GitHub ↗</a>
-        <button class="btn-ghost" onclick="closeModal('modal-sms')">Close</button>
-      </div>
+    <div class="modal-footer-actions">
+      <a href="https://github.com/ankityadav281/Student-Management-System" target="_blank" class="btn-primary-green">View Code on GitHub ↗</a>
+      <button class="btn-outline" onclick="closeModal('modal-sms')">Close</button>
     </div>
   </div>
 </div>
 
 <!-- 6. Parking Slot Allocation System Modal -->
 <div class="modal-overlay" id="modal-parking">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('modal-parking')">✕</button>
-    <div class="modal-header">
-      <span class="modal-badge" style="background:rgba(249,115,22,0.15);color:#f97316;border:1px solid rgba(249,115,22,0.3);">C++ · DATA STRUCTURES & ALGORITHMS</span>
-      <h2 class="modal-title">Parking Slot Allocation System</h2>
-      <div class="modal-subtitle">C++ · HEAPS · PRIORITY QUEUES · HASH MAPS · O(log n) OPTIMIZATION</div>
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="closeModal('modal-parking')">✕</button>
+    <span class="modal-badge-tag">C++ · DATA STRUCTURES & ALGORITHMS</span>
+    <h2 class="modal-title">Parking Slot Allocation System</h2>
+    <div class="modal-sub">Algorithmic Facility Management System</div>
+    <h4 class="modal-section-h">Overview & Architectural Highlights</h4>
+    <ul class="modal-bullets">
+      <li><strong>Heap-Based Allocation:</strong> Min-heaps and priority queues to allocate nearest available slots in O(log n) time complexity.</li>
+      <li><strong>Fast Vehicle Lookup:</strong> Hash maps for O(1) instantaneous vehicle search and exit processing.</li>
+      <li><strong>Dynamic Reallocation:</strong> Automatic vacancy detection and rebalancing when vehicles depart.</li>
+      <li><strong>Multi-Level Routing:</strong> Floor-aware allocation algorithms minimizing travel distance within parking structures.</li>
+    </ul>
+    <div class="modal-tech-box">
+      <strong>Technologies:</strong> C++, Standard Template Library (STL), Min-Heaps, Priority Queues, Hash Tables, Time & Space Complexity Analysis.
     </div>
-    <div class="modal-body">
-      <p>
-        An intelligent, algorithmic parking facility management system engineered in C++ as part of LPU's advanced DSA training. Optimizes facility space utilization and minimizes vehicle search times.
-      </p>
-
-      <h4 class="modal-section-title">🌟 Architectural & Technical Highlights</h4>
-      <ul class="modal-features">
-        <li><strong>Heap-Based Slot Allocation:</strong> Implements min-heaps / priority queues to allocate nearest available slots in O(log n) time complexity.</li>
-        <li><strong>Fast Vehicle Lookup:</strong> Hash maps and hash tables for O(1) instantaneous vehicle registration lookup, status checks, and exit processing.</li>
-        <li><strong>Dynamic Reallocation:</strong> Automatic vacancy detection and memory rebalancing when vehicles depart, maintaining optimal space density.</li>
-        <li><strong>Multi-Level Floor Awareness:</strong> Floor-aware routing algorithms minimizing transit distance within multi-story garages.</li>
-        <li><strong>Object-Oriented Design:</strong> Clean OOP architecture adhering to SOLID principles, separation of concerns, and robust memory management.</li>
-      </ul>
-
-      <div class="modal-tech-box">
-        <strong>Technologies:</strong> C++, Standard Template Library (STL), Min-Heaps, Priority Queues, Hash Tables, Time & Space Complexity Analysis.
-      </div>
-
-      <div class="modal-links-row">
-        <a href="https://github.com/ankityadav281/parking-slot-allocation" target="_blank" class="btn-primary">View on GitHub ↗</a>
-        <button class="btn-ghost" onclick="closeModal('modal-parking')">Close</button>
-      </div>
+    <div class="modal-footer-actions">
+      <a href="https://github.com/ankityadav281/parking-slot-allocation" target="_blank" class="btn-primary-green">View Code on GitHub ↗</a>
+      <button class="btn-outline" onclick="closeModal('modal-parking')">Close</button>
     </div>
   </div>
 </div>
 
-<!-- ===== FOOTER ===== -->
-<footer>
-  <div class="footer-text">
-    © 2026 <span>Ankit Yadav</span> — Crafted with Engineering Precision in Jaipur, India
-  </div>
-  <div class="footer-links">
-    <a href="https://github.com/ankityadav281" target="_blank">GitHub Profile</a>
-    <a href="https://github.com/ankityadav281/portfolio" target="_blank">Portfolio Repo ↗</a>
-    <a href="https://linkedin.com/in/AnkitYadav" target="_blank">LinkedIn</a>
-    <a href="mailto:ankityadav11005@gmail.com">Email</a>
-    <a href="12313015.pdf" download="Ankit_Yadav_Resume.pdf">Resume</a>
-  </div>
-</footer>
-
-<!-- ===== EASTER EGG (KONAMI CODE) ===== -->
-<div id="easter-egg">
-  <div class="egg-text">
-    <div style="color:var(--neon);font-size:1.6rem;font-weight:700;margin-bottom:1.5rem;">⚡ DEVELOPER CONSOLE UNLOCKED</div>
-    <div style="color:#818cf8;">» SYSTEM ACCESS GRANTED «</div>
-    <div style="margin-top:1.2rem;color:var(--text);">
-      Handshake with <strong>Ankit Yadav</strong> verified ✓<br>
-      <span style="color:var(--emerald);">Status: Ready for high-impact software engineering challenges</span><br>
-      <span style="color:var(--neon);">Core Focus: Full-Stack MERN, Django, Android, C++ Systems</span><br>
-      <span style="color:var(--gold);">LeetCode Peak: 1600 · 200+ Problems Mastered</span>
-    </div>
-    <div style="margin-top:1.5rem;font-size:0.8rem;color:var(--text-muted);">
-      // Konami Code: ↑ ↑ ↓ ↓ ← → ← → B A
-    </div>
-  </div>
-  <button class="egg-close" onclick="closeEgg()">[ RETURN TO MATRIX ]</button>
-</div>
-
-<!-- ===== JAVASCRIPT LOGIC ===== -->
+<!-- ===== SCRIPT LOGIC ===== -->
 <script>
-/* ============ CUSTOM CURSOR ============ */
-const dot = document.getElementById('cursor-dot');
-const ring = document.getElementById('cursor-ring');
-let mx = -100, my = -100, rx = -100, ry = -100;
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+// Theme toggle logic (default is clean light mode matching the screenshots)
+const themeBtn = document.getElementById('theme-btn');
+let isDark = false;
 
-function animCursor() {
-  rx += (mx - rx) * 0.18;
-  ry += (my - ry) * 0.18;
-  dot.style.left = mx + 'px';
-  dot.style.top = my + 'px';
-  ring.style.left = rx + 'px';
-  ring.style.top = ry + 'px';
-  requestAnimationFrame(animCursor);
-}
-animCursor();
-
-document.querySelectorAll('a, button, .skill-pill, .project-card, .cert-card, .achievement-card, .info-kpi-card, .contact-link').forEach(el => {
-  el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-});
-
-/* ============ SCROLL PROGRESS & NAVBAR SCROLL ============ */
-window.addEventListener('scroll', () => {
-  const total = document.body.scrollHeight - window.innerHeight;
-  const pct = total > 0 ? (window.scrollY / total) * 100 : 0;
-  document.getElementById('scroll-progress').style.width = pct + '%';
-  const nav = document.getElementById('navbar');
-  nav.classList.toggle('scrolled', window.scrollY > 40);
-});
-
-/* ============ DIRECT LANDING — TYPING EFFECT ============ */
-const phrases = [
-  'Full Stack Software Engineer',
-  'Competitive Programmer (1600 Rating)',
-  'MERN & Django Web Architect',
-  'Android & Jetpack Compose Developer',
-  'Problem Solver (200+ Problems)'
-];
-let pIdx = 0, cIdx = 0, deleting = false;
-const typedEl = document.getElementById('typed-text');
-
-function startTyping() {
-  function tick() {
-    const phrase = phrases[pIdx];
-    if (!deleting) {
-      typedEl.textContent = phrase.slice(0, ++cIdx);
-      if (cIdx === phrase.length) {
-        deleting = true;
-        setTimeout(tick, 2000);
-        return;
-      }
-    } else {
-      typedEl.textContent = phrase.slice(0, --cIdx);
-      if (cIdx === 0) {
-        deleting = false;
-        pIdx = (pIdx + 1) % phrases.length;
-        setTimeout(tick, 350);
-        return;
-      }
-    }
-    setTimeout(tick, deleting ? 45 : 80);
-  }
-  tick();
-}
-startTyping();
-
-/* ============ INTERACTIVE PARTICLES ============ */
-const canvas = document.getElementById('particles-canvas');
-const ctx = canvas.getContext('2d');
-let W, H, particles = [], pMouse = { x: -1000, y: -1000 };
-
-function resizeCanvas() {
-  W = canvas.width = window.innerWidth;
-  H = canvas.height = window.innerHeight;
-}
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
-document.addEventListener('mousemove', e => { pMouse.x = e.clientX; pMouse.y = e.clientY; });
-
-class Particle {
-  constructor() { this.reset(); }
-  reset() {
-    this.x = Math.random() * W;
-    this.y = Math.random() * H;
-    this.size = Math.random() * 1.6 + 0.4;
-    this.vx = (Math.random() - 0.5) * 0.35;
-    this.vy = (Math.random() - 0.5) * 0.35;
-    this.opacity = Math.random() * 0.45 + 0.1;
-    this.color = Math.random() > 0.5 ? '#00f0ff' : '#818cf8';
-  }
-  update() {
-    const dx = this.x - pMouse.x, dy = this.y - pMouse.y;
-    const dist = Math.sqrt(dx * dx + dy * dy);
-    if (dist < 110) {
-      this.vx += (dx / dist) * 0.06;
-      this.vy += (dy / dist) * 0.06;
-    }
-    this.vx *= 0.98;
-    this.vy *= 0.98;
-    this.x += this.vx;
-    this.y += this.vy;
-    if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
-  }
-  draw() {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fillStyle = this.color;
-    ctx.globalAlpha = this.opacity;
-    ctx.fill();
-  }
-}
-
-for (let i = 0; i < 90; i++) particles.push(new Particle());
-
-function animParticles() {
-  ctx.clearRect(0, 0, W, H);
-  particles.forEach(p => { p.update(); p.draw(); });
-  ctx.globalAlpha = 1;
-  for (let i = 0; i < particles.length; i++) {
-    for (let j = i + 1; j < particles.length; j++) {
-      const dx = particles[i].x - particles[j].x, dy = particles[i].y - particles[j].y;
-      const d = Math.sqrt(dx * dx + dy * dy);
-      if (d < 95) {
-        ctx.beginPath();
-        ctx.moveTo(particles[i].x, particles[i].y);
-        ctx.lineTo(particles[j].x, particles[j].y);
-        ctx.strokeStyle = `rgba(0,240,255,${0.07 * (1 - d / 95)})`;
-        ctx.lineWidth = 0.5;
-        ctx.stroke();
-      }
-    }
-  }
-  requestAnimationFrame(animParticles);
-}
-animParticles();
-
-/* ============ SCROLL REVEAL OBSERVER ============ */
-const revealObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const delay = e.target.dataset.delay || 0;
-      setTimeout(() => e.target.classList.add('visible'), parseInt(delay));
-    }
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObs.observe(el));
-
-/* ============ SKILL PROGRESS BARS OBSERVER ============ */
-const skillBarObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
-        bar.style.width = bar.dataset.width + '%';
-      });
-      skillBarObs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.25 });
-document.querySelectorAll('.skill-bars').forEach(el => skillBarObs.observe(el));
-
-/* ============ PROJECT CATEGORY FILTER ============ */
-const filterBtns = document.querySelectorAll('.filter-btn');
-const projectCards = document.querySelectorAll('.project-card');
-
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const filter = btn.dataset.filter;
-
-    projectCards.forEach(card => {
-      if (filter === 'all') {
-        card.style.display = 'flex';
-      } else {
-        const cat = card.dataset.category || '';
-        if (cat.includes(filter)) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      }
-    });
-  });
-});
-
-/* ============ THEME TOGGLE ============ */
-let isDark = true;
-const themeToggle = document.getElementById('theme-toggle');
-themeToggle.addEventListener('click', () => {
+themeBtn.addEventListener('click', () => {
   isDark = !isDark;
   document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
-  themeToggle.textContent = isDark ? '☀️' : '🌙';
+  themeBtn.textContent = isDark ? '☀️' : '🌙';
 });
 
-/* ============ MOBILE NAVIGATION ============ */
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobile-menu');
-hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-function closeMobile() { mobileMenu.classList.remove('open'); }
+// Mobile menu toggle
+const hamburgerBtn = document.getElementById('hamburger-btn');
+const mobileNav = document.getElementById('mobile-nav');
 
-/* ============ PROJECT MODAL CONTROLLER ============ */
+hamburgerBtn.addEventListener('click', () => {
+  mobileNav.classList.toggle('open');
+});
+function closeMobile() {
+  mobileNav.classList.remove('open');
+}
+
+// Modal open/close handlers
 function openModal(id) {
   const modal = document.getElementById(id);
   if (modal) {
@@ -2210,54 +1381,33 @@ document.addEventListener('keydown', e => {
   }
 });
 
-/* ============ CONTACT FORM HANDLER ============ */
-function handleSubmit() {
-  const name = document.getElementById('f-name').value.trim();
-  const email = document.getElementById('f-email').value.trim();
-  const subject = document.getElementById('f-subject').value.trim() || 'Portfolio Inquiry';
-  const msg = document.getElementById('f-msg').value.trim();
+// Contact form handling
+function handleContactSubmit() {
+  const name = document.getElementById('contact-name').value.trim();
+  const email = document.getElementById('contact-email').value.trim();
+  const msg = document.getElementById('contact-message').value.trim();
 
   if (!name || !email || !msg) {
-    alert('Please complete all required fields (Name, Email, Message)!');
+    alert('Please fill out all fields.');
     return;
   }
 
-  // Compose mailto fallback link
-  const mailtoUrl = `mailto:ankityadav11005@gmail.com?subject=${encodeURIComponent(subject + ' - ' + name)}&body=${encodeURIComponent("Sender: " + name + " (" + email + ")\n\n" + msg)}`;
+  const mailtoUrl = `mailto:ankityadav11005@gmail.com?subject=${encodeURIComponent('Portfolio Contact from ' + name)}&body=${encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + msg)}`;
   window.open(mailtoUrl, '_blank');
 
-  const btn = document.querySelector('.form-submit');
-  const originalText = btn.textContent;
-  btn.textContent = '✓ Opening Email Client...';
-  btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-  btn.style.color = '#fff';
+  const btn = document.getElementById('btn-submit-contact');
+  const originalHtml = btn.innerHTML;
+  btn.innerHTML = '<span>✓ Message Sent!</span>';
+  btn.style.backgroundColor = '#059669';
 
   setTimeout(() => {
-    btn.textContent = originalText;
-    btn.style.background = '';
-    btn.style.color = '';
-    document.getElementById('f-name').value = '';
-    document.getElementById('f-email').value = '';
-    document.getElementById('f-subject').value = '';
-    document.getElementById('f-msg').value = '';
-  }, 3500);
+    btn.innerHTML = originalHtml;
+    btn.style.backgroundColor = '';
+    document.getElementById('contact-name').value = '';
+    document.getElementById('contact-email').value = '';
+    document.getElementById('contact-message').value = '';
+  }, 3000);
 }
-
-/* ============ EASTER EGG (KONAMI CODE) ============ */
-const konami = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
-let ki = 0;
-document.addEventListener('keydown', e => {
-  if (e.key.toLowerCase() === konami[ki].toLowerCase()) {
-    ki++;
-    if (ki === konami.length) {
-      ki = 0;
-      document.getElementById('easter-egg').classList.add('show');
-    }
-  } else {
-    ki = 0;
-  }
-});
-function closeEgg() { document.getElementById('easter-egg').classList.remove('show'); }
 </script>
 </body>
 </html>
