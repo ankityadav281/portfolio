@@ -1,0 +1,23 @@
+/* ==========================================================================
+   VARIABLES & DESIGN TOKENS
+   Editorial Luxury Aesthetic: #050505 Black, #F1EEE8 Cream, #E88A45 Accent
+   ========================================================================== */
+
+:root {
+  --bg: #050505;
+  --bg-card: #0a0a0a;
+  --bg-glass: rgba(18, 18, 18, 0.72);
+  --text: #F1EEE8;
+  --text-muted: #A09B93;
+  --text-subtle: #68635c;
+  --accent: #E88A45;
+  --accent-glow: rgba(232, 138, 69, 0.18);
+  --border: rgba(255, 255, 255, 0.12);
+  --border-light: rgba(255, 255, 255, 0.06);
+  --grid-line: rgba(255, 255, 255, 0.03);
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --radius-pill: 9999px;
+  --radius-card: 14px;
+}

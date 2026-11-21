@@ -1,0 +1,151 @@
+<!-- ===================== PROJECT SPECIFICATION MODALS ===================== -->
+
+<!-- Modal 1: Paramarsh -->
+<div class="modal-overlay" id="modal-paramarsh">
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="closeModal('modal-paramarsh')">✕</button>
+    <div class="modal-tag">01 / HEALTHCARE ARCHITECTURE</div>
+    <h2 class="modal-title">Paramarsh – AI Medical Consultation Platform</h2>
+    <div class="modal-stack">React 19 · Node.js · Express 5 · MySQL 8+ · xAI Grok API · BroadcastChannel · JWT</div>
+    <p class="modal-desc">
+      A digital healthcare consultation web platform connecting patients with verified medical specialists. Delivers an AI-guided clinical triage system alongside low-latency, real-time doctor–patient consultation rooms.
+    </p>
+    <h4 class="modal-features-title">Technical Specifications & Decisions</h4>
+    <ul class="modal-features-list">
+      <li>Integrated with xAI Grok API for clinical symptom guidance, featuring an intelligent rule-based local fallback across 2 inference paths for maximum offline/disconnect reliability.</li>
+      <li>Doctor specialty discovery with multi-parameter filtering by medical domain, experience, consultation fee, and live availability status.</li>
+      <li>Cross-tab real-time consultation synchronization leveraging native browser BroadcastChannel and StorageEvent APIs without external websocket overhead.</li>
+      <li>Resilient MySQL 8+ data layer using mysql2 connection pooling and an automatic in-memory failover cache ensuring 100% uptime during database disconnects.</li>
+      <li>Role-based access control with salted bcryptjs password hashing and stateless JWT session handling for Patients and Doctors.</li>
+    </ul>
+    <div class="modal-footer">
+      <a href="https://github.com/ankityadav281/Paramarsh" target="_blank" class="btn-pill-dark">View Repository ↗</a>
+      <button class="btn-specs-open" onclick="closeModal('modal-paramarsh')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 2: CampusCart -->
+<div class="modal-overlay" id="modal-campuscart">
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="closeModal('modal-campuscart')">✕</button>
+    <div class="modal-tag">02 / E-COMMERCE & TRANSACTIONS</div>
+    <h2 class="modal-title">CampusCart – University Multi-Vendor Marketplace</h2>
+    <div class="modal-stack">React 18 · Vite · Tailwind CSS v4 · Django 6.1 · Django REST Framework · SQLite3</div>
+    <p class="modal-desc">
+      Production-grade multi-vendor university marketplace web application designed for campus stores, faculty, students, and hostelers to eliminate break-time counter queues.
+    </p>
+    <h4 class="modal-features-title">Technical Specifications & Decisions</h4>
+    <ul class="modal-features-list">
+      <li>Atomic multi-vendor cart checkout executing within atomic database transactions (transaction.atomic + select_for_update) generating 1 Parent OrderGroup and N independent Vendor Orders with strict inventory locking.</li>
+      <li>Scheduled recess break pickup slot reservation (e.g. 10:00 AM – 10:15 AM) eliminating rush-hour canteen queues between lectures.</li>
+      <li>Merchant onboarding with real-time lowercase username handle derivation (e.g., "Campus Bakery" ➔ campusbakery) and strict input sanitization.</li>
+      <li>Multi-tenant shopkeeper dashboard with live KPIs, inventory thresholds with 1-click restock, and a 5-stage fulfillment state machine.</li>
+      <li>Automated test suite covering JWT authentication, atomic cart splitting, inventory deduction, and cancellation stock restoration.</li>
+    </ul>
+    <div class="modal-footer">
+      <a href="https://github.com/ankityadav281/CampusCart" target="_blank" class="btn-pill-dark">View Repository ↗</a>
+      <button class="btn-specs-open" onclick="closeModal('modal-campuscart')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 3: MineImpact -->
+<div class="modal-overlay" id="modal-mineimpact">
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="closeModal('modal-mineimpact')">✕</button>
+    <div class="modal-tag">03 / SUSTAINABILITY & LCA</div>
+    <h2 class="modal-title">MineImpact – Mining LCA & Intelligence Platform</h2>
+    <div class="modal-stack">React 18 · Vite · Node.js · Express · MongoDB · Mongoose · jsPDF · html2canvas</div>
+    <p class="modal-desc">
+      Industrial Life Cycle Assessment (LCA) and environmental sustainability intelligence platform engineered specifically for the mining and mineral extraction industries.
+    </p>
+    <h4 class="modal-features-title">Technical Specifications & Decisions</h4>
+    <ul class="modal-features-list">
+      <li>ISO 14044 / IPCC-aligned calculation engine quantifying Global Warming Potential (GWP in kg CO2e), Acidification, Eutrophication, Water Depletion, and Land Transformation.</li>
+      <li>Cradle-to-gate scope modeling: Extraction, Processing & Beneficiation, Smelting & Refining, and Logistics.</li>
+      <li>Interactive mineral presets with configurable ore grades, clean energy shares, transport modes, and water recycling ratios for Copper, Iron Ore, Gold, Lithium, and Bauxite.</li>
+      <li>Baseline vs. Green comparative modeling highlighting projected carbon savings and environmental hotspot mitigation.</li>
+      <li>Executive PDF compliance reports export with embedded data tables and charts using jsPDF and html2canvas.</li>
+    </ul>
+    <div class="modal-footer">
+      <a href="https://github.com/ankityadav281/MineImpact" target="_blank" class="btn-pill-dark">View Repository ↗</a>
+      <button class="btn-specs-open" onclick="closeModal('modal-mineimpact')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 4: Aasha -->
+<div class="modal-overlay" id="modal-aasha">
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="closeModal('modal-aasha')">✕</button>
+    <div class="modal-tag">04 / MOBILE & RESILIENCE</div>
+    <h2 class="modal-title">Aasha – Empowering Community Health Workers (ASHA)</h2>
+    <div class="modal-stack">Kotlin · Jetpack Compose · Room SQLite · Firebase · WorkManager · Hilt · StateFlow</div>
+    <p class="modal-desc">
+      Specialized Android application built for Accredited Social Health Activists (ASHA) in rural India, engineered for extreme reliability in low-connectivity rural environments.
+    </p>
+    <h4 class="modal-features-title">Technical Specifications & Decisions</h4>
+    <ul class="modal-features-list">
+      <li>Offline-first architecture with Room (SQLite) database and reactive Kotlin StateFlow as the single source of truth, synchronizing with Firebase Firestore when network connectivity is established.</li>
+      <li>Patient lifecycle onboarding with fuzzy duplicate detection preventing redundant records, home visit logs, and vaccination booster dose tracking.</li>
+      <li>Dual-layer security with Firebase Auth paired with a hardware-encrypted 4-digit MPIN for rapid field unlocking without internet access.</li>
+      <li>Proactive health monitoring with Android WorkManager background workers triggering automated local notifications for upcoming vaccinations.</li>
+      <li>Multilingual localization in Hindi, Bengali, and Marathi with cultural terminology tailored for field health workers.</li>
+    </ul>
+    <div class="modal-footer">
+      <a href="https://github.com/yosobanta/Aasha" target="_blank" class="btn-pill-dark">View Repository ↗</a>
+      <button class="btn-specs-open" onclick="closeModal('modal-aasha')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 5: Student Management System -->
+<div class="modal-overlay" id="modal-sms">
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="closeModal('modal-sms')">✕</button>
+    <div class="modal-tag">05 / INSTITUTIONAL SYSTEMS</div>
+    <h2 class="modal-title">Student Management System (SMS)</h2>
+    <div class="modal-stack">Python · Django · Node.js · Relational Database · JWT · Role-Based Access Control</div>
+    <p class="modal-desc">
+      Full-featured academic institutional management platform handling student personal profiles, semester course enrollments, attendance tracking, and grading ledgers.
+    </p>
+    <h4 class="modal-features-title">Technical Specifications & Decisions</h4>
+    <ul class="modal-features-list">
+      <li>Distinct role-based portals with explicit permission guards for Administrators, Faculty/Teachers, and Students.</li>
+      <li>Student Information System (SIS) managing personal profile records, historical academic archives, and document verification.</li>
+      <li>Department and subject hierarchies, teacher allocations, and dynamic class enrollment rosters.</li>
+      <li>Automated daily attendance percentage calculation, threshold warnings, and exportable monthly summaries.</li>
+      <li>Automated exam mark tallies, GPA calculation engine, and term fee invoice management.</li>
+    </ul>
+    <div class="modal-footer">
+      <a href="https://github.com/ankityadav281/Student-Management-System" target="_blank" class="btn-pill-dark">View Repository ↗</a>
+      <button class="btn-specs-open" onclick="closeModal('modal-sms')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 6: Parking Slot Allocation -->
+<div class="modal-overlay" id="modal-parking">
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="closeModal('modal-parking')">✕</button>
+    <div class="modal-tag">06 / ALGORITHMIC OPTIMIZATION</div>
+    <h2 class="modal-title">Parking Slot Allocation System</h2>
+    <div class="modal-stack">C++ · Standard Template Library (STL) · Heaps · Priority Queues · Hash Maps · OOP</div>
+    <p class="modal-desc">
+      High-efficiency parking facility management system engineered in C++ leveraging advanced data structures and algorithms to maximize space allocation speed and routing.
+    </p>
+    <h4 class="modal-features-title">Technical Specifications & Decisions</h4>
+    <ul class="modal-features-list">
+      <li>Implements min-heaps / priority queues to allocate nearest available slots in O(log n) time complexity.</li>
+      <li>Hash maps for instantaneous O(1) vehicle lookup, parking duration calculations, and departure processing.</li>
+      <li>Dynamic reallocation with automatic vacancy detection and rebalancing when vehicles depart.</li>
+      <li>Multi-level floor-aware routing algorithms minimizing transit distance within multi-story garages.</li>
+      <li>Adheres to SOLID principles, clean OOP architecture, and asymptotic complexity analysis.</li>
+    </ul>
+    <div class="modal-footer">
+      <a href="https://github.com/ankityadav281/parking-slot-allocation" target="_blank" class="btn-pill-dark">View Repository ↗</a>
+      <button class="btn-specs-open" onclick="closeModal('modal-parking')">Close</button>
+    </div>
+  </div>
+</div>

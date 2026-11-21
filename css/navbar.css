@@ -1,0 +1,112 @@
+/* ==========================================================================
+   FLOATING NAVBAR & MOBILE DRAWER
+   ========================================================================== */
+
+.navbar-wrap {
+  position: fixed;
+  top: 1.6rem;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  padding: 0 1.5rem;
+  pointer-events: none;
+}
+
+nav {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3.5rem;
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 0.65rem 0.8rem 0.65rem 1.8rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  max-width: 900px;
+  width: 100%;
+}
+
+.nav-brand {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+}
+
+.nav-link {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--text);
+}
+
+.nav-cta {
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 0.55rem 1.3rem;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.25s;
+  white-space: nowrap;
+}
+
+.nav-cta:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+.nav-hamburger {
+  display: none;
+  color: var(--text);
+  font-size: 1.3rem;
+  padding: 0.4rem 0.6rem;
+}
+
+.mobile-drawer {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 5, 0.98);
+  backdrop-filter: blur(20px);
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.mobile-drawer.open {
+  display: flex;
+}
+
+.mobile-drawer a {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-style: italic;
+  color: var(--text);
+}

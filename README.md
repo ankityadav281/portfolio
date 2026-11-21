@@ -55,6 +55,53 @@ Computer Science and Engineering undergraduate at **Lovely Professional Universi
 
 ---
 
+## 📁 Modular Architecture
+
+The portfolio is organized into clean, maintainable modular components with dedicated `.html`, `.css`, and `.js` files:
+
+```
+portfolio/
+├── index.html                 # Production entrypoint serving full static DOM
+├── 12313015.pdf               # Official updated resume
+├── ankit.jpeg                 # High-resolution portrait photograph
+│
+├── components/                # Independent HTML component templates
+│   ├── navbar.html            # Floating pill navigation bar & mobile drawer
+│   ├── hero.html              # Hero portrait stage, halftone effect & name typography
+│   ├── stats.html             # 4-column statistics & metric showcase
+│   ├── about.html             # Dotted 3D wave canvas & editorial philosophy
+│   ├── projects.html          # Editorial layout for all 6 production projects
+│   ├── skills.html            # Minimal typographic skills grid & disciplines
+│   ├── experience.html        # Academic milestones & industry training
+│   ├── contact.html           # Minimal contact inquiry form & direct links
+│   ├── footer.html            # Minimal editorial footer
+│   └── modals.html            # 6 deep-dive technical specification modals
+│
+├── css/                       # Modular CSS stylesheets
+│   ├── variables.css          # Design tokens (colors, fonts, borders, shadows)
+│   ├── base.css               # Reset, typography, background grid lines
+│   ├── navbar.css             # Floating pill nav styles & mobile drawer
+│   ├── hero.css               # Hero portrait & typography layout
+│   ├── stats.css              # Statistics row & vertical hairline dividers
+│   ├── about.css              # Editorial quote & wave container layout
+│   ├── projects.css           # Project cards & hover interactions
+│   ├── skills.css             # Skills & disciplines 4-column grid
+│   ├── experience.css         # Academic & training cards
+│   ├── contact.css            # Minimal underline form fields & submit button
+│   ├── modals.css             # Modal blur backdrop & specification overlays
+│   ├── footer.css             # Footer layout & link styling
+│   └── main.css               # Master stylesheet importing all modular CSS files
+│
+└── js/                        # Modular JavaScript scripts
+    ├── navigation.js          # Mobile drawer toggle & drawer close handling
+    ├── modals.js              # Modal open/close controllers & Escape listener
+    ├── contact.js             # Form validation & inquiry dispatching
+    ├── wave.js                # 3D mathematical perspective dotted wave canvas
+    └── main.js                # Master coordinator script
+```
+
+---
+
 ## 🚀 Local Development
 
 ```bash

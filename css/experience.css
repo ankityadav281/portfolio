@@ -1,0 +1,53 @@
+/* ==========================================================================
+   EXPERIENCE & ACADEMICS
+   ========================================================================== */
+
+#experience {
+  padding: 6rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.exp-editorial-block {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  background: var(--bg-card);
+  padding: 3rem;
+  margin-bottom: 3rem;
+}
+
+.exp-timeline-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.exp-headline {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--text);
+}
+
+.exp-org {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  margin-top: 0.3rem;
+}
+
+.exp-dates {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.exp-text {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 1.8rem;
+}

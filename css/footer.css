@@ -1,0 +1,40 @@
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 3rem 0;
+  background: var(--bg);
+}
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-copy {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-subtle);
+  letter-spacing: 0.08em;
+}
+
+.footer-links-group {
+  display: flex;
+  gap: 2rem;
+}
+
+.footer-link {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  transition: color 0.2s;
+}
+.footer-link:hover {
+  color: var(--accent);
+}
