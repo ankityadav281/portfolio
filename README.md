@@ -1,6 +1,6 @@
 # Ankit Yadav — Software Engineering Portfolio
 
-🌐 **Live Deployment:** [portfolio-murex-five-34.vercel.app](https://portfolio-murex-five-34.vercel.app)  
+🌐 **Live Deployment:** https://ankityadav11005.netlify.app/  
 📄 **Updated Resume:** [12313015.pdf](./12313015.pdf)  
 📬 **Email:** [ankityadav11005@gmail.com](mailto:ankityadav11005@gmail.com) | 📱 **Mobile:** +91-9785545041  
 💼 **LinkedIn:** [linkedin.com/in/AnkitYadav](https://linkedin.com/in/AnkitYadav) | 🐙 **GitHub:** [github.com/ankityadav281](https://github.com/ankityadav281)
