@@ -101,3 +101,19 @@ img {
   align-items: center;
   margin-bottom: 4rem;
 }
+
+/* Clean Editorial Section Headings */
+.section-heading-editorial {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 3.5rem;
+  line-height: 1.15;
+}
+.section-heading-editorial em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text);
+}
