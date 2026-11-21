@@ -3,7 +3,7 @@
 🌐 **Live Deployment:** https://ankityadav11005.netlify.app/  
 📄 **Updated Resume:** [12313015.pdf](./12313015.pdf)  
 📬 **Email:** [ankityadav11005@gmail.com](mailto:ankityadav11005@gmail.com) | 📱 **Mobile:** +91-9785545041  
-💼 **LinkedIn:** [linkedin.com/in/AnkitYadav](https://linkedin.com/in/AnkitYadav) | 🐙 **GitHub:** [github.com/ankityadav281](https://github.com/ankityadav281)
+💼 **LinkedIn:** [linkedin.com/in/ankityadav005](https://www.linkedin.com/in/ankityadav005/) | 🐙 **GitHub:** [github.com/ankityadav281](https://github.com/ankityadav281)
 
 ---
 
